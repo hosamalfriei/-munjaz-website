@@ -355,6 +355,14 @@
   .how-card strong { display:block; margin-bottom:6px; font-size:14px; color: var(--navy); }
   .how-card p { color:var(--muted); font-size:12px; line-height:1.75; }
 
+
+  .stats-strip { padding: 1rem 0 0; }
+
+  .checkout-info { margin-top: 2.8rem; }
+  .checkout-grid { display:grid; grid-template-columns: 1fr; gap: 14px; }
+  .checkout-info .payment-panel,
+  .checkout-info .email-capture { width: 100%; margin: 0; }
+
   /* FOOTER */
   footer {
     border-top: 1px solid var(--line);
@@ -393,7 +401,7 @@
   1) استبدل PAYHIP_* بروابط منتجات Payhip الحقيقية.
   2) في المسار الحالي Payhip + Stripe/Wise: اعرض Visa و Mastercard و Apple Pay كوسائل الدفع الأساسية.
   3) STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة دفع محلية لاحقاً.
-  4) تسجيل البريد اختياري ولا يمنع الشراء. اربط نموذج البريد لاحقاً بخدمة مثل MailerLite أو Formspree أو Supabase.
+  4) تسجيل البريد اختياري ولا يمنع الشراء، ومكانه في نهاية الصفحة كعنصر طمأنة لا كشرط شراء. اربط النموذج لاحقاً بخدمة مثل MailerLite أو Formspree أو Supabase.
   5) لا تضع مفاتيح Stripe أو PayTabs السرية داخل ملف HTML.
 -->
 
@@ -405,9 +413,8 @@
     </a>
     <div class="nav-links">
       <a href="#products">المنتجات</a>
-      <a href="#payments">وسائل الدفع</a>
       <a href="#how">كيف يعمل؟</a>
-      <a href="#email-updates">منتجات مجانية</a>
+      <a href="#checkout-info">الدفع والتسليم</a>
       <a href="mailto:hello@munjaz.ai">تواصل معنا</a>
     </div>
     <a class="nav-cta" href="#products">ابدأ الآن</a>
@@ -425,40 +432,7 @@
       <a class="hero-outline" href="#how">كيف تتم عملية الشراء؟</a>
     </div>
 
-    <section class="payment-panel" id="payments" aria-label="وسائل الدفع المتاحة">
-      <div class="payment-title">وسائل الدفع المتاحة حالياً عبر Payhip/Stripe</div>
-      <div class="payment-icons">
-        <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
-        <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
-        <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
-        <span class="payment-badge stc soon"><span class="symbol">stc</span> Pay</span>
-        <span class="payment-badge soon"><span class="symbol">مدى</span></span>
-        <span class="payment-badge secure"><span class="symbol">✓</span> دفع آمن</span>
-      </div>
-      <div class="payment-note">
-        <strong>المنطق:</strong> أزرار الشراء تفتح صفحة Payhip الآمنة. حالياً نعتمد Visa و Mastercard و Apple Pay عبر Stripe، وSTC Pay ومدى نعرضهما كخيارات قادمة بعد تفعيل PayTabs أو بوابة دفع محلية.
-      </div>
-    </section>
 
-    <section class="email-capture" id="email-updates" aria-label="اشتراك البريد الاختياري">
-      <div class="email-copy">
-        <strong>الشراء متاح بدون إنشاء حساب</strong>
-        <span>بريدك اختياري فقط للحصول على المنتجات المجانية، التحديثات، والعروض. روابط التحميل بعد الشراء تصل عبر Payhip.</span>
-      </div>
-      <form class="email-form" id="emailForm">
-        <input type="email" id="customerEmail" name="email" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
-        <button type="submit">أرسل لي المجانيات</button>
-      </form>
-      <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة. عند الإطلاق اربطه بـ MailerLite أو Formspree أو Supabase.</div>
-    </section>
-
-
-    <div class="hero-stats">
-      <div class="stat"><strong>+90</strong><span>Prompt جاهز</span></div>
-      <div class="stat"><strong>3</strong><span>باقات للاختيار</span></div>
-      <div class="stat"><strong>ZATCA</strong><span>متوافق</span></div>
-      <div class="stat"><strong>فوري</strong><span>تسليم بعد الدفع</span></div>
-    </div>
   </div>
 </header>
 
@@ -474,18 +448,24 @@
   </div>
 </div>
 
+<section class="stats-strip" aria-label="أرقام سريعة">
+  <div class="container">
+    <div class="hero-stats">
+      <div class="stat"><strong>+90</strong><span>Prompt جاهز</span></div>
+      <div class="stat"><strong>3</strong><span>باقات للاختيار</span></div>
+      <div class="stat"><strong>ZATCA</strong><span>متوافق</span></div>
+      <div class="stat"><strong>فوري</strong><span>تسليم بعد الدفع</span></div>
+    </div>
+
+  </div>
+</section>
+
 <main class="container">
   <section class="featured" aria-label="المنتج الأكثر مبيعاً">
     <div>
       <div class="featured-tag">⭐ الأكثر مبيعاً</div>
       <h2>دليل المحاسب الذكي — الباقة الاحترافية</h2>
       <div class="featured-desc">90 Prompt احترافي + PDF + Google Sheets جاهز للاستخدام فوراً</div>
-      <div class="featured-payments" aria-label="وسائل الدفع لهذا المنتج">
-        <span class="mini-pay">Visa</span>
-        <span class="mini-pay">Mastercard</span>
-        <span class="mini-pay">Apple Pay</span>
-        <span class="mini-pay">STC Pay قريباً</span>
-      </div>
     </div>
     <div class="featured-right">
       <div class="price-old">199 ر.س</div>
@@ -500,7 +480,7 @@
         <div class="section-label">جميع المنتجات</div>
         <h2 class="section-title">اختر المنتج المناسب لك</h2>
       </div>
-      <div class="section-note">كل زر شراء يستبدل برابط المنتج الحقيقي من Payhip. لا حاجة لإنشاء حساب للشراء؛ البريد يُطلب في صفحة الدفع لإرسال المنتج.</div>
+      <div class="section-note">اختر المنتج المناسب لك. كل زر شراء يستبدل برابط المنتج الحقيقي من Payhip عند الإطلاق.</div>
     </div>
 
     <div class="grid">
@@ -510,9 +490,6 @@
           <div class="card-tag">AI Prompts — مجاني</div>
           <h3 class="card-name">10 Prompts محاسبية مجانية</h3>
           <p class="card-desc">نموذج مجاني لتجربة الجودة قبل الشراء</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price-free">مجاناً</span>
             <a class="btn-buy free" href="PAYHIP_FREE_PRODUCT_LINK" target="_blank" rel="noopener">احصل عليه</a>
@@ -526,9 +503,6 @@
           <div class="card-tag">AI Prompts — أساسية</div>
           <h3 class="card-name">دليل المحاسب الذكي — أساسية</h3>
           <p class="card-desc">60 Prompt محاسبي جاهز + PDF احترافي للاستخدام الفوري</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price">79 ر.س</span>
             <a class="btn-buy" href="PAYHIP_BASIC_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
@@ -542,9 +516,6 @@
           <div class="card-tag">AI Prompts — احترافية</div>
           <h3 class="card-name">دليل المحاسب الذكي — احترافية</h3>
           <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price">149 ر.س</span>
             <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
@@ -558,9 +529,6 @@
           <div class="card-tag">قوالب Excel</div>
           <h3 class="card-name">قالب Excel المحاسبي الشامل</h3>
           <p class="card-desc">تقارير مالية + لوحة مؤشرات KPI + فواتير ZATCA</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -574,9 +542,6 @@
           <div class="card-tag">Google Sheets</div>
           <h3 class="card-name">قوالب Google Sheets المحاسبية</h3>
           <p class="card-desc">نماذج جاهزة للفوترة والمصاريف والرواتب</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -590,9 +555,6 @@
           <div class="card-tag">بطاقات NFC</div>
           <h3 class="card-name">بطاقة بروفايل ذكية NFC</h3>
           <p class="card-desc">صفحة بروفايل احترافية + QR Code + حفظ vCard</p>
-          <div class="accepted-payments">
-            <span class="pay-dot apple">Apple Pay</span><span class="pay-dot">Visa/Mastercard</span><span class="pay-dot soon">STC Pay قريباً</span>
-          </div>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -601,10 +563,7 @@
       </article>
     </div>
 
-    <div class="checkout-note">
-      <strong>ملاحظة مهمة:</strong>
-      هذه الأيقونات لا تنفذ الدفع داخل الصفحة، بل توضّح للعميل الوسائل المتاحة أو القادمة. التنفيذ الحقيقي يتم عند انتقاله إلى صفحة دفع Payhip. حالياً اعرض Visa و Mastercard و Apple Pay، واجعل STC Pay ومدى بوسم «قريباً» إلى أن يتم تفعيل PayTabs أو بوابة محلية.
-    </div>
+
   </section>
 
   <section class="how" id="how">
@@ -632,7 +591,46 @@
       </div>
     </div>
   </section>
-</main>
+
+
+  <section class="checkout-info" id="checkout-info" aria-label="الدفع والشراء بدون حساب">
+    <div class="section-head">
+      <div>
+        <div class="section-label">الدفع والتسليم</div>
+        <h2 class="section-title">شراء مباشر بدون إنشاء حساب</h2>
+      </div>
+      <div class="section-note">نضع معلومات الدفع والشراء في نهاية الصفحة حتى لا تزاحم تصفح المنتجات، لكنها تبقى واضحة قبل قرار الشراء.</div>
+    </div>
+
+    <div class="checkout-grid">
+      <section class="payment-panel" id="payments" aria-label="وسائل الدفع المتاحة">
+        <div class="payment-title">وسائل الدفع المتاحة حالياً عبر Payhip/Stripe</div>
+        <div class="payment-icons">
+          <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
+          <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
+          <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
+          <span class="payment-badge stc soon"><span class="symbol">stc</span> Pay</span>
+          <span class="payment-badge soon"><span class="symbol">مدى</span></span>
+          <span class="payment-badge secure"><span class="symbol">✓</span> دفع آمن</span>
+        </div>
+        <div class="payment-note">
+          حالياً نعتمد Visa و Mastercard و Apple Pay عبر Stripe داخل Payhip. STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة دفع محلية لاحقاً.
+        </div>
+      </section>
+
+      <section class="email-capture" id="email-updates" aria-label="اشتراك البريد الاختياري">
+        <div class="email-copy">
+          <strong>لا تحتاج إلى حساب للشراء</strong>
+          <span>اضغط شراء، ادفع في صفحة Payhip الآمنة، واستلم رابط التحميل على بريدك. إدخال البريد هنا اختياري فقط للمجانيات والتحديثات.</span>
+        </div>
+        <form class="email-form" id="emailForm">
+          <input type="email" id="customerEmail" name="email" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
+          <button type="submit">أرسل لي المجانيات</button>
+        </form>
+        <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة. عند الإطلاق اربطه بـ MailerLite أو Formspree أو Supabase.</div>
+      </section>
+    </div>
+  </section></main>
 
 <footer>
   <div class="container footer-inner">
@@ -640,13 +638,7 @@
       <div class="footer-logo"><span>مُنجَز</span>.ai</div>
       <p>أدوات رقمية للمحترف العربي</p>
     </div>
-    <div class="footer-payments" aria-label="وسائل الدفع المتاحة">
-      <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
-      <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
-      <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
-      <span class="payment-badge stc soon"><span class="symbol">stc</span> Pay</span>
-      <span class="payment-badge soon"><span class="symbol">مدى</span></span>
-    </div>
+    <p>الدفع والتسليم يتمان عبر صفحة Payhip الآمنة.</p>
   </div>
 </footer>
 
