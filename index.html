@@ -5,30 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مُنجَز.ai — متجر المنتجات الرقمية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #111827;
-    --navy: #15172e;
-    --navy-2: #222543;
-    --cream: #faf7ef;
-    --sand: #f2eadb;
-    --gold: #d7b56d;
-    --gold-2: #b88a2f;
-    --teal: #0f766e;
-    --teal-soft: #e7f4f2;
-    --purple: #5b4ac7;
-    --muted: #697386;
-    --line: rgba(17,24,39,.10);
-    --card: #ffffff;
-    --danger: #b45309;
+    --ink: #161616;
+    --soft-ink: #3f3f46;
+    --muted: #70707b;
+    --line: #e9e3d9;
+    --paper: #fffdf8;
+    --cream: #f8f3ea;
+    --sand: #efe5d6;
+    --black: #111111;
+    --mint: #d8f6e7;
+    --mint-dark: #0f7a4f;
+    --blue: #dfeeff;
+    --blue-dark: #1d4ed8;
+    --lilac: #ece7ff;
+    --lilac-dark: #5b3fd6;
+    --orange: #ffe6cc;
+    --orange-dark: #b45309;
+    --pink: #ffe4ef;
+    --pink-dark: #be185d;
+    --yellow: #fff1b8;
+    --yellow-dark: #8a5a00;
+    --radius-xl: 28px;
     --radius-lg: 22px;
     --radius: 16px;
-    --radius-sm: 11px;
-    --shadow-soft: 0 18px 55px rgba(17,24,39,.08);
-    --shadow-card: 0 12px 32px rgba(17,24,39,.06);
+    --radius-sm: 12px;
+    --shadow: 0 18px 50px rgba(17, 17, 17, .08);
+    --shadow-hover: 0 24px 70px rgba(17, 17, 17, .13);
   }
 
   html { scroll-behavior: smooth; }
@@ -36,373 +43,480 @@
   body {
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     background:
-      radial-gradient(circle at top right, rgba(215,181,109,.16), transparent 34rem),
-      radial-gradient(circle at bottom left, rgba(15,118,110,.08), transparent 28rem),
+      radial-gradient(circle at top left, rgba(236, 231, 255, .9), transparent 26rem),
+      radial-gradient(circle at 90% 12%, rgba(216, 246, 231, .8), transparent 22rem),
+      radial-gradient(circle at bottom right, rgba(255, 230, 204, .7), transparent 28rem),
       var(--cream);
     color: var(--ink);
     min-height: 100vh;
   }
 
   a { color: inherit; }
-
-  .container { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+  .container { width: min(1140px, calc(100% - 32px)); margin: 0 auto; }
 
   /* NAV */
   nav {
-    background: rgba(250,247,239,.82);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--line);
-    position: sticky; top: 0; z-index: 100;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 253, 248, .82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(22,22,22,.08);
   }
   .nav-inner {
-    height: 68px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
   }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
   .logo-mark {
-    width: 40px; height: 40px; border-radius: 14px;
-    background: linear-gradient(145deg, var(--navy), var(--navy-2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: var(--gold);
-    box-shadow: 0 10px 26px rgba(21,23,46,.16);
+    width: 42px; height: 42px; border-radius: 13px;
+    background: var(--black); color: var(--yellow);
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 13px;
+    transform: rotate(-2deg);
+    box-shadow: 7px 7px 0 rgba(0,0,0,.08);
   }
-  .logo-name { font-size: 18px; font-weight: 700; color: var(--navy); }
-  .logo-name span { color: var(--muted); font-weight: 500; font-size: 16px; }
-  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-  .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .18s; }
-  .nav-links a:hover { color: var(--navy); }
+  .logo-name { font-size: 20px; font-weight: 800; letter-spacing: -.4px; }
+  .logo-name span { font-weight: 600; color: var(--muted); }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--soft-ink);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--black); }
   .nav-cta {
-    background: var(--navy); color: #f6df9a;
-    padding: 9px 18px; border-radius: var(--radius-sm);
-    font-size: 13px; font-family: inherit; font-weight: 700;
-    border: none; cursor: pointer; text-decoration: none;
-    transition: transform .18s, box-shadow .18s;
-    box-shadow: 0 12px 28px rgba(21,23,46,.16);
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--black);
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    box-shadow: 0 14px 32px rgba(17,17,17,.16);
   }
-  .nav-cta:hover { transform: translateY(-1px); }
 
   /* HERO */
-  .hero { padding: 4.4rem 0 2.2rem; text-align: center; }
+  .hero { padding: 70px 0 38px; }
+  .hero-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+  .hero-copy {
+    background: rgba(255,253,248,.78);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: var(--radius-xl);
+    padding: clamp(28px, 4vw, 48px);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-copy::after {
+    content: "";
+    position: absolute;
+    width: 180px; height: 180px;
+    background: var(--yellow);
+    border-radius: 45% 55% 50% 50%;
+    left: -70px; bottom: -80px;
+    opacity: .75;
+    z-index: 0;
+  }
+  .hero-copy > * { position: relative; z-index: 1; }
   .hero-badge {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: rgba(215,181,109,.16); color: #7a5616;
-    border: 1px solid rgba(215,181,109,.30);
-    padding: 7px 15px; border-radius: 999px;
-    font-size: 12px; font-weight: 700;
-    margin-bottom: 1.3rem;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--mint);
+    color: var(--mint-dark);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    border: 1px solid rgba(15,122,79,.14);
   }
   .hero h1 {
-    font-size: clamp(30px, 5vw, 54px); font-weight: 700;
-    line-height: 1.22; margin-bottom: 1rem; color: var(--navy);
-    letter-spacing: -.6px;
+    max-width: 650px;
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -1.8px;
+    font-weight: 800;
+    margin-bottom: 18px;
   }
-  .hero h1 em { font-style: normal; color: var(--teal); }
+  .hero h1 em {
+    font-style: normal;
+    display: inline-block;
+    background: linear-gradient(180deg, transparent 56%, var(--yellow) 56%);
+  }
   .hero p {
-    font-size: 16px; color: var(--muted);
-    max-width: 610px; margin: 0 auto 1.5rem; line-height: 1.9;
+    max-width: 620px;
+    color: var(--soft-ink);
+    line-height: 1.9;
+    font-size: 16px;
+    margin-bottom: 26px;
   }
-  .hero-buttons { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin: 1.4rem 0 1.5rem; }
-  .hero-primary, .hero-outline {
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding: 12px 24px; border-radius: 14px; font-size: 14px; font-weight: 700;
-    text-decoration:none; transition: transform .18s, box-shadow .18s, border-color .18s;
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn-primary, .btn-secondary {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0 22px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    transition: transform .18s, box-shadow .18s;
   }
-  .hero-primary { background: var(--navy); color: #f6df9a; box-shadow: var(--shadow-soft); }
-  .hero-outline { background: rgba(255,255,255,.72); color: var(--navy); border: 1px solid var(--line); }
-  .hero-primary:hover, .hero-outline:hover { transform: translateY(-2px); }
-  .hero-outline:hover { border-color: rgba(21,23,46,.22); }
+  .btn-primary { background: var(--black); color: white; box-shadow: 8px 8px 0 rgba(17,17,17,.11); }
+  .btn-secondary { background: white; color: var(--black); border: 1px solid var(--line); }
+  .btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
 
-  /* Payment icons logic */
-  .payment-panel {
-    width: min(760px, 100%);
-    margin: 0 auto 2rem;
-    background: rgba(255,255,255,.76);
-    border: 1px solid var(--line);
+  .hero-preview {
+    display: grid;
+    gap: 14px;
+  }
+  .preview-card {
+    background: var(--paper);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+  .mini-product {
+    display: grid;
+    grid-template-columns: 82px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .mini-art {
+    height: 82px;
     border-radius: 20px;
-    padding: 12px 14px;
-    box-shadow: var(--shadow-card);
+    background: var(--lilac);
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+    border: 1px solid rgba(91,63,214,.14);
   }
-  .payment-title {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    color: var(--muted); font-size: 12px; font-weight: 700; margin-bottom: 10px;
+  .mini-product h2 { font-size: 20px; line-height: 1.35; margin-bottom: 7px; }
+  .mini-product p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+  .mini-price { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top: 14px; }
+  .mini-price strong { font-size: 26px; }
+  .mini-price span { font-size: 13px; color: var(--muted); text-decoration: line-through; }
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-  .payment-title::before, .payment-title::after {
-    content: ""; width: 38px; height: 1px; background: var(--line);
+  .trust-box {
+    background: rgba(255,253,248,.78);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: 20px;
+    padding: 18px;
+    min-height: 110px;
+    box-shadow: var(--shadow);
   }
-  .payment-icons {
-    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
-  }
-  .payment-badge {
-    min-width: 92px; height: 38px;
-    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid var(--line);
-    color: var(--navy);
-    font-size: 12px; font-weight: 800;
-    box-shadow: 0 8px 18px rgba(17,24,39,.045);
-  }
-  .payment-badge .symbol { font-weight: 900; font-size: 14px; }
-  .payment-badge.visa .symbol { color: #1a3f8b; }
-  .payment-badge.master .symbol { color: #df6b1f; }
-  .payment-badge.apple .symbol { color: #111; font-size: 17px; }
-  .payment-badge.stc .symbol { color: #5f2eea; }
-  .payment-badge.soon { opacity: .72; background: #fbfaf7; border-style: dashed; }
-  .payment-badge.soon::after { content: "قريباً"; font-size: 9px; color: var(--muted); margin-inline-start: 2px; }
-  .payment-badge.secure { color: var(--teal); background: var(--teal-soft); border-color: rgba(15,118,110,.16); }
-  .payment-note { margin-top: 9px; color: var(--muted); font-size: 11px; line-height: 1.7; }
-  .payment-note strong { color: var(--navy); }
+  .trust-box strong { display:block; font-size: 22px; margin-bottom: 5px; }
+  .trust-box span { color: var(--muted); font-size: 13px; line-height: 1.6; }
 
-  .hero-stats {
-    display: grid; grid-template-columns: repeat(4, minmax(100px, 1fr)); gap: 10px;
-    width: min(760px, 100%); margin: 0 auto;
-  }
-  .stat {
-    background: rgba(255,255,255,.62); border: 1px solid var(--line);
-    border-radius: 16px; padding: 12px 10px;
-  }
-  .stat strong { display: block; font-size: 19px; font-weight: 800; color: var(--navy); }
-  .stat span { font-size: 12px; color: var(--muted); }
-
-  /* CATS */
-  .cats-wrap { border-block: 1px solid var(--line); background: rgba(255,255,255,.66); }
+  /* CATEGORIES */
+  .cats-wrap { padding: 8px 0 22px; }
   .cats {
-    padding: .85rem 0; display: flex; gap: 8px; overflow-x: auto;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
   .cats::-webkit-scrollbar { display: none; }
   .cat {
-    padding: 7px 16px; border-radius: 999px; font-size: 13px;
-    border: 1px solid var(--line);
-    background: #fff; color: var(--muted);
-    cursor: pointer; white-space: nowrap;
-    font-family: inherit; font-weight: 700; transition: all .18s;
+    border: 1px solid rgba(22,22,22,.1);
+    background: rgba(255,253,248,.85);
+    color: var(--soft-ink);
+    padding: 11px 17px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .18s, color .18s, transform .18s;
   }
-  .cat:hover { border-color: rgba(21,23,46,.28); color: var(--navy); }
-  .cat.active { background: var(--navy); color: #f6df9a; border-color: var(--navy); }
+  .cat:hover { transform: translateY(-1px); }
+  .cat.active { background: var(--black); color: white; border-color: var(--black); }
 
-  main { padding: 2.2rem 0; }
+  main { padding: 16px 0 54px; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: end;
+    margin: 24px 0 18px;
+  }
+  .eyebrow {
+    color: var(--mint-dark);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: .6px;
+    margin-bottom: 8px;
+  }
+  .section-title { font-size: clamp(24px, 4vw, 38px); font-weight: 800; letter-spacing: -.8px; }
+  .section-note { max-width: 470px; color: var(--muted); line-height: 1.8; font-size: 13px; }
 
   /* FEATURED */
   .featured {
-    background:
-      radial-gradient(circle at top left, rgba(215,181,109,.22), transparent 22rem),
-      linear-gradient(135deg, var(--navy), #20233f);
-    border-radius: var(--radius-lg);
-    padding: 1.7rem;
-    display: grid; grid-template-columns: 1fr auto; align-items: center;
-    margin-bottom: 2rem; gap: 1rem;
-    box-shadow: var(--shadow-soft);
-    color: #fff;
-    overflow: hidden;
-  }
-  .featured-tag { font-size: 11px; opacity: .78; margin-bottom: 7px; letter-spacing: .5px; }
-  .featured h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #f9e7b2; }
-  .featured-desc { font-size: 13px; opacity: .78; line-height: 1.8; }
-  .featured-payments { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
-  .mini-pay {
-    background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.14);
-    color: rgba(255,255,255,.82); border-radius: 999px; padding: 4px 9px;
-    font-size: 10px; font-weight: 800;
-  }
-  .featured-right { text-align: left; min-width: 166px; }
-  .price-old { font-size: 13px; color: #f9e7b2; opacity: .48; text-decoration: line-through; margin-bottom: 2px; }
-  .price-new { font-size: 32px; font-weight: 800; color: #f9e7b2; margin-bottom: 10px; }
-  .price-new span { font-size: 14px; font-weight: 600; }
-  .btn-featured {
-    background: #f1d58c; color: var(--navy);
-    padding: 11px 22px; border-radius: var(--radius-sm);
-    font-size: 13px; font-weight: 800; font-family: inherit;
-    border: none; cursor: pointer; display: block; width: 100%;
-    text-align: center; text-decoration:none; transition: transform .18s, opacity .18s;
-  }
-  .btn-featured:hover { transform: translateY(-1px); opacity: .94; }
-
-  /* SECTION */
-  .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
-  .section-label {
-    font-size: 11px; font-weight: 800; letter-spacing: .8px;
-    color: var(--gold-2); text-transform: uppercase;
-  }
-  .section-title { font-size: 22px; color: var(--navy); margin-top: 3px; }
-  .section-note { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 390px; }
-
-  /* GRID */
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 16px; }
-
-  /* CARD */
-  .card {
-    background: rgba(255,255,255,.88);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: border-color .18s, transform .18s, box-shadow .18s;
-    box-shadow: 0 8px 24px rgba(17,24,39,.035);
-  }
-  .card:hover { border-color: rgba(21,23,46,.20); transform: translateY(-4px); box-shadow: var(--shadow-card); }
-  .card-thumb {
-    height: 116px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 44px;
-  }
-  .c1 { background: linear-gradient(135deg, #f3f1ff, #ffffff); }
-  .c2 { background: linear-gradient(135deg, #e6f7f4, #ffffff); }
-  .c3 { background: linear-gradient(135deg, #fff3cf, #ffffff); }
-  .c4 { background: linear-gradient(135deg, #fff0f5, #ffffff); }
-  .c5 { background: linear-gradient(135deg, #e8f4ff, #ffffff); }
-  .card-body { padding: 1rem 1.1rem 1.1rem; }
-  .card-tag {
-    display: inline-block; font-size: 10px; font-weight: 800;
-    padding: 4px 10px; border-radius: 999px;
-    background: var(--sand); color: #795a1c;
-    margin-bottom: 9px;
-  }
-  .card-name { font-size: 15px; font-weight: 800; margin-bottom: 7px; line-height: 1.45; color: var(--navy); }
-  .card-desc { font-size: 12px; color: var(--muted); line-height: 1.75; margin-bottom: 12px; min-height: 42px; }
-  .accepted-payments {
-    display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px;
-  }
-  .pay-dot {
-    border: 1px solid var(--line); background: #fff; color: var(--muted);
-    border-radius: 999px; padding: 3px 7px; font-size: 10px; font-weight: 800;
-  }
-  .pay-dot.apple { color: #111; }
-  .pay-dot.stc { color: #5f2eea; }
-  .pay-dot.soon { border-style: dashed; background: #fbfaf7; color: var(--muted); }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .card-price { font-size: 15px; font-weight: 800; color: var(--navy); }
-  .card-price-free { font-size: 13px; font-weight: 800; color: var(--teal); }
-  .card-price-soon { font-size: 12px; color: var(--muted); }
-  .btn-buy {
-    font-size: 12px; padding: 8px 15px;
-    background: var(--navy); color: #f6df9a;
-    border: none; border-radius: var(--radius-sm);
-    cursor: pointer; font-family: inherit; font-weight: 800;
-    text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
-    transition: transform .18s, opacity .18s;
-  }
-  .btn-buy:hover { transform: translateY(-1px); opacity: .94; }
-  .btn-buy.soon { background: #eee7da; color: var(--muted); cursor: not-allowed; pointer-events: none; }
-  .btn-buy.free { background: var(--teal); color: white; }
-
-  .checkout-note {
-    margin-top: 1.5rem;
-    background: rgba(255,255,255,.78);
-    border: 1px solid rgba(215,181,109,.28);
-    border-radius: var(--radius);
-    padding: 1rem 1.1rem;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.9;
-  }
-  .checkout-note strong { color: var(--navy); }
-
-
-  /* OPTIONAL EMAIL CAPTURE */
-  .email-capture {
-    width: min(760px, 100%);
-    margin: 0 auto 1.5rem;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,.88), rgba(250,247,239,.88));
-    border: 1px solid rgba(215,181,109,.26);
-    border-radius: 20px;
-    padding: 14px;
-    box-shadow: 0 10px 28px rgba(17,24,39,.045);
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 10px;
+    gap: 22px;
     align-items: center;
+    background: var(--black);
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: 26px;
+    box-shadow: var(--shadow-hover);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
   }
-  .email-copy { text-align: right; }
-  .email-copy strong { display:block; color: var(--navy); font-size: 14px; margin-bottom: 3px; }
-  .email-copy span { display:block; color: var(--muted); font-size: 11px; line-height: 1.7; }
-  .email-form { display:flex; gap:8px; min-width: min(360px, 100%); }
+  .featured::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -70px;
+    top: -70px;
+    width: 220px; height: 220px;
+    background: var(--lilac-dark);
+    border-radius: 50%;
+    opacity: .8;
+  }
+  .featured::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 32%;
+    bottom: -92px;
+    width: 180px; height: 180px;
+    background: var(--mint-dark);
+    border-radius: 50%;
+    opacity: .55;
+  }
+  .featured > * { position: relative; z-index: 1; }
+  .featured-tag {
+    display: inline-flex;
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .featured h2 { font-size: clamp(22px, 3vw, 34px); line-height: 1.35; margin-bottom: 8px; }
+  .featured-desc { color: rgba(255,255,255,.74); line-height: 1.8; font-size: 14px; }
+  .featured-side { min-width: 180px; text-align: left; }
+  .price-old { color: rgba(255,255,255,.42); text-decoration: line-through; font-size: 14px; }
+  .price-new { font-size: 36px; font-weight: 800; margin: 2px 0 12px; }
+  .price-new span { font-size: 14px; font-weight: 600; }
+  .btn-featured {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    width: 100%;
+    border-radius: 999px;
+    background: white;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 800;
+  }
+
+  /* PRODUCTS */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--paper);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(17,17,17,.05);
+    transition: transform .18s, box-shadow .18s, border-color .18s;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(17,17,17,.16); }
+  .card-thumb {
+    height: 150px;
+    display: grid;
+    place-items: center;
+    font-size: 46px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-thumb::before {
+    content: "";
+    position: absolute;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,.38);
+    border-radius: 36px;
+    transform: rotate(18deg);
+  }
+  .card-thumb span { position: relative; z-index: 1; }
+  .c-ai { background: var(--lilac); }
+  .c-free { background: var(--mint); }
+  .c-excel { background: var(--orange); }
+  .c-sheets { background: var(--blue); }
+  .c-nfc { background: var(--pink); }
+  .card-body { padding: 18px; }
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: #f3efe7;
+    color: var(--soft-ink);
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .card-name { font-size: 17px; line-height: 1.45; margin-bottom: 7px; font-weight: 800; }
+  .card-desc { color: var(--muted); font-size: 13px; line-height: 1.75; min-height: 46px; }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .card-price, .card-price-free, .card-price-soon { font-weight: 800; }
+  .card-price { font-size: 18px; }
+  .card-price-free { color: var(--mint-dark); }
+  .card-price-soon { color: var(--muted); font-size: 13px; }
+  .btn-buy {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 15px;
+    border-radius: 999px;
+    background: var(--black);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .btn-buy.free { background: var(--mint-dark); }
+  .btn-buy.soon { background: #ece7df; color: var(--muted); cursor: default; }
+
+  /* WHY + HOW */
+  .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .info-card, .how-card, .payment-panel, .email-capture {
+    background: rgba(255,253,248,.78);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: 0 12px 32px rgba(17,17,17,.05);
+  }
+  .info-card .icon { font-size: 26px; margin-bottom: 10px; }
+  .info-card strong, .how-card strong { display:block; font-size: 16px; margin-bottom: 7px; }
+  .info-card p, .how-card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .step {
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    background: var(--black); color: white;
+    border-radius: 50%;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  /* CHECKOUT INFO */
+  .checkout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .payment-title { font-weight: 800; margin-bottom: 13px; }
+  .payment-icons { display: flex; flex-wrap: wrap; gap: 8px; }
+  .payment-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: white;
+    border: 1px solid rgba(22,22,22,.1);
+    border-radius: 999px;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .payment-badge .symbol { font-weight: 900; }
+  .payment-badge.visa .symbol { color: #1a3f8b; }
+  .payment-badge.master .symbol { color: #df6b1f; }
+  .payment-badge.apple .symbol { color: #111; font-size: 16px; }
+  .payment-badge.soon { opacity: .72; border-style: dashed; }
+  .payment-badge.soon::after { content: "قريباً"; color: var(--muted); font-size: 10px; }
+  .payment-note { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 12px; }
+
+  .email-capture { display: grid; gap: 13px; }
+  .email-copy strong { display: block; margin-bottom: 5px; }
+  .email-copy span { color: var(--muted); font-size: 12px; line-height: 1.8; }
+  .email-form { display: flex; gap: 8px; }
   .email-form input {
-    flex: 1; min-width: 170px;
-    border: 1px solid var(--line);
-    border-radius: 13px;
-    padding: 11px 12px;
-    font-family: inherit; font-size: 13px;
-    background: #fff; color: var(--navy);
+    flex: 1;
+    min-height: 46px;
+    border: 1px solid rgba(22,22,22,.12);
+    border-radius: 999px;
+    padding: 0 16px;
+    font: inherit;
+    background: white;
     outline: none;
-    transition: border-color .18s, box-shadow .18s;
   }
-  .email-form input:focus { border-color: rgba(15,118,110,.42); box-shadow: 0 0 0 4px rgba(15,118,110,.08); }
+  .email-form input:focus { border-color: var(--black); }
   .email-form button {
-    border: none; border-radius: 13px;
-    padding: 11px 14px;
-    background: var(--teal); color: #fff;
-    font-family: inherit; font-size: 12px; font-weight: 800;
-    cursor: pointer; white-space: nowrap;
-    transition: transform .18s, opacity .18s;
+    min-height: 46px;
+    border: 0;
+    border-radius: 999px;
+    padding: 0 18px;
+    background: var(--black);
+    color: white;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
   }
-  .email-form button:hover { transform: translateY(-1px); opacity: .94; }
-  .email-message {
-    grid-column: 1 / -1;
-    display: none;
-    color: var(--teal);
-    font-size: 12px; font-weight: 700;
-    text-align: right;
-  }
+  .email-message { display: none; color: var(--mint-dark); font-size: 12px; line-height: 1.7; }
 
-  /* HOW */
-  .how { margin-top: 2.5rem; }
-  .how-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .how-card { background:rgba(255,255,255,.78); border:1px solid var(--line); border-radius:var(--radius-lg); padding:1rem; }
-  .how-card .step {
-    width: 34px; height: 34px; border-radius: 12px; background: var(--navy); color: #f6df9a;
-    display:flex; align-items:center; justify-content:center; font-weight:800; margin-bottom:10px;
-  }
-  .how-card strong { display:block; margin-bottom:6px; font-size:14px; color: var(--navy); }
-  .how-card p { color:var(--muted); font-size:12px; line-height:1.75; }
-
-
-  .stats-strip { padding: 1rem 0 0; }
-
-  .checkout-info { margin-top: 2.8rem; }
-  .checkout-grid { display:grid; grid-template-columns: 1fr; gap: 14px; }
-  .checkout-info .payment-panel,
-  .checkout-info .email-capture { width: 100%; margin: 0; }
-
-  /* FOOTER */
   footer {
-    border-top: 1px solid var(--line);
-    background: rgba(255,255,255,.62);
-    padding: 1.5rem 0;
-    margin-top: 2.8rem;
+    background: var(--black);
+    color: white;
+    padding: 28px 0;
+    margin-top: 30px;
   }
-  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .footer-logo { font-size: 15px; font-weight: 800; color: var(--navy); }
-  .footer-logo span { color: var(--muted); font-weight: 600; }
-  footer p { font-size: 13px; color: var(--muted); }
-  .footer-payments { display:flex; gap:7px; flex-wrap:wrap; justify-content:flex-end; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+  .footer-logo { font-weight: 800; font-size: 18px; }
+  footer p { color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.7; }
 
-  @media (max-width: 760px) {
-    .container { width: min(100% - 24px, 1080px); }
-    .nav-links { display: none; }
-    .nav-inner { height: 64px; }
-    .hero { padding: 2.6rem 0 1.5rem; }
-    .hero p { font-size: 14px; }
-    .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .email-capture { grid-template-columns: 1fr; }
-    .email-form { flex-direction: column; }
-    .featured { grid-template-columns: 1fr; }
-    .featured-right { width: 100%; text-align: right; }
-    .section-head { align-items:flex-start; flex-direction:column; }
+  @media (max-width: 900px) {
+    .hero-shell, .checkout-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
     .how-grid { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-    .footer-payments { justify-content:flex-start; }
+    .section-head { align-items: start; flex-direction: column; }
+    .featured { grid-template-columns: 1fr; }
+    .featured-side { text-align: right; min-width: 0; }
+  }
+  @media (max-width: 680px) {
+    .nav-links { display: none; }
+    .hero { padding-top: 36px; }
+    .hero-copy { padding: 26px; }
+    .trust-row, .info-grid { grid-template-columns: 1fr; }
+    .email-form { flex-direction: column; }
+    .footer-inner { align-items: flex-start; flex-direction: column; }
   }
 </style>
 </head>
 <body>
-
 <!--
-  ملاحظات مهمة:
+  ملاحظات الإطلاق:
   1) استبدل PAYHIP_* بروابط منتجات Payhip الحقيقية.
-  2) في المسار الحالي Payhip + Stripe/Wise: اعرض Visa و Mastercard و Apple Pay كوسائل الدفع الأساسية.
-  3) STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة دفع محلية لاحقاً.
-  4) تسجيل البريد اختياري ولا يمنع الشراء، ومكانه في نهاية الصفحة كعنصر طمأنة لا كشرط شراء. اربط النموذج لاحقاً بخدمة مثل MailerLite أو Formspree أو Supabase.
-  5) لا تضع مفاتيح Stripe أو PayTabs السرية داخل ملف HTML.
+  2) المسار الحالي: Payhip + Stripe/Wise، لذلك Visa و Mastercard و Apple Pay هي الوسائل الأساسية.
+  3) STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة محلية لاحقاً.
+  4) نموذج البريد اختياري ولا يمنع الشراء. اربطه لاحقاً بـ MailerLite أو Formspree أو Supabase.
+  5) لا تضع مفاتيح Stripe أو PayTabs السرية داخل HTML.
 -->
 
 <nav>
@@ -413,26 +527,48 @@
     </a>
     <div class="nav-links">
       <a href="#products">المنتجات</a>
+      <a href="#why">لماذا مُنجَز؟</a>
       <a href="#how">كيف يعمل؟</a>
-      <a href="#checkout-info">الدفع والتسليم</a>
-      <a href="mailto:hello@munjaz.ai">تواصل معنا</a>
+      <a href="#checkout-info">الدفع</a>
     </div>
-    <a class="nav-cta" href="#products">ابدأ الآن</a>
+    <a class="nav-cta" href="#products">تصفح المنتجات</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="container">
-    <div class="hero-badge">✦ أدوات رقمية للمحترف العربي</div>
-    <h1>منتجات رقمية جاهزة<br>تختصر عليك <em>وقت العمل</em></h1>
-    <p>قوالب محاسبية، أدوات ذكاء اصطناعي، ونماذج عملية مصممة للسوق السعودي والخليجي. اختر المنتج، ادفع بأمان، واستلم رابط التحميل فوراً.</p>
+  <div class="container hero-shell">
+    <section class="hero-copy">
+      <div class="hero-badge">✦ Marketplace عربي للمنتجات الرقمية</div>
+      <h1>ملفات جاهزة تجعل عملك <em>أسرع</em> وأذكى</h1>
+      <p>قوالب محاسبية، أدوات AI، وملفات عملية مصممة للمحاسبين ورواد الأعمال في السعودية والخليج. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#products">اكتشف المنتجات</a>
+        <a class="btn-secondary" href="#how">كيف تتم العملية؟</a>
+      </div>
+    </section>
 
-    <div class="hero-buttons">
-      <a class="hero-primary" href="#products">تصفح المنتجات</a>
-      <a class="hero-outline" href="#how">كيف تتم عملية الشراء؟</a>
-    </div>
-
-
+    <aside class="hero-preview" aria-label="منتج مميز">
+      <div class="preview-card">
+        <div class="mini-product">
+          <div class="mini-art">🤖</div>
+          <div>
+            <h2>دليل المحاسب الذكي</h2>
+            <p>90 Prompt احترافي + PDF + Google Sheets جاهز للتحرير.</p>
+          </div>
+        </div>
+        <div class="mini-price">
+          <div>
+            <span>199 ر.س</span>
+            <strong>149 ر.س</strong>
+          </div>
+          <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ الآن</a>
+        </div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-box"><strong>+90</strong><span>Prompt جاهز للاستخدام في العمل اليومي.</span></div>
+        <div class="trust-box"><strong>فوري</strong><span>رابط التحميل يصل بعد الدفع مباشرة.</span></div>
+      </div>
+    </aside>
   </div>
 </header>
 
@@ -448,26 +584,14 @@
   </div>
 </div>
 
-<section class="stats-strip" aria-label="أرقام سريعة">
-  <div class="container">
-    <div class="hero-stats">
-      <div class="stat"><strong>+90</strong><span>Prompt جاهز</span></div>
-      <div class="stat"><strong>3</strong><span>باقات للاختيار</span></div>
-      <div class="stat"><strong>ZATCA</strong><span>متوافق</span></div>
-      <div class="stat"><strong>فوري</strong><span>تسليم بعد الدفع</span></div>
-    </div>
-
-  </div>
-</section>
-
 <main class="container">
   <section class="featured" aria-label="المنتج الأكثر مبيعاً">
     <div>
-      <div class="featured-tag">⭐ الأكثر مبيعاً</div>
+      <div class="featured-tag">⭐ الأكثر طلباً</div>
       <h2>دليل المحاسب الذكي — الباقة الاحترافية</h2>
-      <div class="featured-desc">90 Prompt احترافي + PDF + Google Sheets جاهز للاستخدام فوراً</div>
+      <div class="featured-desc">باقة عملية للمحاسبين: Prompts جاهزة، ملف PDF منظم، ونسخة Google Sheets قابلة للتعديل.</div>
     </div>
-    <div class="featured-right">
+    <div class="featured-side">
       <div class="price-old">199 ر.س</div>
       <div class="price-new">149 <span>ر.س</span></div>
       <a class="btn-featured" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ الآن</a>
@@ -477,19 +601,19 @@
   <section id="products">
     <div class="section-head">
       <div>
-        <div class="section-label">جميع المنتجات</div>
-        <h2 class="section-title">اختر المنتج المناسب لك</h2>
+        <div class="eyebrow">المنتجات الرقمية</div>
+        <h2 class="section-title">كل منتج مصمم ليحل مهمة واضحة</h2>
       </div>
-      <div class="section-note">اختر المنتج المناسب لك. كل زر شراء يستبدل برابط المنتج الحقيقي من Payhip عند الإطلاق.</div>
+      <p class="section-note">الثيم الجديد يركز على تجربة Marketplace: بطاقات واضحة، تصنيفات سريعة، وأسعار وأزرار شراء مباشرة بدون تشتيت.</p>
     </div>
 
     <div class="grid">
       <article class="card" data-category="ai free accounting">
-        <div class="card-thumb c1">🤖</div>
+        <div class="card-thumb c-free"><span>🎁</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — مجاني</div>
           <h3 class="card-name">10 Prompts محاسبية مجانية</h3>
-          <p class="card-desc">نموذج مجاني لتجربة الجودة قبل الشراء</p>
+          <p class="card-desc">نموذج مجاني لتجربة الجودة قبل شراء الباقات المدفوعة.</p>
           <div class="card-footer">
             <span class="card-price-free">مجاناً</span>
             <a class="btn-buy free" href="PAYHIP_FREE_PRODUCT_LINK" target="_blank" rel="noopener">احصل عليه</a>
@@ -498,11 +622,11 @@
       </article>
 
       <article class="card" data-category="ai accounting">
-        <div class="card-thumb c1">📘</div>
+        <div class="card-thumb c-ai"><span>📘</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — أساسية</div>
           <h3 class="card-name">دليل المحاسب الذكي — أساسية</h3>
-          <p class="card-desc">60 Prompt محاسبي جاهز + PDF احترافي للاستخدام الفوري</p>
+          <p class="card-desc">60 Prompt محاسبي جاهز + PDF احترافي للاستخدام الفوري.</p>
           <div class="card-footer">
             <span class="card-price">79 ر.س</span>
             <a class="btn-buy" href="PAYHIP_BASIC_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
@@ -511,11 +635,11 @@
       </article>
 
       <article class="card" data-category="ai accounting sheets">
-        <div class="card-thumb c2">⭐</div>
+        <div class="card-thumb c-ai"><span>⭐</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — احترافية</div>
           <h3 class="card-name">دليل المحاسب الذكي — احترافية</h3>
-          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري</p>
+          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري.</p>
           <div class="card-footer">
             <span class="card-price">149 ر.س</span>
             <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
@@ -524,11 +648,11 @@
       </article>
 
       <article class="card" data-category="excel accounting">
-        <div class="card-thumb c3">📊</div>
+        <div class="card-thumb c-excel"><span>📊</span></div>
         <div class="card-body">
           <div class="card-tag">قوالب Excel</div>
           <h3 class="card-name">قالب Excel المحاسبي الشامل</h3>
-          <p class="card-desc">تقارير مالية + لوحة مؤشرات KPI + فواتير ZATCA</p>
+          <p class="card-desc">تقارير مالية + لوحة مؤشرات KPI + فواتير متوافقة مع ZATCA.</p>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -537,11 +661,11 @@
       </article>
 
       <article class="card" data-category="sheets accounting">
-        <div class="card-thumb c4">📋</div>
+        <div class="card-thumb c-sheets"><span>📋</span></div>
         <div class="card-body">
           <div class="card-tag">Google Sheets</div>
           <h3 class="card-name">قوالب Google Sheets المحاسبية</h3>
-          <p class="card-desc">نماذج جاهزة للفوترة والمصاريف والرواتب</p>
+          <p class="card-desc">نماذج جاهزة للفوترة والمصاريف والرواتب ومتابعة التدفقات.</p>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -550,11 +674,11 @@
       </article>
 
       <article class="card" data-category="nfc">
-        <div class="card-thumb c5">📇</div>
+        <div class="card-thumb c-nfc"><span>📇</span></div>
         <div class="card-body">
           <div class="card-tag">بطاقات NFC</div>
           <h3 class="card-name">بطاقة بروفايل ذكية NFC</h3>
-          <p class="card-desc">صفحة بروفايل احترافية + QR Code + حفظ vCard</p>
+          <p class="card-desc">صفحة بروفايل احترافية + QR Code + حفظ vCard.</p>
           <div class="card-footer">
             <span class="card-price-soon">قريباً</span>
             <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
@@ -562,98 +686,93 @@
         </div>
       </article>
     </div>
+  </section>
 
-
+  <section id="why">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">لماذا مُنجَز؟</div>
+        <h2 class="section-title">تجربة شراء سريعة ومنتجات عملية</h2>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><div class="icon">🇸🇦</div><strong>مصمم للسوق الخليجي</strong><p>لغة ومحتوى يناسب المحاسب ورائد الأعمال في السعودية والخليج.</p></div>
+      <div class="info-card"><div class="icon">⚡</div><strong>تسليم فوري</strong><p>بعد الدفع، يستلم العميل رابط التحميل مباشرة عبر البريد.</p></div>
+      <div class="info-card"><div class="icon">🚪</div><strong>بدون حساب</strong><p>لا نجبر العميل على تسجيل الدخول قبل الشراء.</p></div>
+      <div class="info-card"><div class="icon">🧩</div><strong>قابل للتطوير</strong><p>نبدأ بـ Payhip ثم نضيف دفع مباشر ولوحة عملاء لاحقاً.</p></div>
+    </div>
   </section>
 
   <section class="how" id="how">
     <div class="section-head">
       <div>
-        <div class="section-label">كيف تتم عملية الشراء؟</div>
-        <h2 class="section-title">تجربة بسيطة وواضحة</h2>
+        <div class="eyebrow">طريقة الشراء</div>
+        <h2 class="section-title">ثلاث خطوات فقط</h2>
       </div>
     </div>
     <div class="how-grid">
-      <div class="how-card">
-        <div class="step">1</div>
-        <strong>اختر المنتج</strong>
-        <p>تصفح الباقات واختر المنتج المناسب لاحتياجك بدون إنشاء حساب مسبق.</p>
-      </div>
-      <div class="how-card">
-        <div class="step">2</div>
-        <strong>ادفع بأمان</strong>
-        <p>ينتقل العميل إلى صفحة Payhip الآمنة. تظهر البطاقات وApple Pay حسب إعدادات Stripe، بينما STC Pay ومدى تضافان لاحقاً عند تفعيل بوابة محلية.</p>
-      </div>
-      <div class="how-card">
-        <div class="step">3</div>
-        <strong>استلم فوراً</strong>
-        <p>بعد نجاح الدفع، يتم إرسال رابط التحميل إلى بريد العميل تلقائياً.</p>
-      </div>
+      <div class="how-card"><div class="step">1</div><strong>اختر المنتج</strong><p>تصفح التصنيفات واختر الباقة المناسبة لاحتياجك.</p></div>
+      <div class="how-card"><div class="step">2</div><strong>ادفع عبر Payhip</strong><p>يتم الدفع عبر صفحة آمنة باستخدام Visa أو Mastercard أو Apple Pay عند توفرها في Stripe.</p></div>
+      <div class="how-card"><div class="step">3</div><strong>استلم الملف</strong><p>رابط التحميل يصل إلى البريد المستخدم في عملية الشراء.</p></div>
     </div>
   </section>
-
 
   <section class="checkout-info" id="checkout-info" aria-label="الدفع والشراء بدون حساب">
     <div class="section-head">
       <div>
-        <div class="section-label">الدفع والتسليم</div>
-        <h2 class="section-title">شراء مباشر بدون إنشاء حساب</h2>
+        <div class="eyebrow">الدفع والتسليم</div>
+        <h2 class="section-title">معلومات الطمأنة في نهاية الصفحة</h2>
       </div>
-      <div class="section-note">نضع معلومات الدفع والشراء في نهاية الصفحة حتى لا تزاحم تصفح المنتجات، لكنها تبقى واضحة قبل قرار الشراء.</div>
+      <p class="section-note">وضعنا وسائل الدفع والشراء بدون حساب في النهاية حتى تبقى بداية الصفحة مركزة على المنتجات والتصنيفات.</p>
     </div>
 
     <div class="checkout-grid">
       <section class="payment-panel" id="payments" aria-label="وسائل الدفع المتاحة">
-        <div class="payment-title">وسائل الدفع المتاحة حالياً عبر Payhip/Stripe</div>
+        <div class="payment-title">وسائل الدفع المتاحة حالياً</div>
         <div class="payment-icons">
           <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
           <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
           <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
-          <span class="payment-badge stc soon"><span class="symbol">stc</span> Pay</span>
+          <span class="payment-badge soon"><span class="symbol">stc</span> Pay</span>
           <span class="payment-badge soon"><span class="symbol">مدى</span></span>
-          <span class="payment-badge secure"><span class="symbol">✓</span> دفع آمن</span>
         </div>
-        <div class="payment-note">
-          حالياً نعتمد Visa و Mastercard و Apple Pay عبر Stripe داخل Payhip. STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة دفع محلية لاحقاً.
-        </div>
+        <div class="payment-note">حالياً نعتمد Payhip + Stripe/Wise. STC Pay ومدى نضيفهما لاحقاً بعد تفعيل PayTabs أو بوابة دفع محلية.</div>
       </section>
 
       <section class="email-capture" id="email-updates" aria-label="اشتراك البريد الاختياري">
         <div class="email-copy">
-          <strong>لا تحتاج إلى حساب للشراء</strong>
-          <span>اضغط شراء، ادفع في صفحة Payhip الآمنة، واستلم رابط التحميل على بريدك. إدخال البريد هنا اختياري فقط للمجانيات والتحديثات.</span>
+          <strong>الشراء بدون إنشاء حساب</strong>
+          <span>إدخال البريد هنا اختياري للتحديثات والمجانيات فقط. الشراء يتم مباشرة من زر المنتج.</span>
         </div>
         <form class="email-form" id="emailForm">
           <input type="email" id="customerEmail" name="email" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
           <button type="submit">أرسل لي المجانيات</button>
         </form>
-        <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة. عند الإطلاق اربطه بـ MailerLite أو Formspree أو Supabase.</div>
+        <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة. عند الإطلاق اربطه بخدمة نشرات بريدية.</div>
       </section>
     </div>
-  </section></main>
+  </section>
+</main>
 
 <footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-logo"><span>مُنجَز</span>.ai</div>
-      <p>أدوات رقمية للمحترف العربي</p>
+      <p>منتجات رقمية للمحاسبين ورواد الأعمال.</p>
     </div>
-    <p>الدفع والتسليم يتمان عبر صفحة Payhip الآمنة.</p>
+    <p>واجهة مُنجَز للعرض، والدفع والتسليم يتمان عبر Payhip.</p>
   </div>
 </footer>
 
 <script>
-  // فلترة التصنيفات
   const categoryButtons = document.querySelectorAll('.cat');
   const productCards = document.querySelectorAll('.card');
 
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
-
       categoryButtons.forEach((btn) => btn.classList.remove('active'));
       button.classList.add('active');
-
       productCards.forEach((card) => {
         const categories = card.dataset.category || '';
         const shouldShow = filter === 'all' || categories.split(' ').includes(filter);
@@ -662,8 +781,6 @@
     });
   });
 
-
-  // نموذج البريد الاختياري: نسخة تجريبية بدون Backend
   const emailForm = document.getElementById('emailForm');
   const emailInput = document.getElementById('customerEmail');
   const emailMessage = document.getElementById('emailMessage');
@@ -671,26 +788,22 @@
   if (emailForm) {
     emailForm.addEventListener('submit', (event) => {
       event.preventDefault();
-
       const email = (emailInput.value || '').trim();
+      emailMessage.style.display = 'block';
       if (!email) {
-        emailMessage.style.display = 'block';
-        emailMessage.textContent = 'البريد اختياري. يمكنك الشراء مباشرة من أزرار المنتجات بدون إنشاء حساب.';
+        emailMessage.textContent = 'البريد اختياري. يمكنك الشراء مباشرة بدون إنشاء حساب.';
         return;
       }
-
       localStorage.setItem('munjaz_optional_email', email);
-      emailMessage.style.display = 'block';
       emailMessage.textContent = 'تم تسجيل بريدك للتجربة. عند الإطلاق اربط النموذج بخدمة نشرات بريدية.';
       emailForm.reset();
     });
   }
 
-  // منطق روابط الدفع المؤقتة
   document.querySelectorAll('a[href^="PAYHIP_"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
-      alert('استبدل هذا الرابط أولاً برابط المنتج الحقيقي من Payhip. حالياً اعرض Visa و Mastercard و Apple Pay، واجعل STC Pay ومدى قريباً إلى أن يتم تفعيل PayTabs.');
+      alert('استبدل هذا الرابط برابط المنتج الحقيقي من Payhip قبل الإطلاق.');
     });
   });
 </script>
