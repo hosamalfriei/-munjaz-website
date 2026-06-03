@@ -105,33 +105,57 @@
   /* HERO */
   .hero { padding: 70px 0 38px; }
   .hero-shell {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
-    gap: 28px;
-    align-items: stretch;
+    display: block;
   }
   .hero-copy {
-    background: rgba(255,253,248,.78);
+    min-height: 520px;
+    display: grid;
+    align-content: center;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(236,231,255,.95), transparent 18rem),
+      radial-gradient(circle at 88% 18%, rgba(216,246,231,.9), transparent 20rem),
+      radial-gradient(circle at 50% 105%, rgba(255,241,184,.95), transparent 18rem),
+      rgba(255,253,248,.9);
     border: 1px solid rgba(22,22,22,.08);
-    border-radius: var(--radius-xl);
-    padding: clamp(28px, 4vw, 48px);
+    border-radius: 36px;
+    padding: clamp(34px, 6vw, 78px);
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
+    text-align: center;
+  }
+  .hero-copy::before {
+    content: "AI";
+    position: absolute;
+    inset-inline-start: clamp(18px, 5vw, 70px);
+    top: clamp(22px, 5vw, 70px);
+    width: 92px;
+    height: 92px;
+    display: grid;
+    place-items: center;
+    border-radius: 28px;
+    background: var(--black);
+    color: var(--yellow);
+    font-weight: 900;
+    font-size: 30px;
+    box-shadow: 10px 10px 0 rgba(17,17,17,.08);
+    transform: rotate(-6deg);
+    z-index: 0;
   }
   .hero-copy::after {
     content: "";
     position: absolute;
-    width: 180px; height: 180px;
-    background: var(--yellow);
+    width: 260px; height: 260px;
+    background: linear-gradient(135deg, var(--lilac), var(--mint));
     border-radius: 45% 55% 50% 50%;
-    left: -70px; bottom: -80px;
-    opacity: .75;
+    left: -90px; bottom: -105px;
+    opacity: .8;
     z-index: 0;
   }
   .hero-copy > * { position: relative; z-index: 1; }
   .hero-badge {
     display: inline-flex;
+    justify-self: center;
     gap: 8px;
     align-items: center;
     background: var(--mint);
@@ -144,12 +168,13 @@
     border: 1px solid rgba(15,122,79,.14);
   }
   .hero h1 {
-    max-width: 650px;
-    font-size: clamp(36px, 6vw, 68px);
-    line-height: 1.05;
-    letter-spacing: -1.8px;
-    font-weight: 800;
-    margin-bottom: 18px;
+    max-width: 930px;
+    margin-inline: auto;
+    font-size: clamp(42px, 7vw, 86px);
+    line-height: 1.03;
+    letter-spacing: -2.2px;
+    font-weight: 900;
+    margin-bottom: 22px;
   }
   .hero h1 em {
     font-style: normal;
@@ -157,13 +182,25 @@
     background: linear-gradient(180deg, transparent 56%, var(--yellow) 56%);
   }
   .hero p {
-    max-width: 620px;
+    max-width: 760px;
+    margin-inline: auto;
     color: var(--soft-ink);
-    line-height: 1.9;
-    font-size: 16px;
+    line-height: 1.95;
+    font-size: 18px;
     margin-bottom: 26px;
   }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .ai-chips { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin: 0 auto 28px; }
+  .ai-chip {
+    display:inline-flex; align-items:center; gap:7px;
+    background: rgba(255,255,255,.78);
+    border:1px solid rgba(22,22,22,.09);
+    border-radius:999px;
+    padding:8px 13px;
+    font-size:12px;
+    font-weight:800;
+    color:var(--soft-ink);
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content:center; }
   .btn-primary, .btn-secondary {
     min-height: 48px;
     display: inline-flex;
@@ -226,6 +263,25 @@
   }
   .trust-box strong { display:block; font-size: 22px; margin-bottom: 5px; }
   .trust-box span { color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+
+  .quick-stats {
+    padding: 0 0 20px;
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .stat-pill {
+    background: rgba(255,253,248,.78);
+    border: 1px solid rgba(22,22,22,.08);
+    border-radius: 20px;
+    padding: 17px 18px;
+    box-shadow: 0 10px 28px rgba(17,17,17,.05);
+  }
+  .stat-pill strong { display:block; font-size:22px; margin-bottom:4px; }
+  .stat-pill span { color:var(--muted); font-size:12px; line-height:1.6; }
 
   /* CATEGORIES */
   .cats-wrap { padding: 8px 0 22px; }
@@ -492,8 +548,8 @@
   footer p { color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.7; }
 
   @media (max-width: 900px) {
-    .hero-shell, .checkout-grid { grid-template-columns: 1fr; }
-    .info-grid { grid-template-columns: repeat(2, 1fr); }
+    .checkout-grid { grid-template-columns: 1fr; }
+    .info-grid, .stats-row { grid-template-columns: repeat(2, 1fr); }
     .how-grid { grid-template-columns: 1fr; }
     .section-head { align-items: start; flex-direction: column; }
     .featured { grid-template-columns: 1fr; }
@@ -503,7 +559,7 @@
     .nav-links { display: none; }
     .hero { padding-top: 36px; }
     .hero-copy { padding: 26px; }
-    .trust-row, .info-grid { grid-template-columns: 1fr; }
+    .stats-row, .info-grid { grid-template-columns: 1fr; }
     .email-form { flex-direction: column; }
     .footer-inner { align-items: flex-start; flex-direction: column; }
   }
@@ -538,37 +594,20 @@
 <header class="hero" id="top">
   <div class="container hero-shell">
     <section class="hero-copy">
-      <div class="hero-badge">✦ Marketplace عربي للمنتجات الرقمية</div>
-      <h1>ملفات جاهزة تجعل عملك <em>أسرع</em> وأذكى</h1>
-      <p>قوالب محاسبية، أدوات AI، وملفات عملية مصممة للمحاسبين ورواد الأعمال في السعودية والخليج. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
+      <div class="hero-badge">✦ متجر عربي لمنتجات الذكاء الاصطناعي</div>
+      <h1>منتجات AI جاهزة تجعل عملك <em>أسرع</em> وأكثر احترافية</h1>
+      <p>Prompts احترافية، قوالب محاسبية ذكية، وملفات رقمية عملية للمحاسبين ورواد الأعمال في السعودية والخليج. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
+      <div class="ai-chips" aria-label="أنواع المنتجات">
+        <span class="ai-chip">🤖 AI Prompts</span>
+        <span class="ai-chip">📊 قوالب مالية ذكية</span>
+        <span class="ai-chip">🧾 ملفات جاهزة للعمل</span>
+        <span class="ai-chip">⚡ تسليم فوري</span>
+      </div>
       <div class="hero-actions">
         <a class="btn-primary" href="#products">اكتشف المنتجات</a>
         <a class="btn-secondary" href="#how">كيف تتم العملية؟</a>
       </div>
     </section>
-
-    <aside class="hero-preview" aria-label="منتج مميز">
-      <div class="preview-card">
-        <div class="mini-product">
-          <div class="mini-art">🤖</div>
-          <div>
-            <h2>دليل المحاسب الذكي</h2>
-            <p>90 Prompt احترافي + PDF + Google Sheets جاهز للتحرير.</p>
-          </div>
-        </div>
-        <div class="mini-price">
-          <div>
-            <span>199 ر.س</span>
-            <strong>149 ر.س</strong>
-          </div>
-          <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ الآن</a>
-        </div>
-      </div>
-      <div class="trust-row">
-        <div class="trust-box"><strong>+90</strong><span>Prompt جاهز للاستخدام في العمل اليومي.</span></div>
-        <div class="trust-box"><strong>فوري</strong><span>رابط التحميل يصل بعد الدفع مباشرة.</span></div>
-      </div>
-    </aside>
   </div>
 </header>
 
@@ -583,6 +622,15 @@
     <button class="cat" data-filter="free">مجاني</button>
   </div>
 </div>
+
+<section class="quick-stats" aria-label="أرقام سريعة">
+  <div class="container stats-row">
+    <div class="stat-pill"><strong>3</strong><span>باقات AI قابلة للتطوير حسب احتياجك.</span></div>
+    <div class="stat-pill"><strong>+90</strong><span>Prompt عملي للمحاسبة والتحليل والكتابة.</span></div>
+    <div class="stat-pill"><strong>ZATCA</strong><span>قوالب محاسبية مهيأة للسوق السعودي.</span></div>
+    <div class="stat-pill"><strong>فوري</strong><span>استلام رابط المنتج بعد الدفع مباشرة.</span></div>
+  </div>
+</section>
 
 <main class="container">
   <section class="featured" aria-label="المنتج الأكثر مبيعاً">
@@ -604,7 +652,7 @@
         <div class="eyebrow">المنتجات الرقمية</div>
         <h2 class="section-title">كل منتج مصمم ليحل مهمة واضحة</h2>
       </div>
-      <p class="section-note">الثيم الجديد يركز على تجربة Marketplace: بطاقات واضحة، تصنيفات سريعة، وأسعار وأزرار شراء مباشرة بدون تشتيت.</p>
+      <p class="section-note">المنتجات مرتبة حسب الاستخدام: AI Prompts، محاسبة ومالية، Excel، Google Sheets، ومنتجات مجانية للتجربة.</p>
     </div>
 
     <div class="grid">
