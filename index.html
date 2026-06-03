@@ -52,7 +52,7 @@
   }
 
   a { color: inherit; }
-  .container { width: min(1140px, calc(100% - 32px)); margin: 0 auto; }
+  .container { width: 100%; max-width: none; margin: 0; padding-inline: clamp(18px, 4vw, 72px); }
 
   /* NAV */
   nav {
@@ -103,34 +103,42 @@
   }
 
   /* HERO */
-  .hero { padding: 34px 0 18px; }
-  .hero-shell {
-    display: block;
-  }
+  .hero { padding: 0; }
+  .hero-shell { padding-inline: 0; }
   .hero-copy {
-    min-height: auto;
+    min-height: clamp(430px, 52vw, 620px);
     display: grid;
-    align-content: center;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+    align-items: center;
+    gap: clamp(24px, 5vw, 78px);
     background:
-      radial-gradient(circle at 12% 18%, rgba(236,231,255,.95), transparent 18rem),
-      radial-gradient(circle at 88% 18%, rgba(216,246,231,.9), transparent 20rem),
-      radial-gradient(circle at 50% 105%, rgba(255,241,184,.95), transparent 18rem),
-      rgba(255,253,248,.9);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: 36px;
-    padding: clamp(34px, 5vw, 58px) clamp(22px, 7vw, 86px);
-    box-shadow: var(--shadow);
+      radial-gradient(circle at 82% 18%, rgba(216,246,231,.95), transparent 24rem),
+      radial-gradient(circle at 15% 20%, rgba(236,231,255,.9), transparent 23rem),
+      linear-gradient(135deg, #fffdf8 0%, #f7f0ff 45%, #eafff4 100%);
+    border-bottom: 1px solid rgba(22,22,22,.08);
+    padding: clamp(42px, 6vw, 86px) clamp(18px, 7vw, 118px);
     position: relative;
     overflow: hidden;
-    text-align: center;
+    text-align: right;
   }
   .hero-copy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at 75% 35%, black, transparent 62%);
+    pointer-events: none;
+  }
+  .hero-copy::after {
     content: "AI";
     position: absolute;
-    inset-inline-start: clamp(18px, 5vw, 70px);
-    top: clamp(22px, 5vw, 70px);
-    width: 74px;
-    height: 74px;
+    inset-inline-start: clamp(24px, 5vw, 76px);
+    top: clamp(30px, 6vw, 78px);
+    width: 72px;
+    height: 72px;
     display: grid;
     place-items: center;
     border-radius: 22px;
@@ -140,22 +148,10 @@
     font-size: 25px;
     box-shadow: 10px 10px 0 rgba(17,17,17,.08);
     transform: rotate(-6deg);
-    z-index: 0;
   }
-  .hero-copy::after {
-    content: "";
-    position: absolute;
-    width: 180px; height: 180px;
-    background: linear-gradient(135deg, var(--lilac), var(--mint));
-    border-radius: 45% 55% 50% 50%;
-    left: -70px; bottom: -86px;
-    opacity: .8;
-    z-index: 0;
-  }
-  .hero-copy > * { position: relative; z-index: 1; }
+  .hero-content, .ai-visual { position: relative; z-index: 1; }
   .hero-badge {
     display: inline-flex;
-    justify-self: center;
     gap: 8px;
     align-items: center;
     background: var(--mint);
@@ -168,28 +164,26 @@
     border: 1px solid rgba(15,122,79,.14);
   }
   .hero h1 {
-    max-width: 930px;
-    margin-inline: auto;
-    font-size: clamp(36px, 5.6vw, 72px);
-    line-height: 1.03;
-    letter-spacing: -2.2px;
+    max-width: 850px;
+    font-size: clamp(42px, 6.6vw, 94px);
+    line-height: .98;
+    letter-spacing: -2.8px;
     font-weight: 900;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
   .hero h1 em {
     font-style: normal;
     display: inline-block;
-    background: linear-gradient(180deg, transparent 56%, var(--yellow) 56%);
+    background: linear-gradient(180deg, transparent 58%, var(--yellow) 58%);
   }
   .hero p {
-    max-width: 760px;
-    margin-inline: auto;
+    max-width: 680px;
     color: var(--soft-ink);
     line-height: 1.95;
-    font-size: 17px;
-    margin-bottom: 20px;
+    font-size: clamp(16px, 1.35vw, 19px);
+    margin-bottom: 22px;
   }
-  .ai-chips { display:flex; justify-content:center; gap:9px; flex-wrap:wrap; margin: 0 auto 22px; }
+  .ai-chips { display:flex; justify-content:flex-start; gap:9px; flex-wrap:wrap; margin: 0 0 24px; }
   .ai-chip {
     display:inline-flex; align-items:center; gap:7px;
     background: rgba(255,255,255,.78);
@@ -200,7 +194,40 @@
     font-weight:800;
     color:var(--soft-ink);
   }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content:center; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content:flex-start; }
+  .ai-visual {
+    min-height: 330px;
+    border-radius: 34px;
+    background: rgba(17,17,17,.96);
+    color: white;
+    padding: clamp(22px, 3vw, 34px);
+    box-shadow: 18px 18px 0 rgba(17,17,17,.08);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .ai-visual::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,241,184,.55), transparent 12rem),
+      radial-gradient(circle at 88% 18%, rgba(216,246,231,.32), transparent 13rem),
+      radial-gradient(circle at 40% 90%, rgba(236,231,255,.34), transparent 16rem);
+    pointer-events: none;
+  }
+  .ai-visual > * { position: relative; z-index: 1; }
+  .ai-visual-label { color: var(--yellow); font-size: 13px; font-weight: 900; margin-bottom: 18px; }
+  .prompt-card {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .prompt-card strong { display:block; font-size: 18px; margin-bottom: 8px; }
+  .prompt-card span { display:block; color: rgba(255,255,255,.72); line-height: 1.8; font-size: 13px; }
+  .ai-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .ai-tags span { background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:8px 11px; color:rgba(255,255,255,.82); font-size:12px; font-weight:800; }
   .btn-primary, .btn-secondary {
     min-height: 48px;
     display: inline-flex;
@@ -594,19 +621,35 @@
 <header class="hero" id="top">
   <div class="container hero-shell">
     <section class="hero-copy">
-      <div class="hero-badge">✦ متجر عربي لمنتجات الذكاء الاصطناعي</div>
-      <h1>منتجات AI جاهزة تجعل عملك <em>أسرع</em> وأكثر احترافية</h1>
-      <p>Prompts احترافية، قوالب محاسبية ذكية، وملفات رقمية عملية للمحاسبين ورواد الأعمال في السعودية والخليج. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
-      <div class="ai-chips" aria-label="أنواع المنتجات">
-        <span class="ai-chip">🤖 AI Prompts</span>
-        <span class="ai-chip">📊 قوالب مالية ذكية</span>
-        <span class="ai-chip">🧾 ملفات جاهزة للعمل</span>
-        <span class="ai-chip">⚡ تسليم فوري</span>
+      <div class="hero-content">
+        <div class="hero-badge">✦ متجر عربي لمنتجات الذكاء الاصطناعي</div>
+        <h1>منتجات AI جاهزة تجعل عملك <em>أسرع</em> وأكثر احترافية</h1>
+        <p>Prompts احترافية، قوالب محاسبية ذكية، وأدوات رقمية عملية تساعدك على الكتابة والتحليل وإعداد التقارير بسرعة. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
+        <div class="ai-chips" aria-label="أنواع المنتجات">
+          <span class="ai-chip">🤖 AI Prompts</span>
+          <span class="ai-chip">📊 تحليل وتقارير</span>
+          <span class="ai-chip">🧾 قوالب محاسبية ذكية</span>
+          <span class="ai-chip">⚡ تسليم فوري</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#products">اكتشف المنتجات</a>
+          <a class="btn-secondary" href="#how">كيف تتم العملية؟</a>
+        </div>
       </div>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#products">اكتشف المنتجات</a>
-        <a class="btn-secondary" href="#how">كيف تتم العملية؟</a>
-      </div>
+      <aside class="ai-visual" aria-label="أمثلة على منتجات الذكاء الاصطناعي">
+        <div class="ai-visual-label">AI Product Stack</div>
+        <div class="prompt-card">
+          <strong>Prompt Packs جاهزة</strong>
+          <span>أوامر منظمة للمحاسبة، التحليل، الكتابة، خدمة العملاء، وبناء التقارير.</span>
+        </div>
+        <div class="prompt-card">
+          <strong>قوالب عمل ذكية</strong>
+          <span>ملفات قابلة للتعديل تساعدك على تحويل المدخلات إلى مخرجات احترافية.</span>
+        </div>
+        <div class="ai-tags">
+          <span>ChatGPT</span><span>Finance AI</span><span>Excel</span><span>Reports</span>
+        </div>
+      </aside>
     </section>
   </div>
 </header>
