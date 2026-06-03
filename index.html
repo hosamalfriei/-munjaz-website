@@ -85,21 +85,15 @@
   a { color: inherit; }
   .container { width: 100%; max-width: none; margin: 0; padding-inline: clamp(18px, 4vw, 72px); }
 
-  /* NAV */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
     background: rgba(255, 253, 248, .82);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(22,22,22,.08);
   }
   .nav-inner {
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
+    height: 72px; display: flex;
+    align-items: center; justify-content: space-between; gap: 18px;
   }
   .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
   .logo-mark {
@@ -114,27 +108,16 @@
   .logo-name span { font-weight: 900; color: var(--black); }
   .logo-name small { font-size: 18px; color: var(--muted); font-weight: 800; }
   .nav-links { display: flex; align-items: center; gap: 24px; }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--soft-ink);
-    font-size: 14px;
-    font-weight: 600;
-  }
+  .nav-links a { text-decoration: none; color: var(--soft-ink); font-size: 14px; font-weight: 600; }
   .nav-links a:hover { color: var(--black); }
   .nav-cta {
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 40px;
-    padding: 0 18px;
-    border-radius: 999px;
-    background: var(--black);
-    color: white;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 13px;
+    min-height: 40px; padding: 0 18px; border-radius: 999px;
+    background: var(--black); color: white;
+    text-decoration: none; font-weight: 800; font-size: 13px;
     box-shadow: 0 14px 32px rgba(17,17,17,.16);
   }
 
-  /* HERO */
   .hero { padding: 0; }
   .hero-shell { padding-inline: 0; }
   .hero-copy {
@@ -149,14 +132,11 @@
       linear-gradient(135deg, #fffdf8 0%, #f7f0ff 45%, #eafff4 100%);
     border-bottom: 1px solid rgba(22,22,22,.08);
     padding: clamp(34px, 5vw, 68px) clamp(18px, 7vw, 118px);
-    position: relative;
-    overflow: hidden;
-    text-align: right;
+    position: relative; overflow: hidden; text-align: right;
   }
   .hero-copy::before {
     content: "";
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
@@ -169,78 +149,52 @@
     position: absolute;
     inset-inline-start: clamp(24px, 5vw, 76px);
     top: clamp(30px, 6vw, 78px);
-    width: 72px;
-    height: 72px;
-    display: grid;
-    place-items: center;
+    width: 72px; height: 72px;
+    display: grid; place-items: center;
     border-radius: 22px;
-    background: var(--black);
-    color: var(--yellow);
-    font-weight: 900;
-    font-size: 25px;
+    background: var(--black); color: var(--yellow);
+    font-weight: 900; font-size: 25px;
     box-shadow: 10px 10px 0 rgba(17,17,17,.08);
     transform: rotate(-6deg);
   }
   .hero-content, .ai-visual { position: relative; z-index: 1; }
   .hero-badge {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    background: var(--mint);
-    color: var(--mint-dark);
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 800;
-    margin-bottom: 18px;
+    display: inline-flex; gap: 8px; align-items: center;
+    background: var(--mint); color: var(--mint-dark);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 13px; font-weight: 800; margin-bottom: 18px;
     border: 1px solid rgba(15,122,79,.14);
   }
   .hero h1 {
     max-width: 850px;
     font-size: clamp(34px, 4.6vw, 64px);
-    line-height: 1.08;
-    letter-spacing: -2.8px;
-    font-weight: 900;
-    margin-bottom: 20px;
+    line-height: 1.08; letter-spacing: -2.8px;
+    font-weight: 900; margin-bottom: 20px;
   }
   .hero h1 em {
-    font-style: normal;
-    display: inline-block;
+    font-style: normal; display: inline-block;
     background: linear-gradient(180deg, transparent 58%, var(--yellow) 58%);
   }
   .hero p {
-    max-width: 680px;
-    color: var(--soft-ink);
-    line-height: 1.95;
-    font-size: clamp(16px, 1.35vw, 19px);
-    margin-bottom: 22px;
+    max-width: 680px; color: var(--soft-ink);
+    line-height: 1.95; font-size: clamp(16px, 1.35vw, 19px); margin-bottom: 22px;
   }
   .ai-chips { display:flex; justify-content:flex-start; gap:9px; flex-wrap:wrap; margin: 0 0 24px; }
   .ai-chip {
     display:inline-flex; align-items:center; gap:7px;
-    background: rgba(255,255,255,.78);
-    border:1px solid rgba(22,22,22,.09);
-    border-radius:999px;
-    padding:8px 13px;
-    font-size:12px;
-    font-weight:800;
-    color:var(--soft-ink);
+    background: rgba(255,255,255,.78); border:1px solid rgba(22,22,22,.09);
+    border-radius:999px; padding:8px 13px; font-size:12px; font-weight:800; color:var(--soft-ink);
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content:flex-start; }
   .ai-visual {
-    min-height: 330px;
-    border-radius: 34px;
-    background: rgba(17,17,17,.96);
-    color: white;
+    min-height: 330px; border-radius: 34px;
+    background: rgba(17,17,17,.96); color: white;
     padding: clamp(22px, 3vw, 34px);
     box-shadow: 18px 18px 0 rgba(17,17,17,.08);
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.08);
+    overflow: hidden; border: 1px solid rgba(255,255,255,.08);
   }
   .ai-visual::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
+    content: ""; position: absolute; inset: -1px;
     background:
       radial-gradient(circle at 20% 20%, rgba(255,241,184,.55), transparent 12rem),
       radial-gradient(circle at 88% 18%, rgba(216,246,231,.32), transparent 13rem),
@@ -250,212 +204,48 @@
   .ai-visual > * { position: relative; z-index: 1; }
   .ai-visual-label { color: var(--yellow); font-size: 13px; font-weight: 900; margin-bottom: 18px; }
   .prompt-card {
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 22px;
-    padding: 18px;
-    margin-bottom: 12px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px; padding: 18px; margin-bottom: 12px;
   }
   .prompt-card strong { display:block; font-size: 18px; margin-bottom: 8px; }
   .prompt-card span { display:block; color: rgba(255,255,255,.72); line-height: 1.8; font-size: 13px; }
   .ai-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
-  .ai-tags span { background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:8px 11px; color:rgba(255,255,255,.82); font-size:12px; font-weight:800; }
+  .ai-tags span {
+    background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.12);
+    border-radius:999px; padding:8px 11px; color:rgba(255,255,255,.82); font-size:12px; font-weight:800;
+  }
   .btn-primary, .btn-secondary {
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    padding: 0 22px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 14px;
-    transition: transform .18s, box-shadow .18s;
+    min-height: 48px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 999px; padding: 0 22px; text-decoration: none;
+    font-weight: 800; font-size: 14px; transition: transform .18s, box-shadow .18s;
   }
   .btn-primary { background: var(--black); color: white; box-shadow: 8px 8px 0 rgba(17,17,17,.11); }
   .btn-secondary { background: white; color: var(--black); border: 1px solid var(--line); }
   .btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
 
-  .hero-preview {
-    display: grid;
-    gap: 14px;
-  }
-  .preview-card {
-    background: var(--paper);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    box-shadow: var(--shadow);
-  }
-  .mini-product {
-    display: grid;
-    grid-template-columns: 82px 1fr;
-    gap: 14px;
-    align-items: center;
-  }
-  .mini-art {
-    height: 82px;
-    border-radius: 20px;
-    background: var(--lilac);
-    display: grid;
-    place-items: center;
-    font-size: 34px;
-    border: 1px solid rgba(91,63,214,.14);
-  }
-  .mini-product h2 { font-size: 20px; line-height: 1.35; margin-bottom: 7px; }
-  .mini-product p { color: var(--muted); font-size: 13px; line-height: 1.7; }
-  .mini-price { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top: 14px; }
-  .mini-price strong { font-size: 26px; }
-  .mini-price span { font-size: 13px; color: var(--muted); text-decoration: line-through; }
-  .trust-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .trust-box {
-    background: rgba(255,253,248,.78);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: 20px;
-    padding: 18px;
-    min-height: 110px;
-    box-shadow: var(--shadow);
-  }
-  .trust-box strong { display:block; font-size: 22px; margin-bottom: 5px; }
-  .trust-box span { color: var(--muted); font-size: 13px; line-height: 1.6; }
-
-
-  .quick-stats {
-    padding: 0 0 20px;
-  }
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  .stat-pill {
-    background: rgba(255,253,248,.78);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: 20px;
-    padding: 17px 18px;
-    box-shadow: 0 10px 28px rgba(17,17,17,.05);
-  }
-  .stat-pill strong { display:block; font-size:22px; margin-bottom:4px; }
-  .stat-pill span { color:var(--muted); font-size:12px; line-height:1.6; }
-
-  /* CATEGORIES */
   .cats-wrap { padding: 20px 0 18px; }
-  .cats {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+  .cats { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
   .cats::-webkit-scrollbar { display: none; }
   .cat {
-    border: 1px solid rgba(22,22,22,.1);
-    background: rgba(255,253,248,.85);
-    color: var(--soft-ink);
-    padding: 11px 17px;
-    border-radius: 999px;
-    font-family: inherit;
-    font-weight: 800;
-    font-size: 13px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background .18s, color .18s, transform .18s;
+    border: 1px solid rgba(22,22,22,.1); background: rgba(255,253,248,.85);
+    color: var(--soft-ink); padding: 11px 17px; border-radius: 999px;
+    font-family: inherit; font-weight: 800; font-size: 13px;
+    cursor: pointer; white-space: nowrap; transition: background .18s, color .18s, transform .18s;
   }
   .cat:hover { transform: translateY(-1px); }
   .cat.active { background: var(--black); color: white; border-color: var(--black); }
 
   main { padding: 0 0 54px; }
   .section-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: end;
-    margin: 24px 0 18px;
+    display: flex; justify-content: space-between; gap: 18px;
+    align-items: end; margin: 24px 0 18px;
   }
-  .eyebrow {
-    color: var(--mint-dark);
-    font-weight: 800;
-    font-size: 12px;
-    letter-spacing: .6px;
-    margin-bottom: 8px;
-  }
+  .eyebrow { color: var(--mint-dark); font-weight: 800; font-size: 12px; letter-spacing: .6px; margin-bottom: 8px; }
   .section-title { font-size: clamp(24px, 4vw, 38px); font-weight: 800; letter-spacing: -.8px; }
   .section-note { max-width: 470px; color: var(--muted); line-height: 1.8; font-size: 13px; }
 
-  /* FEATURED */
-  .featured {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 22px;
-    align-items: center;
-    background: var(--black);
-    color: white;
-    border-radius: var(--radius-xl);
-    padding: 26px;
-    box-shadow: var(--shadow-hover);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 24px;
-  }
-  .featured::before {
-    content: "";
-    position: absolute;
-    inset-inline-start: -70px;
-    top: -70px;
-    width: 220px; height: 220px;
-    background: var(--lilac-dark);
-    border-radius: 50%;
-    opacity: .8;
-  }
-  .featured::after {
-    content: "";
-    position: absolute;
-    inset-inline-end: 32%;
-    bottom: -92px;
-    width: 180px; height: 180px;
-    background: var(--mint-dark);
-    border-radius: 50%;
-    opacity: .55;
-  }
-  .featured > * { position: relative; z-index: 1; }
-  .featured-tag {
-    display: inline-flex;
-    background: var(--yellow);
-    color: var(--yellow-dark);
-    padding: 7px 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 12px;
-  }
-  .featured h2 { font-size: clamp(22px, 3vw, 34px); line-height: 1.35; margin-bottom: 8px; }
-  .featured-desc { color: rgba(255,255,255,.74); line-height: 1.8; font-size: 14px; }
-  .featured-side { min-width: 180px; text-align: left; }
-  .price-old { color: rgba(255,255,255,.42); text-decoration: line-through; font-size: 14px; }
-  .price-new { font-size: 36px; font-weight: 800; margin: 2px 0 12px; }
-  .price-new span { font-size: 14px; font-weight: 600; }
-  .btn-featured {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 46px;
-    width: 100%;
-    border-radius: 999px;
-    background: white;
-    color: var(--black);
-    text-decoration: none;
-    font-weight: 800;
-  }
-
-  /* PRODUCTS */
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 18px; }
-  .card.best-seller {
-    border-color: rgba(91,63,214,.28);
-    box-shadow: 0 18px 48px rgba(91,63,214,.13);
-  }
+  .card.best-seller { border-color: rgba(91,63,214,.28); box-shadow: 0 18px 48px rgba(91,63,214,.13); }
   .card.best-seller .card-thumb {
     background:
       radial-gradient(circle at 22% 25%, rgba(255,241,184,.95), transparent 7rem),
@@ -464,46 +254,28 @@
     color: white;
   }
   .best-badge {
-    position: absolute;
-    inset-inline-start: 14px;
-    top: 14px;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--yellow);
-    color: var(--yellow-dark);
-    border-radius: 999px;
-    padding: 7px 11px;
-    font-size: 11px;
-    font-weight: 900;
+    position: absolute; inset-inline-start: 14px; top: 14px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--yellow); color: var(--yellow-dark);
+    border-radius: 999px; padding: 7px 11px; font-size: 11px; font-weight: 900;
     box-shadow: 0 8px 20px rgba(17,17,17,.14);
   }
   .card.best-seller .card-tag { background: #171717; color: var(--yellow); }
   .card {
-    background: var(--paper);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: 24px;
-    overflow: hidden;
+    background: var(--paper); border: 1px solid rgba(22,22,22,.08);
+    border-radius: 24px; overflow: hidden;
     box-shadow: 0 10px 25px rgba(17,17,17,.05);
     transition: transform .18s, box-shadow .18s, border-color .18s;
   }
   .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(17,17,17,.16); }
   .card-thumb {
-    height: 150px;
-    display: grid;
-    place-items: center;
-    font-size: 46px;
-    position: relative;
-    overflow: hidden;
+    height: 150px; display: grid; place-items: center;
+    font-size: 46px; position: relative; overflow: hidden;
   }
   .card-thumb::before {
-    content: "";
-    position: absolute;
-    width: 120px; height: 120px;
-    background: rgba(255,255,255,.38);
-    border-radius: 36px;
-    transform: rotate(18deg);
+    content: ""; position: absolute;
+    width: 120px; height: 120px; background: rgba(255,255,255,.38);
+    border-radius: 36px; transform: rotate(18deg);
   }
   .card-thumb span { position: relative; z-index: 1; }
   .c-ai { background: var(--lilac); }
@@ -513,80 +285,51 @@
   .c-nfc { background: var(--pink); }
   .card-body { padding: 18px; }
   .card-tag {
-    display: inline-flex;
-    align-items: center;
-    height: 26px;
-    padding: 0 10px;
-    border-radius: 999px;
-    background: #f3efe7;
-    color: var(--soft-ink);
-    font-size: 11px;
-    font-weight: 800;
-    margin-bottom: 10px;
+    display: inline-flex; align-items: center; height: 26px; padding: 0 10px;
+    border-radius: 999px; background: #f3efe7; color: var(--soft-ink);
+    font-size: 11px; font-weight: 800; margin-bottom: 10px;
   }
   .card-name { font-size: 17px; line-height: 1.45; margin-bottom: 7px; font-weight: 800; }
   .card-desc { color: var(--muted); font-size: 13px; line-height: 1.75; min-height: 46px; }
   .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-top: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; margin-top: 18px;
   }
   .card-price, .card-price-free, .card-price-soon { font-weight: 800; }
   .card-price { font-size: 18px; }
   .card-price-free { color: var(--mint-dark); }
   .card-price-soon { color: var(--muted); font-size: 13px; }
   .btn-buy {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 38px;
-    padding: 0 15px;
-    border-radius: 999px;
-    background: var(--black);
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
+    display: inline-flex; justify-content: center; align-items: center;
+    min-height: 38px; padding: 0 15px; border-radius: 999px;
+    background: var(--black); color: white; text-decoration: none;
+    font-size: 12px; font-weight: 800;
   }
   .btn-buy.free { background: var(--mint-dark); }
   .btn-buy.soon { background: #ece7df; color: var(--muted); cursor: default; }
 
-  /* WHY + HOW */
   .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .info-card, .how-card, .payment-panel, .email-capture {
-    background: rgba(255,253,248,.78);
-    border: 1px solid rgba(22,22,22,.08);
-    border-radius: 22px;
-    padding: 20px;
-    box-shadow: 0 12px 32px rgba(17,17,17,.05);
+    background: rgba(255,253,248,.78); border: 1px solid rgba(22,22,22,.08);
+    border-radius: 22px; padding: 20px; box-shadow: 0 12px 32px rgba(17,17,17,.05);
   }
   .info-card .icon { font-size: 26px; margin-bottom: 10px; }
   .info-card strong, .how-card strong { display:block; font-size: 16px; margin-bottom: 7px; }
   .info-card p, .how-card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
   .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .step {
-    width: 34px; height: 34px;
-    display: grid; place-items: center;
-    background: var(--black); color: white;
-    border-radius: 50%;
-    font-weight: 800;
-    margin-bottom: 12px;
+    width: 34px; height: 34px; display: grid; place-items: center;
+    background: var(--black); color: white; border-radius: 50%;
+    font-weight: 800; margin-bottom: 12px;
   }
 
-  /* CHECKOUT INFO */
   .checkout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .payment-title { font-weight: 800; margin-bottom: 13px; }
   .payment-icons { display: flex; flex-wrap: wrap; gap: 8px; }
   .payment-badge {
     display: inline-flex; align-items: center; gap: 6px;
-    background: white;
-    border: 1px solid rgba(22,22,22,.1);
-    border-radius: 999px;
-    padding: 8px 11px;
-    font-size: 12px;
-    font-weight: 800;
+    background: white; border: 1px solid rgba(22,22,22,.1);
+    border-radius: 999px; padding: 8px 11px; font-size: 12px; font-weight: 800;
   }
   .payment-badge .symbol { font-weight: 900; }
   .payment-badge.visa .symbol { color: #1a3f8b; }
@@ -601,35 +344,18 @@
   .email-copy span { color: var(--muted); font-size: 12px; line-height: 1.8; }
   .email-form { display: flex; gap: 8px; }
   .email-form input {
-    flex: 1;
-    min-height: 46px;
-    border: 1px solid rgba(22,22,22,.12);
-    border-radius: 999px;
-    padding: 0 16px;
-    font: inherit;
-    background: white;
-    outline: none;
+    flex: 1; min-height: 46px; border: 1px solid rgba(22,22,22,.12);
+    border-radius: 999px; padding: 0 16px; font: inherit;
+    background: white; outline: none;
   }
   .email-form input:focus { border-color: var(--black); }
   .email-form button {
-    min-height: 46px;
-    border: 0;
-    border-radius: 999px;
-    padding: 0 18px;
-    background: var(--black);
-    color: white;
-    font: inherit;
-    font-weight: 800;
-    cursor: pointer;
+    min-height: 46px; border: 0; border-radius: 999px; padding: 0 18px;
+    background: var(--black); color: white; font: inherit; font-weight: 800; cursor: pointer;
   }
   .email-message { display: none; color: var(--mint-dark); font-size: 12px; line-height: 1.7; }
 
-  footer {
-    background: var(--black);
-    color: white;
-    padding: 28px 0;
-    margin-top: 30px;
-  }
+  footer { background: var(--black); color: white; padding: 28px 0; margin-top: 30px; }
   .footer-inner { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
   .footer-logo { font-weight: 800; font-size: 18px; }
   footer p { color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.7; }
@@ -653,14 +379,6 @@
 </style>
 </head>
 <body>
-<!--
-  ملاحظات الإطلاق:
-  1) استبدل PAYHIP_* بروابط منتجات Payhip الحقيقية.
-  2) المسار الحالي: Payhip + Stripe/Wise، لذلك Visa و Mastercard و Apple Pay هي الوسائل الأساسية.
-  3) STC Pay ومدى تظهران كخيارات قادمة عند تفعيل PayTabs أو بوابة محلية لاحقاً.
-  4) نموذج البريد اختياري ولا يمنع الشراء. اربطه لاحقاً بـ MailerLite أو Formspree أو Supabase.
-  5) لا تضع مفاتيح Stripe أو PayTabs السرية داخل HTML.
--->
 
 <nav>
   <div class="container nav-inner">
@@ -726,8 +444,6 @@
   </div>
 </div>
 
-
-
 <main class="container">
   <section id="products">
     <div class="section-head">
@@ -739,41 +455,28 @@
     </div>
 
     <div class="grid">
-      <article class="card best-seller" data-category="ai accounting sheets">
-        <div class="card-thumb"><span class="best-badge">⭐ الأكثر طلباً</span><span>🤖</span></div>
-        <div class="card-body">
-          <div class="card-tag">AI Prompts — احترافية</div>
-          <h3 class="card-name">دليل المحاسب الذكي — احترافية</h3>
-          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري.</p>
-          <div class="card-footer">
-            <span class="card-price">149 ر.س</span>
-            <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
-          </div>
-        </div>
-      </article>
-
       <article class="card" data-category="ai free accounting">
         <div class="card-thumb c-free"><span>🎁</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — مجاني</div>
           <h3 class="card-name">10 Prompts محاسبية مجانية</h3>
-          <p class="card-desc">نموذج مجاني لتجربة الجودة قبل شراء الباقات المدفوعة.</p>
+          <p class="card-desc">نموذج مجاني لتجربة الجودة — جرّب قبل أن تقرر.</p>
           <div class="card-footer">
             <span class="card-price-free">مجاناً</span>
-            <a class="btn-buy free" href="PAYHIP_FREE_PRODUCT_LINK" target="_blank" rel="noopener">احصل عليه</a>
+            <a class="btn-buy free" href="https://payhip.com/b/ta2m0" target="_blank" rel="noopener">احصل عليه</a>
           </div>
         </div>
       </article>
 
-      <article class="card" data-category="ai accounting">
-        <div class="card-thumb c-ai"><span>📘</span></div>
+      <article class="card best-seller" data-category="ai accounting sheets">
+        <div class="card-thumb"><span class="best-badge">⭐ الأكثر طلباً</span><span>🤖</span></div>
         <div class="card-body">
-          <div class="card-tag">AI Prompts — أساسية</div>
-          <h3 class="card-name">دليل المحاسب الذكي — أساسية</h3>
-          <p class="card-desc">60 Prompt محاسبي جاهز + PDF احترافي للاستخدام الفوري.</p>
+          <div class="card-tag">AI Prompts — الحزمة الكاملة</div>
+          <h3 class="card-name">دليل المحاسب الذكي — الكاملة</h3>
+          <p class="card-desc">90 Prompt + PDF احترافي + Google Sheets جاهز للتحرير الفوري في 7 محاور.</p>
           <div class="card-footer">
-            <span class="card-price">79 ر.س</span>
-            <a class="btn-buy" href="PAYHIP_BASIC_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
+            <span class="card-price">99 ر.س</span>
+            <a class="btn-buy" href="https://payhip.com/b/bi5jq" target="_blank" rel="noopener">اشترِ الآن</a>
           </div>
         </div>
       </article>
@@ -843,34 +546,32 @@
     </div>
     <div class="how-grid">
       <div class="how-card"><div class="step">1</div><strong>اختر المنتج</strong><p>تصفح التصنيفات واختر الباقة المناسبة لاحتياجك.</p></div>
-      <div class="how-card"><div class="step">2</div><strong>ادفع عبر Payhip</strong><p>يتم الدفع عبر صفحة آمنة باستخدام Visa أو Mastercard أو Apple Pay عند توفرها في Stripe.</p></div>
+      <div class="how-card"><div class="step">2</div><strong>ادفع عبر Payhip</strong><p>يتم الدفع عبر صفحة آمنة باستخدام Visa أو Mastercard أو Apple Pay.</p></div>
       <div class="how-card"><div class="step">3</div><strong>استلم الملف</strong><p>رابط التحميل يصل إلى البريد المستخدم في عملية الشراء.</p></div>
     </div>
   </section>
 
-  <section class="checkout-info" id="checkout-info" aria-label="الدفع والشراء بدون حساب">
+  <section class="checkout-info" id="checkout-info">
     <div class="section-head">
       <div>
         <div class="eyebrow">الدفع والتسليم</div>
         <h2 class="section-title"> </h2>
       </div>
-      <p class="section-note">.</p>
     </div>
-
     <div class="checkout-grid">
-      <section class="payment-panel" id="payments" aria-label="وسائل الدفع المتاحة">
+      <section class="payment-panel" id="payments">
         <div class="payment-title">وسائل الدفع المتاحة حالياً</div>
         <div class="payment-icons">
           <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
           <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
-          <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
+          <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
           <span class="payment-badge soon"><span class="symbol">stc</span> Pay</span>
           <span class="payment-badge soon"><span class="symbol">مدى</span></span>
         </div>
         <div class="payment-note">حالياً نعتمد Payhip + Stripe/Wise. STC Pay ومدى نضيفهما لاحقاً بعد تفعيل PayTabs أو بوابة دفع محلية.</div>
       </section>
 
-      <section class="email-capture" id="email-updates" aria-label="اشتراك البريد الاختياري">
+      <section class="email-capture" id="email-updates">
         <div class="email-copy">
           <strong>الشراء بدون إنشاء حساب</strong>
           <span>إدخال البريد هنا اختياري للتحديثات والمجانيات فقط. الشراء يتم مباشرة من زر المنتج.</span>
@@ -879,7 +580,7 @@
           <input type="email" id="customerEmail" name="email" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
           <button type="submit">أرسل لي المجانيات</button>
         </form>
-        <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة. عند الإطلاق اربطه بخدمة نشرات بريدية.</div>
+        <div class="email-message" id="emailMessage">تم حفظ البريد محلياً للتجربة.</div>
       </section>
     </div>
   </section>
@@ -896,8 +597,9 @@
 </footer>
 
 <script>
+  // فلترة المنتجات
   const categoryButtons = document.querySelectorAll('.cat');
-  const productCards = document.querySelectorAll('.card');
+  const productCards    = document.querySelectorAll('.card');
 
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -912,8 +614,9 @@
     });
   });
 
-  const emailForm = document.getElementById('emailForm');
-  const emailInput = document.getElementById('customerEmail');
+  // نموذج البريد الاختياري
+  const emailForm    = document.getElementById('emailForm');
+  const emailInput   = document.getElementById('customerEmail');
   const emailMessage = document.getElementById('emailMessage');
 
   if (emailForm) {
@@ -926,11 +629,12 @@
         return;
       }
       localStorage.setItem('munjaz_optional_email', email);
-      emailMessage.textContent = 'تم تسجيل بريدك للتجربة. عند الإطلاق اربط النموذج بخدمة نشرات بريدية.';
+      emailMessage.textContent = 'تم تسجيل بريدك. سنرسل لك المجانيات والتحديثات.';
       emailForm.reset();
     });
   }
 
+  // تنبيه روابط Payhip غير المربوطة بعد
   document.querySelectorAll('a[href^="PAYHIP_"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
