@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مُنجَز.ai — متجر المنتجات الرقمية</title>
+<title>مُنجَز.ai — متجر منتجات الذكاء الاصطناعي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -43,12 +43,43 @@
   body {
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     background:
-      radial-gradient(circle at top left, rgba(236, 231, 255, .9), transparent 26rem),
-      radial-gradient(circle at 90% 12%, rgba(216, 246, 231, .8), transparent 22rem),
-      radial-gradient(circle at bottom right, rgba(255, 230, 204, .7), transparent 28rem),
-      var(--cream);
+      radial-gradient(circle at 12% 8%, rgba(236, 231, 255, .95), transparent 24rem),
+      radial-gradient(circle at 88% 12%, rgba(216, 246, 231, .9), transparent 23rem),
+      radial-gradient(circle at 55% 42%, rgba(223, 238, 255, .55), transparent 30rem),
+      radial-gradient(circle at bottom right, rgba(255, 230, 204, .65), transparent 30rem),
+      linear-gradient(180deg, #fffdf8 0%, #f7f2ea 55%, #f5efe6 100%);
     color: var(--ink);
     min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "AI • PROMPT • TEMPLATE • AUTOMATION • ";
+    position: fixed;
+    inset-inline: -10%;
+    top: 118px;
+    z-index: -1;
+    color: rgba(17,17,17,.035);
+    font-size: clamp(44px, 8vw, 120px);
+    font-weight: 900;
+    letter-spacing: 10px;
+    white-space: nowrap;
+    transform: rotate(-6deg);
+    pointer-events: none;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image:
+      linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+    pointer-events: none;
   }
 
   a { color: inherit; }
@@ -72,15 +103,16 @@
   }
   .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
   .logo-mark {
-    width: 42px; height: 42px; border-radius: 13px;
+    width: 44px; height: 44px; border-radius: 14px;
     background: var(--black); color: var(--yellow);
     display: grid; place-items: center;
-    font-weight: 800; font-size: 13px;
+    font-weight: 900; font-size: 15px;
     transform: rotate(-2deg);
     box-shadow: 7px 7px 0 rgba(0,0,0,.08);
   }
-  .logo-name { font-size: 20px; font-weight: 800; letter-spacing: -.4px; }
-  .logo-name span { font-weight: 600; color: var(--muted); }
+  .logo-name { font-size: 25px; font-weight: 900; letter-spacing: -.7px; color: var(--black); }
+  .logo-name span { font-weight: 900; color: var(--black); }
+  .logo-name small { font-size: 18px; color: var(--muted); font-weight: 800; }
   .nav-links { display: flex; align-items: center; gap: 24px; }
   .nav-links a {
     text-decoration: none;
@@ -335,7 +367,7 @@
   .cat:hover { transform: translateY(-1px); }
   .cat.active { background: var(--black); color: white; border-color: var(--black); }
 
-  main { padding: 8px 0 54px; }
+  main { padding: 0 0 54px; }
   .section-head {
     display: flex;
     justify-content: space-between;
@@ -420,6 +452,34 @@
 
   /* PRODUCTS */
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 18px; }
+  .card.best-seller {
+    border-color: rgba(91,63,214,.28);
+    box-shadow: 0 18px 48px rgba(91,63,214,.13);
+  }
+  .card.best-seller .card-thumb {
+    background:
+      radial-gradient(circle at 22% 25%, rgba(255,241,184,.95), transparent 7rem),
+      radial-gradient(circle at 85% 35%, rgba(216,246,231,.9), transparent 8rem),
+      linear-gradient(135deg, #171717 0%, #2d2169 100%);
+    color: white;
+  }
+  .best-badge {
+    position: absolute;
+    inset-inline-start: 14px;
+    top: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    border-radius: 999px;
+    padding: 7px 11px;
+    font-size: 11px;
+    font-weight: 900;
+    box-shadow: 0 8px 20px rgba(17,17,17,.14);
+  }
+  .card.best-seller .card-tag { background: #171717; color: var(--yellow); }
   .card {
     background: var(--paper);
     border: 1px solid rgba(22,22,22,.08);
@@ -605,8 +665,8 @@
 <nav>
   <div class="container nav-inner">
     <a href="#top" class="logo" aria-label="مُنجَز.ai">
-      <div class="logo-mark">مج</div>
-      <div class="logo-name"><span>مُنجَز</span>.ai</div>
+      <div class="logo-mark">AI</div>
+      <div class="logo-name"><span>مُنجَز</span><small>.ai</small></div>
     </a>
     <div class="nav-links">
       <a href="#products">المنتجات</a>
@@ -669,19 +729,6 @@
 
 
 <main class="container">
-  <section class="featured" aria-label="المنتج الأكثر مبيعاً">
-    <div>
-      <div class="featured-tag">⭐ الأكثر طلباً</div>
-      <h2>دليل المحاسب الذكي — الباقة الاحترافية</h2>
-      <div class="featured-desc">باقة عملية للمحاسبين: Prompts جاهزة، ملف PDF منظم، ونسخة Google Sheets قابلة للتعديل.</div>
-    </div>
-    <div class="featured-side">
-      <div class="price-old">199 ر.س</div>
-      <div class="price-new">149 <span>ر.س</span></div>
-      <a class="btn-featured" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ الآن</a>
-    </div>
-  </section>
-
   <section id="products">
     <div class="section-head">
       <div>
@@ -692,6 +739,19 @@
     </div>
 
     <div class="grid">
+      <article class="card best-seller" data-category="ai accounting sheets">
+        <div class="card-thumb"><span class="best-badge">⭐ الأكثر طلباً</span><span>🤖</span></div>
+        <div class="card-body">
+          <div class="card-tag">AI Prompts — احترافية</div>
+          <h3 class="card-name">دليل المحاسب الذكي — احترافية</h3>
+          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري.</p>
+          <div class="card-footer">
+            <span class="card-price">149 ر.س</span>
+            <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
+          </div>
+        </div>
+      </article>
+
       <article class="card" data-category="ai free accounting">
         <div class="card-thumb c-free"><span>🎁</span></div>
         <div class="card-body">
@@ -714,19 +774,6 @@
           <div class="card-footer">
             <span class="card-price">79 ر.س</span>
             <a class="btn-buy" href="PAYHIP_BASIC_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="ai accounting sheets">
-        <div class="card-thumb c-ai"><span>⭐</span></div>
-        <div class="card-body">
-          <div class="card-tag">AI Prompts — احترافية</div>
-          <h3 class="card-name">دليل المحاسب الذكي — احترافية</h3>
-          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للتحرير الفوري.</p>
-          <div class="card-footer">
-            <span class="card-price">149 ر.س</span>
-            <a class="btn-buy" href="PAYHIP_PRO_PRODUCT_LINK" target="_blank" rel="noopener">اشترِ</a>
           </div>
         </div>
       </article>
