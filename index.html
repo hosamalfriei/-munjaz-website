@@ -360,6 +360,131 @@
   .footer-logo { font-weight: 800; font-size: 18px; }
   footer p { color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.7; }
 
+  /* ═══ PRODUCT POPUP ═══ */
+  .popup-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(17,17,17,.72);
+    backdrop-filter: blur(6px);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .popup-overlay.open { display: flex; }
+
+  .popup {
+    background: var(--paper);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 32px 80px rgba(17,17,17,.22);
+    animation: popIn .22s ease;
+    position: relative;
+  }
+  @keyframes popIn {
+    from { opacity:0; transform: scale(.95) translateY(12px); }
+    to   { opacity:1; transform: scale(1)  translateY(0); }
+  }
+
+  .popup-thumb {
+    height: 160px;
+    display: grid; place-items: center;
+    font-size: 60px;
+    border-radius: 28px 28px 0 0;
+    position: relative; overflow: hidden;
+  }
+  .popup-thumb::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,.25);
+    border-radius: 50% 50% 0 0;
+    transform: scale(1.4) translateY(30%);
+  }
+  .popup-thumb span { position: relative; z-index: 1; }
+
+  .popup-close {
+    position: absolute; top: 14px; left: 14px;
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,.85);
+    border: none; border-radius: 50%;
+    font-size: 18px; cursor: pointer;
+    display: grid; place-items: center;
+    z-index: 2; transition: background .15s;
+  }
+  .popup-close:hover { background: white; }
+
+  .popup-body { padding: 28px; }
+
+  .popup-tag {
+    display: inline-flex; height: 26px;
+    align-items: center; padding: 0 10px;
+    border-radius: 999px; background: #f3efe7;
+    color: var(--soft-ink); font-size: 11px;
+    font-weight: 800; margin-bottom: 10px;
+  }
+
+  .popup-name {
+    font-size: 22px; font-weight: 900;
+    letter-spacing: -.4px; margin-bottom: 10px;
+    color: var(--black);
+  }
+
+  .popup-pitch {
+    font-size: 15px; color: var(--soft-ink);
+    line-height: 1.8; margin-bottom: 20px;
+    padding: 14px 16px;
+    background: var(--cream);
+    border-radius: 12px;
+    border-right: 3px solid var(--black);
+  }
+
+  .popup-features {
+    list-style: none; margin-bottom: 24px;
+    display: grid; gap: 10px;
+  }
+  .popup-features li {
+    display: flex; align-items: flex-start;
+    gap: 10px; font-size: 14px; color: var(--soft-ink);
+    line-height: 1.55;
+  }
+  .popup-features li .fi {
+    width: 26px; height: 26px; flex-shrink: 0;
+    background: var(--mint); border-radius: 8px;
+    display: grid; place-items: center;
+    font-size: 13px;
+  }
+
+  .popup-footer {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+
+  .popup-price { font-size: 28px; font-weight: 900; }
+  .popup-price small {
+    font-size: 14px; color: var(--muted);
+    text-decoration: line-through;
+    font-weight: 400; margin-right: 6px;
+  }
+  .popup-price-free { font-size: 24px; font-weight: 900; color: var(--mint-dark); }
+
+  .btn-popup-buy {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 28px;
+    border-radius: 999px;
+    background: var(--black); color: white;
+    text-decoration: none; font-weight: 800;
+    font-size: 15px; white-space: nowrap;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 6px 6px 0 rgba(17,17,17,.1);
+  }
+  .btn-popup-buy:hover { transform: translateY(-2px); box-shadow: 8px 10px 0 rgba(17,17,17,.12); }
+  .btn-popup-buy.free { background: var(--mint-dark); }
+
   @media (max-width: 900px) {
     .checkout-grid { grid-template-columns: 1fr; }
     .info-grid, .stats-row { grid-template-columns: repeat(2, 1fr); }
@@ -455,7 +580,7 @@
     </div>
 
     <div class="grid">
-      <article class="card" data-category="ai free accounting">
+      <article class="card" data-category="ai free accounting" onclick="openPopup('free')" style="cursor:pointer">
         <div class="card-thumb c-free"><span>🎁</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — مجاني</div>
@@ -468,7 +593,7 @@
         </div>
       </article>
 
-      <article class="card best-seller" data-category="ai accounting sheets">
+      <article class="card best-seller" data-category="ai accounting sheets" onclick="openPopup('full')" style="cursor:pointer">
         <div class="card-thumb"><span class="best-badge">⭐ الأكثر طلباً</span><span>🤖</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — الحزمة الكاملة</div>
@@ -481,7 +606,7 @@
         </div>
       </article>
 
-      <article class="card" data-category="excel accounting">
+      <article class="card" data-category="excel accounting" onclick="openPopup('excel-sm')" style="cursor:pointer">
         <div class="card-thumb c-excel"><span>📊</span></div>
         <div class="card-body">
           <div class="card-tag">قوالب Excel — شركات صغيرة</div>
@@ -494,7 +619,7 @@
         </div>
       </article>
 
-      <article class="card" data-category="excel accounting">
+      <article class="card" data-category="excel accounting" onclick="openPopup('excel-lg')" style="cursor:pointer">
         <div class="card-thumb c-excel"><span>📈</span></div>
         <div class="card-body">
           <div class="card-tag">قوالب Excel — شركات متوسطة وكبيرة</div>
@@ -507,7 +632,7 @@
         </div>
       </article>
 
-      <article class="card" data-category="excel accounting">
+      <article class="card" data-category="excel accounting" onclick="openPopup('excel-bundle')" style="cursor:pointer">
         <div class="card-thumb c-excel" style="background:linear-gradient(135deg,#ffe6cc,#ffd4a8)"><span>💎</span></div>
         <div class="card-body">
           <div class="card-tag">قوالب Excel — الحزمة الكاملة</div>
@@ -658,3 +783,131 @@
 
 </body>
 </html>
+
+<!-- ═══ PRODUCT POPUP ═══ -->
+<div class="popup-overlay" id="popupOverlay" onclick="handleOverlay(event)">
+  <div class="popup" id="popup">
+    <div class="popup-thumb" id="pThumb">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      <span id="pIcon"></span>
+    </div>
+    <div class="popup-body">
+      <div class="popup-tag" id="pTag"></div>
+      <div class="popup-name" id="pName"></div>
+      <div class="popup-pitch" id="pPitch"></div>
+      <ul class="popup-features" id="pFeatures"></ul>
+      <div class="popup-footer">
+        <div id="pPrice"></div>
+        <a id="pBtn" class="btn-popup-buy" href="#" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = {
+  free: {
+    icon:'🎁', bg:'var(--mint)', tag:'AI Prompts — مجاني',
+    name:'10 Prompts محاسبية مجانية',
+    pitch:'جرّب الجودة قبل أن تقرر — 10 Prompts مختارة من أفضل المحاور الاحترافية، جاهزة للنسخ والاستخدام الفوري مع ChatGPT أو Claude.',
+    features:[
+      ['📋','تغطي 3 محاور أساسية: التقارير، التحليل، والفواتير'],
+      ['⚡','كل Prompt جاهز للنسخ بضغطة واحدة'],
+      ['🇸🇦','مكتوبة بالعربية ومختبرة على السوق السعودي'],
+      ['🔄','تحديثات مستمرة بدون رسوم إضافية'],
+    ],
+    price:'<span class="popup-price-free">مجاناً تماماً</span>',
+    btnText:'🎁 احصل عليه مجاناً', btnClass:'free',
+    link:'https://hosamalfi.gumroad.com/l/eyuqs'
+  },
+  full: {
+    icon:'🤖', bg:'linear-gradient(135deg,#171717 0%,#2d2169 100%)',
+    tag:'AI Prompts — الحزمة الكاملة',
+    name:'دليل المحاسب الذكي — الكاملة',
+    pitch:'كل Prompt تحتاجه في عملك اليومي كمحاسب — من إعداد التقارير المالية حتى التحقق من ZATCA — في ملف واحد جاهز للاستخدام الفوري.',
+    features:[
+      ['🤖','90 Prompt احترافي في 7 محاور شاملة'],
+      ['📊','يشمل: التقارير، ZATCA، VAT، المراسلات، التحليل'],
+      ['📄','PDF احترافي + Google Sheets بزر نسخ لكل Prompt'],
+      ['⏱️','يوفّر ساعات من العمل اليدوي كل أسبوع'],
+      ['🔄','تحديثات مدى الحياة مع كل تغيير في الأنظمة'],
+    ],
+    price:'<span class="popup-price">$26</span>',
+    btnText:'🚀 اشترِ الآن — $26', btnClass:'',
+    link:'https://hosamalfi.gumroad.com/l/punwv'
+  },
+  'excel-sm': {
+    icon:'📊', bg:'var(--orange)', tag:'قوالب Excel — شركات صغيرة',
+    name:'قالب Excel للشركات الصغيرة',
+    pitch:'قالب جاهز للتشغيل الفوري — أدخل أرقامك وستظهر التقارير تلقائياً. مثالي للمنشآت الصغيرة التي تريد احترافية بدون تعقيد.',
+    features:[
+      ['📈','تقارير الأرباح والخسائر + الميزانية الشهرية'],
+      ['💵','تتبع التدفق النقدي بشكل تلقائي'],
+      ['🧾','فواتير متوافقة مع متطلبات ZATCA'],
+      ['🎨','تصميم احترافي جاهز للطباعة والتقديم'],
+      ['⚡','صيغ Excel مدمجة — لا تحتاج خبرة تقنية'],
+    ],
+    price:'<span class="popup-price">$13</span>',
+    btnText:'📊 اشترِ الآن — $13', btnClass:'',
+    link:'https://hosamalfi.gumroad.com/l/lgwtng'
+  },
+  'excel-lg': {
+    icon:'📈', bg:'var(--orange)', tag:'قوالب Excel — متوسطة وكبيرة',
+    name:'قالب Excel للشركات المتوسطة والكبيرة',
+    pitch:'نظام تقارير مالية متكامل — ميزانية عمومية كاملة، مؤشرات KPI، وتقارير إدارية احترافية جاهزة للعرض على الإدارة.',
+    features:[
+      ['📋','ميزانية عمومية + قائمة دخل + تدفقات نقدية'],
+      ['📉','لوحة مؤشرات KPI تحدث تلقائياً'],
+      ['📊','تقارير إدارية جاهزة للعرض على الإدارة'],
+      ['⚖️','ZATCA كامل + حسابات VAT مدمجة'],
+      ['🔢','يدعم أقسام متعددة وعملات متعددة'],
+    ],
+    price:'<span class="popup-price">$26</span>',
+    btnText:'📈 اشترِ الآن — $26', btnClass:'',
+    link:'https://hosamalfi.gumroad.com/l/ackmoq'
+  },
+  'excel-bundle': {
+    icon:'💎', bg:'linear-gradient(135deg,#ffe6cc,#ffd4a8)',
+    tag:'قوالب Excel — الحزمة الكاملة',
+    name:'حزمة القوالب الكاملة — صغير + كبير',
+    pitch:'القالبان معاً بسعر مخفض — نظام تقارير شامل يغطي كل احتياجاتك سواء كنت تعمل مع منشآت صغيرة أو شركات كبيرة.',
+    features:[
+      ['💎','القالبان كاملين: الصغيرة + المتوسطة والكبيرة'],
+      ['💰','وفّر $2 مقارنة بشراء كل واحد على حدة'],
+      ['🔄','استخدمهما مع عملاء مختلفين بدون قيود'],
+      ['📦','ملفان منفصلان في تحميل واحد'],
+      ['⚡','جاهز للاستخدام الفوري بعد التحميل'],
+    ],
+    price:'<span class="popup-price">$37 <small>$39</small></span>',
+    btnText:'💎 اشترِ الحزمة — $37', btnClass:'',
+    link:'https://hosamalfi.gumroad.com/l/cvjcmg'
+  }
+};
+
+function openPopup(id) {
+  const p = PRODUCTS[id]; if (!p) return;
+  document.getElementById('pThumb').style.background = p.bg;
+  document.getElementById('pIcon').textContent = p.icon;
+  document.getElementById('pTag').textContent = p.tag;
+  document.getElementById('pName').textContent = p.name;
+  document.getElementById('pPitch').textContent = p.pitch;
+  document.getElementById('pFeatures').innerHTML = p.features.map(
+    ([ic,tx]) => `<li><span class="fi">${ic}</span><span>${tx}</span></li>`
+  ).join('');
+  document.getElementById('pPrice').innerHTML = p.price;
+  const btn = document.getElementById('pBtn');
+  btn.textContent = p.btnText;
+  btn.href = p.link;
+  btn.className = 'btn-popup-buy' + (p.btnClass ? ' '+p.btnClass : '');
+  document.getElementById('popupOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('popupOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlay(e) { if (e.target.id === 'popupOverlay') closePopup(); }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closePopup(); });
+</script>
