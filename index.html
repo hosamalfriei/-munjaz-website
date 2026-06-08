@@ -3,754 +3,570 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مُنجَز.ai — منتجات رقمية للمحترف العربي</title>
-<meta name="description" content="Prompts احترافية، قوالب محاسبية، وأدوات ذكاء اصطناعي للمحترف العربي في السوق السعودي والخليجي">
+<title>مُنجَزai — متجر منتجات الذكاء الاصطناعي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════
-   VARIABLES & RESET
-═══════════════════════════════ */
-:root {
-  --ink: #161616;
-  --soft-ink: #3f3f46;
-  --muted: #70707b;
-  --line: #e9e3d9;
-  --paper: #fffdf8;
-  --cream: #f8f3ea;
-  --sand: #efe5d6;
-  --black: #111111;
-  --mint: #d8f6e7;
-  --mint-dark: #0f7a4f;
-  --blue: #dfeeff;
-  --blue-dark: #1d4ed8;
-  --lilac: #ece7ff;
-  --lilac-dark: #5b3fd6;
-  --orange: #ffe6cc;
-  --orange-dark: #b45309;
-  --pink: #ffe4ef;
-  --pink-dark: #be185d;
-  --yellow: #fff1b8;
-  --yellow-dark: #8a5a00;
-  --gold: #c9a84c;
-  --gold-light: #f0c866;
-  --radius-xl: 28px;
-  --radius-lg: 22px;
-  --radius: 16px;
-  --radius-sm: 12px;
-  --shadow: 0 18px 50px rgba(17,17,17,.08);
-  --shadow-hover: 0 24px 70px rgba(17,17,17,.13);
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+  :root {
+    --ink: #161616; --soft-ink: #3f3f46; --muted: #70707b;
+    --line: #e9e3d9; --paper: #fffdf8; --cream: #f8f3ea;
+    --sand: #efe5d6; --black: #111111;
+    --mint: #d8f6e7; --mint-dark: #0f7a4f;
+    --blue: #dfeeff; --blue-dark: #1d4ed8;
+    --lilac: #ece7ff; --lilac-dark: #5b3fd6;
+    --orange: #ffe6cc; --orange-dark: #b45309;
+    --pink: #ffe4ef; --pink-dark: #be185d;
+    --yellow: #fff1b8; --yellow-dark: #8a5a00;
+    --radius-xl: 28px; --radius-lg: 22px; --radius: 16px; --radius-sm: 12px;
+    --shadow: 0 18px 50px rgba(17,17,17,.08);
+    --shadow-hover: 0 24px 70px rgba(17,17,17,.13);
+  }
 
-body {
-  font-family: 'IBM Plex Sans Arabic', sans-serif;
-  background: radial-gradient(circle at 12% 8%, rgba(236,231,255,.95), transparent 24rem),
-              radial-gradient(circle at 88% 12%, rgba(216,246,231,.9), transparent 23rem),
-              radial-gradient(circle at 55% 42%, rgba(223,238,255,.55), transparent 30rem),
-              radial-gradient(circle at bottom right, rgba(255,230,204,.65), transparent 30rem),
-              linear-gradient(180deg, #fffdf8 0%, #f7f2ea 55%, #f5efe6 100%);
-  color: var(--ink);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
+  html { scroll-behavior: smooth; }
 
-body::after {
-  content: "";
-  position: fixed; inset: 0; z-index: -2;
-  background-image: linear-gradient(rgba(17,17,17,.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(17,17,17,.03) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, black 0%, transparent 70%);
-  pointer-events: none;
-}
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(236,231,255,.95), transparent 24rem),
+      radial-gradient(circle at 88% 12%, rgba(216,246,231,.9), transparent 23rem),
+      radial-gradient(circle at 55% 42%, rgba(223,238,255,.55), transparent 30rem),
+      radial-gradient(circle at bottom right, rgba(255,230,204,.65), transparent 30rem),
+      linear-gradient(180deg, #fffdf8 0%, #f7f2ea 55%, #f5efe6 100%);
+    color: var(--ink); min-height: 100vh;
+    overflow-x: hidden; position: relative;
+  }
 
-a { color: inherit; }
-.container { width: 100%; padding-inline: clamp(16px, 4vw, 72px); }
+  body::before {
+    content: "AI • PROMPT • TEMPLATE • AUTOMATION • ";
+    position: fixed; inset-inline: -10%; top: 118px; z-index: -1;
+    color: rgba(17,17,17,.035); font-size: clamp(44px,8vw,120px);
+    font-weight: 900; letter-spacing: 10px; white-space: nowrap;
+    transform: rotate(-6deg); pointer-events: none;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: -2;
+    background-image: linear-gradient(rgba(17,17,17,.035) 1px,transparent 1px),
+                      linear-gradient(90deg,rgba(17,17,17,.035) 1px,transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+    pointer-events: none;
+  }
 
-/* ═══════════════════════════════
-   NAV
-═══════════════════════════════ */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,253,248,.88);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(22,22,22,.08);
-}
-.nav-inner {
-  height: 70px; display: flex;
-  align-items: center; justify-content: space-between; gap: 16px;
-}
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo-mark {
-  width: 42px; height: 42px; border-radius: 12px;
-  background: var(--black); color: var(--yellow);
-  display: grid; place-items: center;
-  font-weight: 900; font-size: 14px;
-  transform: rotate(-2deg);
-  box-shadow: 5px 5px 0 rgba(0,0,0,.1);
-}
-.logo-name { font-size: 22px; font-weight: 900; letter-spacing: -.5px; color: var(--black); }
-.logo-name span { color: var(--black); }
-.logo-name small { font-size: 16px; color: var(--muted); font-weight: 700; }
+  a { color: inherit; }
+  .container { width: 100%; max-width: none; margin: 0; padding-inline: clamp(18px,4vw,72px); }
 
-.nav-cats {
-  display: flex; align-items: center; gap: 4px;
-  overflow-x: auto; scrollbar-width: none;
-}
-.nav-cats::-webkit-scrollbar { display: none; }
-.nav-cat {
-  border: 1px solid transparent;
-  background: transparent; color: var(--soft-ink);
-  padding: 7px 14px; border-radius: 999px;
-  font-family: inherit; font-weight: 700; font-size: 13px;
-  cursor: pointer; white-space: nowrap;
-  transition: all .18s;
-}
-.nav-cat:hover { background: var(--cream); border-color: var(--line); }
-.nav-cat.active { background: var(--black); color: white; border-color: var(--black); }
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,253,248,.82); backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(22,22,22,.08);
+  }
+  .nav-inner {
+    height: 72px; display: flex;
+    align-items: center; justify-content: space-between; gap: 18px;
+  }
+  .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .logo-mark {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: var(--black); color: var(--yellow);
+    display: grid; place-items: center;
+    font-weight: 900; font-size: 15px;
+    transform: rotate(-2deg); box-shadow: 7px 7px 0 rgba(0,0,0,.08);
+  }
+  .logo-name { font-size: 25px; font-weight: 900; letter-spacing: -.7px; color: var(--black); }
+  .logo-name small { font-size: 18px; color: var(--muted); font-weight: 800; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a { text-decoration: none; color: var(--soft-ink); font-size: 14px; font-weight: 600; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 40px; padding: 0 18px; border-radius: 999px;
+    background: var(--black); color: white; text-decoration: none;
+    font-weight: 800; font-size: 13px;
+    box-shadow: 0 14px 32px rgba(17,17,17,.16);
+  }
 
-.nav-cta {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 38px; padding: 0 18px; border-radius: 999px;
-  background: var(--black); color: white; text-decoration: none;
-  font-weight: 800; font-size: 13px;
-  box-shadow: 0 10px 28px rgba(17,17,17,.16);
-  white-space: nowrap;
-}
+  /* HERO */
+  .hero { padding: 0; }
+  .hero-copy {
+    min-height: clamp(380px,44vw,540px);
+    display: grid;
+    grid-template-columns: minmax(0,1.05fr) minmax(320px,.95fr);
+    align-items: center; gap: clamp(24px,5vw,78px);
+    background:
+      radial-gradient(circle at 82% 18%,rgba(216,246,231,.95),transparent 24rem),
+      radial-gradient(circle at 15% 20%,rgba(236,231,255,.9),transparent 23rem),
+      linear-gradient(135deg,#fffdf8 0%,#f7f0ff 45%,#eafff4 100%);
+    border-bottom: 1px solid rgba(22,22,22,.08);
+    padding: clamp(34px,5vw,68px) clamp(18px,7vw,118px);
+    position: relative; overflow: hidden; text-align: right;
+  }
+  .hero-copy::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(17,17,17,.035) 1px,transparent 1px),
+                      linear-gradient(90deg,rgba(17,17,17,.035) 1px,transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at 75% 35%,black,transparent 62%);
+    pointer-events: none;
+  }
+  .hero-copy::after {
+    content: "AI"; position: absolute;
+    inset-inline-start: clamp(24px,5vw,76px); top: clamp(30px,6vw,78px);
+    width: 72px; height: 72px; display: grid; place-items: center;
+    border-radius: 22px; background: var(--black); color: var(--yellow);
+    font-weight: 900; font-size: 25px;
+    box-shadow: 10px 10px 0 rgba(17,17,17,.08); transform: rotate(-6deg);
+  }
+  .hero-content, .ai-visual { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; gap: 8px; align-items: center;
+    background: var(--mint); color: var(--mint-dark);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 13px; font-weight: 800; margin-bottom: 18px;
+    border: 1px solid rgba(15,122,79,.14);
+  }
+  .hero h1 {
+    max-width: 850px; font-size: clamp(34px,4.6vw,64px);
+    line-height: 1.08; letter-spacing: -2.8px;
+    font-weight: 900; margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal; display: inline-block;
+    background: linear-gradient(180deg,transparent 58%,var(--yellow) 58%);
+  }
+  .hero p {
+    max-width: 680px; color: var(--soft-ink);
+    line-height: 1.95; font-size: clamp(16px,1.35vw,19px); margin-bottom: 22px;
+  }
+  .ai-chips { display:flex; justify-content:flex-start; gap:9px; flex-wrap:wrap; margin:0 0 24px; }
+  .ai-chip {
+    display:inline-flex; align-items:center; gap:7px;
+    background:rgba(255,255,255,.78); border:1px solid rgba(22,22,22,.09);
+    border-radius:999px; padding:8px 13px; font-size:12px; font-weight:800; color:var(--soft-ink);
+  }
+  .hero-actions { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .ai-visual {
+    min-height:330px; border-radius:34px;
+    background:rgba(17,17,17,.96); color:white;
+    padding:clamp(22px,3vw,34px);
+    box-shadow:18px 18px 0 rgba(17,17,17,.08);
+    overflow:hidden; border:1px solid rgba(255,255,255,.08);
+  }
+  .ai-visual::before {
+    content:""; position:absolute; inset:-1px;
+    background:
+      radial-gradient(circle at 20% 20%,rgba(255,241,184,.55),transparent 12rem),
+      radial-gradient(circle at 88% 18%,rgba(216,246,231,.32),transparent 13rem),
+      radial-gradient(circle at 40% 90%,rgba(236,231,255,.34),transparent 16rem);
+    pointer-events:none;
+  }
+  .ai-visual > * { position:relative; z-index:1; }
+  .ai-visual-label { color:var(--yellow); font-size:13px; font-weight:900; margin-bottom:18px; }
+  .prompt-card {
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+    border-radius:22px; padding:18px; margin-bottom:12px;
+  }
+  .prompt-card strong { display:block; font-size:18px; margin-bottom:8px; }
+  .prompt-card span { display:block; color:rgba(255,255,255,.72); line-height:1.8; font-size:13px; }
+  .ai-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .ai-tags span {
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.12);
+    border-radius:999px; padding:8px 11px; color:rgba(255,255,255,.82); font-size:12px; font-weight:800;
+  }
 
-/* ═══════════════════════════════
-   HERO
-═══════════════════════════════ */
-.hero {
-  min-height: clamp(360px, 42vw, 520px);
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
-  align-items: center;
-  gap: clamp(24px, 5vw, 72px);
-  background: radial-gradient(circle at 85% 15%, rgba(216,246,231,.9), transparent 22rem),
-              radial-gradient(circle at 12% 20%, rgba(236,231,255,.85), transparent 22rem),
-              linear-gradient(135deg, #fffdf8 0%, #f5f0ff 50%, #eafff4 100%);
-  border-bottom: 1px solid rgba(22,22,22,.07);
-  padding: clamp(32px, 5vw, 68px) clamp(16px, 7vw, 110px);
-  position: relative; overflow: hidden;
-}
+  .btn-primary, .btn-secondary {
+    min-height:48px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:999px; padding:0 22px; text-decoration:none;
+    font-weight:800; font-size:14px; transition:transform .18s,box-shadow .18s;
+    cursor:pointer; border:none; font-family:inherit;
+  }
+  .btn-primary { background:var(--black); color:white; box-shadow:8px 8px 0 rgba(17,17,17,.11); }
+  .btn-secondary { background:white; color:var(--black); border:1px solid var(--line) !important; }
+  .btn-primary:hover, .btn-secondary:hover { transform:translateY(-2px); }
 
-.hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(17,17,17,.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(17,17,17,.03) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(circle at 78% 40%, black, transparent 58%);
-  pointer-events: none;
-}
+  /* CATS */
+  .cats-wrap { padding:20px 0 18px; }
+  .cats { display:flex; gap:10px; overflow-x:auto; scrollbar-width:none; }
+  .cats::-webkit-scrollbar { display:none; }
+  .cat {
+    border:1px solid rgba(22,22,22,.1); background:rgba(255,253,248,.85); color:var(--soft-ink);
+    padding:11px 17px; border-radius:999px; font-family:inherit;
+    font-weight:800; font-size:13px; cursor:pointer; white-space:nowrap; transition:all .18s;
+  }
+  .cat:hover { transform:translateY(-1px); }
+  .cat.active { background:var(--black); color:white; border-color:var(--black); }
 
-.hero-badge {
-  display: inline-flex; gap: 8px; align-items: center;
-  background: var(--mint); color: var(--mint-dark);
-  padding: 7px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 800;
-  margin-bottom: 18px;
-  border: 1px solid rgba(15,122,79,.14);
-}
+  /* SECTION HEADERS */
+  main { padding:0 0 54px; }
+  .section-head {
+    display:flex; justify-content:space-between; gap:18px;
+    align-items:end; margin:36px 0 18px;
+  }
+  .eyebrow { color:var(--mint-dark); font-weight:800; font-size:12px; letter-spacing:.6px; margin-bottom:8px; }
+  .section-title { font-size:clamp(24px,4vw,38px); font-weight:800; letter-spacing:-.8px; }
+  .section-note { max-width:470px; color:var(--muted); line-height:1.8; font-size:13px; }
 
-.hero h1 {
-  font-size: clamp(32px, 4.2vw, 60px);
-  line-height: 1.1; letter-spacing: -2px;
-  font-weight: 900; margin-bottom: 18px;
-}
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(180deg, transparent 58%, var(--yellow) 58%);
-}
+  /* GRID */
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:18px; }
 
-.hero-desc {
-  color: var(--soft-ink); line-height: 1.9;
-  font-size: clamp(15px, 1.3vw, 18px); margin-bottom: 28px;
-  max-width: 580px;
-}
+  /* CARDS */
+  .card {
+    background:var(--paper); border:1px solid rgba(22,22,22,.08);
+    border-radius:24px; overflow:hidden;
+    box-shadow:0 10px 25px rgba(17,17,17,.05);
+    transition:transform .18s,box-shadow .18s,border-color .18s;
+    cursor:pointer;
+  }
+  .card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); border-color:rgba(17,17,17,.16); }
+  .card.best-seller { border-color:rgba(91,63,214,.28); box-shadow:0 18px 48px rgba(91,63,214,.13); }
+  .card.best-seller .card-thumb {
+    background:
+      radial-gradient(circle at 22% 25%,rgba(255,241,184,.95),transparent 7rem),
+      radial-gradient(circle at 85% 35%,rgba(216,246,231,.9),transparent 8rem),
+      linear-gradient(135deg,#171717 0%,#2d2169 100%);
+    color:white;
+  }
+  .card.best-seller .card-tag { background:#171717; color:var(--yellow); }
+  .best-badge {
+    position:absolute; inset-inline-start:14px; top:14px; z-index:2;
+    display:inline-flex; align-items:center; gap:5px;
+    background:var(--yellow); color:var(--yellow-dark);
+    border-radius:999px; padding:7px 11px; font-size:11px; font-weight:900;
+    box-shadow:0 8px 20px rgba(17,17,17,.14);
+  }
+  .card-thumb {
+    height:150px; display:grid; place-items:center;
+    font-size:46px; position:relative; overflow:hidden;
+  }
+  .card-thumb::before {
+    content:""; position:absolute;
+    width:120px; height:120px; background:rgba(255,255,255,.38);
+    border-radius:36px; transform:rotate(18deg);
+  }
+  .card-thumb span { position:relative; z-index:1; }
+  .c-ai { background:var(--lilac); }
+  .c-free { background:var(--mint); }
+  .c-excel { background:var(--orange); }
+  .c-zatca { background:var(--yellow); }
+  .c-nfc { background:var(--pink); }
+  .card-body { padding:18px; }
+  .card-tag {
+    display:inline-flex; align-items:center; height:26px; padding:0 10px;
+    border-radius:999px; background:#f3efe7; color:var(--soft-ink);
+    font-size:11px; font-weight:800; margin-bottom:10px;
+  }
+  .card-name { font-size:17px; line-height:1.45; margin-bottom:7px; font-weight:800; }
+  .card-desc { color:var(--muted); font-size:13px; line-height:1.75; min-height:46px; }
+  .card-footer {
+    display:flex; justify-content:space-between; align-items:center;
+    gap:12px; margin-top:18px;
+  }
+  .card-price { font-size:18px; font-weight:800; }
+  .card-price-free { color:var(--mint-dark); font-weight:800; }
+  .card-price-soon { color:var(--muted); font-size:13px; font-weight:700; }
+  .btn-buy {
+    display:inline-flex; justify-content:center; align-items:center;
+    min-height:38px; padding:0 15px; border-radius:999px;
+    background:var(--black); color:white; text-decoration:none;
+    font-size:12px; font-weight:800; font-family:inherit;
+    border:none; cursor:pointer; transition:opacity .15s;
+  }
+  .btn-buy:hover { opacity:.8; }
+  .btn-buy.free { background:var(--mint-dark); }
+  .btn-buy.soon { background:#ece7df; color:var(--muted); cursor:default; }
 
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  /* BUNDLE */
+  .bundle-wrap { margin:48px 0 0; }
+  .bundle-card {
+    display:grid; grid-template-columns:1fr auto;
+    gap:22px; align-items:center;
+    background:var(--black); color:white;
+    border-radius:var(--radius-xl); padding:26px;
+    box-shadow:var(--shadow-hover); position:relative; overflow:hidden;
+  }
+  .bundle-card::before {
+    content:""; position:absolute; inset-inline-start:-70px; top:-70px;
+    width:220px; height:220px; background:var(--lilac-dark); border-radius:50%; opacity:.8;
+  }
+  .bundle-card::after {
+    content:""; position:absolute; inset-inline-end:32%; bottom:-92px;
+    width:180px; height:180px; background:var(--mint-dark); border-radius:50%; opacity:.55;
+  }
+  .bundle-card > * { position:relative; z-index:1; }
+  .bundle-tag {
+    display:inline-flex; background:var(--yellow); color:var(--yellow-dark);
+    padding:7px 12px; border-radius:999px; font-size:12px; font-weight:800; margin-bottom:12px;
+  }
+  .bundle-card h2 { font-size:clamp(20px,3vw,32px); line-height:1.35; margin-bottom:8px; }
+  .bundle-desc { color:rgba(255,255,255,.72); line-height:1.8; font-size:14px; }
+  .bundle-side { min-width:180px; text-align:left; }
+  .price-old { color:rgba(255,255,255,.42); text-decoration:line-through; font-size:14px; }
+  .price-new { font-size:38px; font-weight:800; margin:3px 0 14px; }
+  .price-new span { font-size:14px; font-weight:600; }
+  .btn-bundle {
+    display:inline-flex; justify-content:center; align-items:center;
+    min-height:46px; width:100%; border-radius:999px;
+    background:white; color:var(--black); text-decoration:none;
+    font-weight:800; font-size:14px; font-family:inherit;
+    border:none; cursor:pointer; transition:opacity .15s;
+  }
+  .btn-bundle:hover { opacity:.9; }
 
-.btn-primary, .btn-secondary {
-  min-height: 46px; display: inline-flex;
-  align-items: center; justify-content: center;
-  border-radius: 999px; padding: 0 22px;
-  text-decoration: none; font-weight: 800;
-  font-size: 14px; transition: transform .18s, box-shadow .18s;
-  cursor: pointer; border: none; font-family: inherit;
-}
-.btn-primary { background: var(--black); color: white; box-shadow: 6px 6px 0 rgba(17,17,17,.12); }
-.btn-secondary { background: white; color: var(--black); border: 1px solid var(--line); }
-.btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
+  /* COMING SOON */
+  .soon-wrap { margin:48px 0 0; }
+  .soon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; margin-top:18px; }
+  .soon-card {
+    background:rgba(255,253,248,.65); border:1px dashed rgba(22,22,22,.15);
+    border-radius:var(--radius); padding:18px 16px; opacity:.75;
+  }
+  .soon-icon { font-size:26px; margin-bottom:10px; }
+  .soon-name { font-size:14px; font-weight:800; margin-bottom:4px; }
+  .soon-cat { font-size:11px; color:var(--muted); margin-bottom:10px; }
+  .soon-pill {
+    display:inline-block; background:var(--sand);
+    color:var(--muted); padding:4px 10px; border-radius:999px;
+    font-size:11px; font-weight:700;
+  }
 
-/* Hero Visual */
-.hero-visual {
-  background: rgba(17,17,17,.95); border-radius: 28px;
-  padding: clamp(20px, 3vw, 32px);
-  box-shadow: 14px 14px 0 rgba(17,17,17,.1);
-  border: 1px solid rgba(255,255,255,.06);
-  position: relative; overflow: hidden;
-}
-.hero-visual::before {
-  content: "";
-  position: absolute; inset: -1px;
-  background: radial-gradient(circle at 18% 20%, rgba(255,241,184,.4), transparent 10rem),
-              radial-gradient(circle at 85% 15%, rgba(216,246,231,.25), transparent 12rem);
-  pointer-events: none;
-}
-.hero-visual > * { position: relative; z-index: 1; }
-.hv-label { color: var(--yellow); font-size: 12px; font-weight: 900; margin-bottom: 16px; letter-spacing: 1px; }
-.hv-stat-row {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 10px; margin-bottom: 16px;
-}
-.hv-stat {
-  background: rgba(255,255,255,.06); border-radius: 14px;
-  padding: 14px 12px; text-align: center;
-}
-.hv-stat strong { display: block; color: var(--yellow); font-size: 20px; font-weight: 900; }
-.hv-stat span { color: rgba(255,255,255,.45); font-size: 11px; }
-.hv-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-.hv-chip {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 999px; padding: 6px 11px;
-  color: rgba(255,255,255,.75); font-size: 11px; font-weight: 700;
-}
+  /* WHY + HOW */
+  .info-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .info-card, .how-card, .payment-panel, .email-capture {
+    background:rgba(255,253,248,.78); border:1px solid rgba(22,22,22,.08);
+    border-radius:22px; padding:20px; box-shadow:0 12px 32px rgba(17,17,17,.05);
+  }
+  .info-card .icon { font-size:26px; margin-bottom:10px; }
+  .info-card strong, .how-card strong { display:block; font-size:16px; margin-bottom:7px; }
+  .info-card p, .how-card p { color:var(--muted); font-size:13px; line-height:1.8; }
+  .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .step {
+    width:34px; height:34px; display:grid; place-items:center;
+    background:var(--black); color:white; border-radius:50%; font-weight:800; margin-bottom:12px;
+  }
 
-/* ═══════════════════════════════
-   BEST SELLERS STRIP
-═══════════════════════════════ */
-.bestsellers-wrap {
-  padding: 36px 0 0;
-  border-bottom: 1px solid rgba(22,22,22,.07);
-  padding-bottom: 36px;
-}
-.strip-header {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 20px;
-}
-.strip-label {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--yellow); color: var(--yellow-dark);
-  padding: 6px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 900;
-}
-.strip-scroll {
-  display: flex; gap: 14px;
-  overflow-x: auto; scrollbar-width: none;
-  padding-bottom: 4px;
-}
-.strip-scroll::-webkit-scrollbar { display: none; }
+  /* CHECKOUT */
+  .checkout-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .payment-title { font-weight:800; margin-bottom:13px; }
+  .payment-icons { display:flex; flex-wrap:wrap; gap:8px; }
+  .payment-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:white; border:1px solid rgba(22,22,22,.1);
+    border-radius:999px; padding:8px 11px; font-size:12px; font-weight:800;
+  }
+  .payment-badge .symbol { font-weight:900; }
+  .payment-badge.visa .symbol { color:#1a3f8b; }
+  .payment-badge.master .symbol { color:#df6b1f; }
+  .payment-badge.apple .symbol { color:#111; font-size:16px; }
+  .payment-badge.soon { opacity:.72; border-style:dashed; }
+  .payment-badge.soon::after { content:"قريباً"; color:var(--muted); font-size:10px; }
+  .payment-note { color:var(--muted); font-size:12px; line-height:1.8; margin-top:12px; }
+  .email-capture { display:grid; gap:13px; }
+  .email-copy strong { display:block; margin-bottom:5px; }
+  .email-copy span { color:var(--muted); font-size:12px; line-height:1.8; }
+  .email-form { display:flex; gap:8px; }
+  .email-form input {
+    flex:1; min-height:46px; border:1px solid rgba(22,22,22,.12);
+    border-radius:999px; padding:0 16px; font:inherit;
+    background:white; outline:none;
+  }
+  .email-form input:focus { border-color:var(--black); }
+  .email-form button {
+    min-height:46px; border:0; border-radius:999px; padding:0 18px;
+    background:var(--black); color:white; font:inherit; font-weight:800; cursor:pointer;
+  }
+  .email-message { display:none; color:var(--mint-dark); font-size:12px; line-height:1.7; }
 
-.strip-card {
-  background: var(--paper);
-  border: 1.5px solid rgba(22,22,22,.08);
-  border-radius: var(--radius-lg);
-  padding: 20px; min-width: 240px; max-width: 260px;
-  flex-shrink: 0; cursor: pointer;
-  transition: all .2s;
-  box-shadow: 0 8px 24px rgba(17,17,17,.05);
-}
-.strip-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(17,17,17,.18);
-  box-shadow: var(--shadow-hover);
-}
-.strip-icon { font-size: 28px; margin-bottom: 10px; }
-.strip-name { font-size: 15px; font-weight: 800; margin-bottom: 5px; line-height: 1.35; }
-.strip-desc { color: var(--muted); font-size: 12px; line-height: 1.6; margin-bottom: 14px; }
-.strip-footer { display: flex; align-items: center; justify-content: space-between; }
-.strip-price { font-size: 18px; font-weight: 900; }
-.strip-price-free { font-size: 16px; font-weight: 900; color: var(--mint-dark); }
-.strip-btn {
-  background: var(--black); color: white;
-  padding: 7px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 800;
-  text-decoration: none; font-family: inherit;
-  border: none; cursor: pointer; transition: opacity .15s;
-}
-.strip-btn:hover { opacity: .85; }
-.strip-btn.free { background: var(--mint-dark); }
+  footer { background:var(--black); color:white; padding:28px 0; margin-top:30px; }
+  .footer-inner { display:flex; justify-content:space-between; gap:18px; align-items:center; }
+  .footer-logo { font-weight:800; font-size:18px; }
+  footer p { color:rgba(255,255,255,.66); font-size:13px; line-height:1.7; }
 
-/* ═══════════════════════════════
-   SECTION STRUCTURE
-═══════════════════════════════ */
-main { padding-bottom: 60px; }
+  /* POPUP */
+  .overlay {
+    display:none; position:fixed; inset:0;
+    background:rgba(15,27,53,.7); backdrop-filter:blur(6px);
+    z-index:200; align-items:center; justify-content:center; padding:20px;
+  }
+  .overlay.active { display:flex; }
+  .modal {
+    background:var(--paper); border-radius:20px; padding:40px;
+    width:440px; max-width:100%;
+    box-shadow:0 32px 80px rgba(17,17,17,.2);
+    position:relative; animation:modalIn .25s ease;
+    max-height:90vh; overflow-y:auto;
+  }
+  @keyframes modalIn {
+    from { opacity:0; transform:translateY(16px) scale(.97); }
+    to   { opacity:1; transform:translateY(0) scale(1); }
+  }
+  .modal-close {
+    position:absolute; top:16px; left:16px;
+    background:var(--cream); border:none; width:32px; height:32px;
+    border-radius:8px; cursor:pointer; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--soft-ink); transition:all .15s;
+  }
+  .modal-close:hover { background:var(--sand); }
+  .modal-thumb {
+    height:160px; display:grid; place-items:center; font-size:56px;
+    border-radius:12px; margin-bottom:20px; position:relative; overflow:hidden;
+  }
+  .modal-thumb::before {
+    content:''; position:absolute; inset:0;
+    background:rgba(255,255,255,.25); border-radius:50%;
+    transform:scale(1.4) translateY(30%);
+  }
+  .modal-thumb > span { position:relative; z-index:1; }
+  .modal-tag {
+    display:inline-flex; height:24px; align-items:center; padding:0 10px;
+    border-radius:999px; background:#f3efe7; color:var(--soft-ink);
+    font-size:11px; font-weight:800; margin-bottom:10px;
+  }
+  .modal-name { font-size:22px; font-weight:900; color:var(--black); margin-bottom:10px; }
+  .modal-pitch {
+    font-size:14px; color:var(--soft-ink); line-height:1.8; margin-bottom:20px;
+    padding:14px 16px; background:var(--cream); border-radius:12px;
+    border-right:3px solid var(--black);
+  }
+  .modal-features { list-style:none; margin-bottom:24px; display:grid; gap:10px; }
+  .modal-features li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--soft-ink); line-height:1.55; }
+  .modal-features li .fi {
+    width:26px; height:26px; flex-shrink:0;
+    background:var(--mint); border-radius:8px;
+    display:grid; place-items:center; font-size:13px;
+  }
+  .modal-footer {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px; padding-top:18px; border-top:1px solid var(--line);
+  }
+  .modal-price { font-size:28px; font-weight:900; }
+  .modal-price small { font-size:13px; color:var(--muted); text-decoration:line-through; font-weight:400; margin-right:5px; }
+  .modal-price-free { font-size:24px; font-weight:900; color:var(--mint-dark); }
+  .btn-modal-buy {
+    display:inline-flex; align-items:center; justify-content:center;
+    min-height:46px; padding:0 24px; border-radius:999px;
+    background:var(--black); color:white; text-decoration:none;
+    font-weight:800; font-size:14px; font-family:inherit; border:none; cursor:pointer;
+    box-shadow:6px 6px 0 rgba(17,17,17,.1); transition:transform .15s,box-shadow .15s;
+    white-space:nowrap;
+  }
+  .btn-modal-buy:hover { transform:translateY(-2px); box-shadow:8px 10px 0 rgba(17,17,17,.12); }
+  .btn-modal-buy.free { background:var(--mint-dark); }
 
-.cat-section { padding: 52px 0 0; }
-.cat-section:last-child { padding-bottom: 52px; }
-
-.cat-header {
-  display: flex; align-items: flex-end;
-  justify-content: space-between; gap: 16px;
-  margin-bottom: 24px;
-}
-.cat-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .8px; margin-bottom: 6px; }
-.cat-title { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; letter-spacing: -.5px; }
-.cat-note { color: var(--muted); font-size: 13px; line-height: 1.7; max-width: 380px; text-align: left; }
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-/* ═══════════════════════════════
-   PRODUCT CARDS
-═══════════════════════════════ */
-.card {
-  background: var(--paper);
-  border: 1px solid rgba(22,22,22,.08);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(17,17,17,.05);
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-  cursor: pointer;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(17,17,17,.15);
-}
-.card.best-seller { border-color: rgba(91,63,214,.3); box-shadow: 0 14px 44px rgba(91,63,214,.12); }
-.card.best-seller .card-thumb {
-  background: radial-gradient(circle at 22% 25%, rgba(255,241,184,.95), transparent 7rem),
-              radial-gradient(circle at 85% 35%, rgba(216,246,231,.9), transparent 8rem),
-              linear-gradient(135deg, #171717 0%, #2d2169 100%);
-  color: white;
-}
-.card.best-seller .card-tag { background: #171717; color: var(--yellow); }
-
-.card-thumb {
-  height: 148px; display: grid; place-items: center;
-  font-size: 44px; position: relative; overflow: hidden;
-}
-.card-thumb::before {
-  content: ""; position: absolute;
-  width: 120px; height: 120px; background: rgba(255,255,255,.35);
-  border-radius: 36px; transform: rotate(18deg);
-}
-.card-thumb span { position: relative; z-index: 1; }
-.c-ai { background: var(--lilac); }
-.c-free { background: var(--mint); }
-.c-excel { background: var(--orange); }
-.c-zatca { background: var(--yellow); }
-.c-nfc { background: var(--pink); }
-.c-marketing { background: var(--blue); }
-
-.best-badge {
-  position: absolute; inset-inline-start: 12px; top: 12px; z-index: 2;
-  display: inline-flex; align-items: center; gap: 5px;
-  background: var(--yellow); color: var(--yellow-dark);
-  border-radius: 999px; padding: 6px 11px;
-  font-size: 11px; font-weight: 900;
-  box-shadow: 0 6px 18px rgba(17,17,17,.14);
-}
-
-.card-body { padding: 18px; }
-.card-tag {
-  display: inline-flex; align-items: center;
-  height: 24px; padding: 0 10px; border-radius: 999px;
-  background: #f3efe7; color: var(--soft-ink);
-  font-size: 11px; font-weight: 800; margin-bottom: 10px;
-}
-.card-name { font-size: 16px; line-height: 1.4; margin-bottom: 6px; font-weight: 800; }
-.card-desc { color: var(--muted); font-size: 12px; line-height: 1.7; min-height: 40px; }
-.card-footer {
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 12px; margin-top: 16px;
-}
-.card-price { font-size: 18px; font-weight: 900; }
-.card-price-free { color: var(--mint-dark); font-weight: 900; font-size: 16px; }
-.card-price-soon { color: var(--muted); font-size: 13px; font-weight: 700; }
-.btn-buy {
-  display: inline-flex; justify-content: center; align-items: center;
-  min-height: 36px; padding: 0 14px; border-radius: 999px;
-  background: var(--black); color: white;
-  text-decoration: none; font-size: 12px; font-weight: 800;
-  font-family: inherit; border: none; cursor: pointer;
-  transition: opacity .15s;
-}
-.btn-buy:hover { opacity: .8; }
-.btn-buy.free { background: var(--mint-dark); }
-.btn-buy.soon { background: #ece7df; color: var(--muted); cursor: default; }
-
-/* ═══════════════════════════════
-   BUNDLE SECTION
-═══════════════════════════════ */
-.bundle-section {
-  margin-top: 52px; padding-top: 52px;
-  border-top: 1px solid rgba(22,22,22,.07);
-}
-.bundle-card {
-  background: var(--black); color: white;
-  border-radius: var(--radius-xl); padding: 28px 32px;
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 24px; align-items: center;
-  position: relative; overflow: hidden;
-  box-shadow: var(--shadow-hover);
-}
-.bundle-card::before {
-  content: "";
-  position: absolute; inset-inline-start: -60px; top: -60px;
-  width: 200px; height: 200px;
-  background: var(--lilac-dark); border-radius: 50%; opacity: .7;
-}
-.bundle-card::after {
-  content: "";
-  position: absolute; inset-inline-end: 30%; bottom: -80px;
-  width: 160px; height: 160px;
-  background: var(--mint-dark); border-radius: 50%; opacity: .5;
-}
-.bundle-card > * { position: relative; z-index: 1; }
-.bundle-tag {
-  display: inline-flex; background: var(--yellow); color: var(--yellow-dark);
-  padding: 6px 12px; border-radius: 999px;
-  font-size: 11px; font-weight: 900; margin-bottom: 12px;
-}
-.bundle-card h3 { font-size: clamp(20px, 2.8vw, 30px); line-height: 1.3; margin-bottom: 8px; }
-.bundle-card p { color: rgba(255,255,255,.7); font-size: 14px; line-height: 1.7; }
-.bundle-side { text-align: left; min-width: 160px; }
-.bundle-old { color: rgba(255,255,255,.4); text-decoration: line-through; font-size: 13px; }
-.bundle-price { font-size: 38px; font-weight: 900; margin: 4px 0 14px; }
-.bundle-price span { font-size: 14px; font-weight: 600; opacity: .8; }
-.btn-bundle {
-  display: inline-flex; justify-content: center; align-items: center;
-  min-height: 44px; width: 100%; border-radius: 999px;
-  background: white; color: var(--black);
-  text-decoration: none; font-weight: 900; font-size: 14px;
-  font-family: inherit; border: none; cursor: pointer;
-  transition: opacity .15s;
-}
-.btn-bundle:hover { opacity: .9; }
-
-/* ═══════════════════════════════
-   COMING SOON SECTION
-═══════════════════════════════ */
-.soon-section {
-  margin-top: 52px; padding-top: 52px;
-  border-top: 1px solid rgba(22,22,22,.07);
-}
-.soon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px; margin-top: 24px;
-}
-.soon-card {
-  background: rgba(255,253,248,.6);
-  border: 1px dashed rgba(22,22,22,.15);
-  border-radius: var(--radius);
-  padding: 20px 18px;
-  opacity: .7;
-}
-.soon-icon { font-size: 28px; margin-bottom: 10px; }
-.soon-name { font-size: 14px; font-weight: 800; margin-bottom: 5px; }
-.soon-cat { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
-.soon-pill {
-  display: inline-block; background: var(--sand);
-  color: var(--muted); padding: 4px 10px;
-  border-radius: 999px; font-size: 11px; font-weight: 700;
-}
-
-/* ═══════════════════════════════
-   TRUST SECTION
-═══════════════════════════════ */
-.trust-section {
-  background: var(--black); padding: 56px 0;
-  margin-top: 64px;
-}
-.trust-inner { max-width: 1100px; margin: 0 auto; }
-.trust-top { text-align: center; margin-bottom: 40px; }
-.trust-top h2 { color: white; font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; margin-bottom: 10px; }
-.trust-top p { color: rgba(255,255,255,.5); font-size: 15px; }
-.trust-grid {
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
-}
-.trust-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius); padding: 24px 20px;
-  transition: all .2s;
-}
-.trust-card:hover {
-  background: rgba(255,255,255,.07);
-  border-color: rgba(201,168,76,.2);
-}
-.trust-icon { font-size: 26px; margin-bottom: 12px; }
-.trust-title { color: white; font-size: 15px; font-weight: 800; margin-bottom: 7px; }
-.trust-desc { color: rgba(255,255,255,.45); font-size: 13px; line-height: 1.65; }
-
-/* ═══════════════════════════════
-   EMAIL CAPTURE
-═══════════════════════════════ */
-.email-section { padding: 52px 0; }
-.email-inner {
-  background: rgba(255,253,248,.78);
-  border: 1px solid rgba(22,22,22,.08);
-  border-radius: var(--radius-xl); padding: 40px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-  align-items: center;
-  box-shadow: 0 12px 36px rgba(17,17,17,.05);
-}
-.email-copy h3 { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
-.email-copy p { color: var(--muted); font-size: 14px; line-height: 1.7; }
-.email-form { display: flex; gap: 10px; }
-.email-form input {
-  flex: 1; min-height: 46px;
-  border: 1px solid rgba(22,22,22,.12); border-radius: 999px;
-  padding: 0 18px; font: inherit; background: white; outline: none;
-  font-size: 14px; transition: border-color .15s;
-}
-.email-form input:focus { border-color: var(--black); }
-.email-form button {
-  min-height: 46px; border: none; border-radius: 999px;
-  padding: 0 20px; background: var(--black); color: white;
-  font: inherit; font-weight: 800; font-size: 13px; cursor: pointer;
-  white-space: nowrap;
-}
-.email-msg { display: none; color: var(--mint-dark); font-size: 13px; margin-top: 10px; }
-
-/* ═══════════════════════════════
-   FOOTER
-═══════════════════════════════ */
-footer {
-  background: var(--black); color: white;
-  padding: 28px 0; border-top: 1px solid rgba(255,255,255,.05);
-}
-.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.footer-logo { font-weight: 900; font-size: 18px; }
-.footer-links { display: flex; gap: 20px; }
-.footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px; transition: color .15s; }
-.footer-links a:hover { color: white; }
-footer p { color: rgba(255,255,255,.4); font-size: 13px; }
-
-/* ═══════════════════════════════
-   POPUP
-═══════════════════════════════ */
-.popup-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(17,17,17,.7); backdrop-filter: blur(6px);
-  z-index: 300; align-items: center; justify-content: center; padding: 20px;
-}
-.popup-overlay.open { display: flex; }
-.popup {
-  background: var(--paper); border-radius: 24px;
-  width: 100%; max-width: 580px; max-height: 88vh;
-  overflow-y: auto; box-shadow: 0 32px 80px rgba(17,17,17,.2);
-  position: relative; animation: popIn .22s ease;
-}
-@keyframes popIn {
-  from { opacity: 0; transform: scale(.95) translateY(12px); }
-  to   { opacity: 1; transform: scale(1)  translateY(0); }
-}
-.popup-thumb {
-  height: 156px; display: grid; place-items: center;
-  font-size: 56px; border-radius: 24px 24px 0 0;
-  position: relative; overflow: hidden;
-}
-.popup-thumb::before {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(255,255,255,.2); border-radius: 50% 50% 0 0;
-  transform: scale(1.3) translateY(30%);
-}
-.popup-thumb > span { position: relative; z-index: 1; }
-.popup-close {
-  position: absolute; top: 14px; left: 14px;
-  width: 32px; height: 32px; background: rgba(255,255,255,.85);
-  border: none; border-radius: 50%; cursor: pointer;
-  display: grid; place-items: center; font-size: 16px;
-  z-index: 2; transition: background .15s; color: var(--ink);
-}
-.popup-close:hover { background: white; }
-.popup-body { padding: 26px; }
-.popup-tag {
-  display: inline-flex; height: 24px; align-items: center;
-  padding: 0 10px; border-radius: 999px;
-  background: #f3efe7; color: var(--soft-ink);
-  font-size: 11px; font-weight: 800; margin-bottom: 10px;
-}
-.popup-name { font-size: 22px; font-weight: 900; color: var(--black); margin-bottom: 10px; letter-spacing: -.3px; }
-.popup-pitch {
-  font-size: 14px; color: var(--soft-ink); line-height: 1.8;
-  margin-bottom: 20px; padding: 14px 16px;
-  background: var(--cream); border-radius: 12px;
-  border-right: 3px solid var(--black);
-}
-.popup-features { list-style: none; margin-bottom: 24px; display: grid; gap: 10px; }
-.popup-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--soft-ink); line-height: 1.55; }
-.popup-features li .fi {
-  width: 26px; height: 26px; flex-shrink: 0;
-  background: var(--mint); border-radius: 8px;
-  display: grid; place-items: center; font-size: 13px;
-}
-.popup-footer {
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 14px;
-  padding-top: 18px; border-top: 1px solid var(--line);
-}
-.popup-price { font-size: 28px; font-weight: 900; }
-.popup-price small { font-size: 13px; color: var(--muted); text-decoration: line-through; font-weight: 400; margin-right: 5px; }
-.popup-price-free { font-size: 22px; font-weight: 900; color: var(--mint-dark); }
-.btn-popup-buy {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 46px; padding: 0 24px; border-radius: 999px;
-  background: var(--black); color: white;
-  text-decoration: none; font-weight: 800; font-size: 14px;
-  box-shadow: 5px 5px 0 rgba(17,17,17,.1);
-  font-family: inherit; border: none; cursor: pointer;
-  transition: transform .15s, box-shadow .15s;
-  white-space: nowrap;
-}
-.btn-popup-buy:hover { transform: translateY(-2px); box-shadow: 7px 9px 0 rgba(17,17,17,.12); }
-.btn-popup-buy.free { background: var(--mint-dark); }
-
-/* ═══════════════════════════════
-   RESPONSIVE
-═══════════════════════════════ */
-@media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
-  .trust-grid { grid-template-columns: repeat(2,1fr); }
-  .bundle-card { grid-template-columns: 1fr; }
-  .bundle-side { text-align: right; min-width: 0; }
-  .email-inner { grid-template-columns: 1fr; gap: 24px; }
-}
-@media (max-width: 640px) {
-  .nav-cats { display: none; }
-  .trust-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .email-form { flex-direction: column; }
-}
+  @media (max-width:900px) {
+    .checkout-grid { grid-template-columns:1fr; }
+    .info-grid { grid-template-columns:repeat(2,1fr); }
+    .how-grid { grid-template-columns:1fr; }
+    .bundle-card { grid-template-columns:1fr; }
+    .bundle-side { text-align:right; min-width:0; }
+  }
+  @media (max-width:680px) {
+    .nav-links { display:none; }
+    .hero-copy { grid-template-columns:1fr; padding:26px; }
+    .info-grid { grid-template-columns:1fr; }
+    .email-form { flex-direction:column; }
+    .footer-inner { align-items:flex-start; flex-direction:column; }
+    .soon-grid { grid-template-columns:repeat(2,1fr); }
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
 <nav>
   <div class="container nav-inner">
     <a href="#top" class="logo">
       <div class="logo-mark">AI</div>
-      <div class="logo-name"><span>مُنجَز</span><small>.ai</small></div>
+      <div class="logo-name"><span>مُنجَز</span><small>ai</small></div>
     </a>
-    <div class="nav-cats" id="navCats">
-      <button class="nav-cat active" data-cat="all">الكل</button>
-      <button class="nav-cat" data-cat="finance">المال والأعمال</button>
-      <button class="nav-cat" data-cat="excel">قوالب Excel</button>
-      <button class="nav-cat" data-cat="ai">أدوات AI</button>
-      <button class="nav-cat" data-cat="coming">قادم قريباً</button>
+    <div class="nav-links">
+      <a href="#products">المنتجات</a>
+      <a href="#why">لماذا مُنجَز؟</a>
+      <a href="#how">كيف يعمل؟</a>
+      <a href="#checkout-info">الدفع</a>
     </div>
     <a class="nav-cta" href="#products">تصفح المنتجات</a>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
-<div class="container" id="top">
-  <section class="hero">
-    <div>
-      <div class="hero-badge">✦ منتجات رقمية للمحترف العربي</div>
-      <h1>أدوات تجعل عملك <em>أسرع</em><br>وأكثر احترافية</h1>
-      <p class="hero-desc">Prompts محاسبية، قوالب Excel، وأدوات ذكاء اصطناعي — مُصمَّمة للسوق السعودي والخليجي. اشترِ مباشرة واستلم الملف فوراً.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#products">استعرض المنتجات</a>
-        <a class="btn-secondary" href="#bundles">عروض الحزم</a>
-      </div>
-    </div>
-    <aside class="hero-visual">
-      <div class="hv-label">// مُنجَز.ai — الأرقام</div>
-      <div class="hv-stat-row">
-        <div class="hv-stat"><strong>120+</strong><span>Prompt جاهز</span></div>
-        <div class="hv-stat"><strong>7</strong><span>قوالب Excel</span></div>
-        <div class="hv-stat"><strong>AR</strong><span>عربي كامل</span></div>
-      </div>
-      <div class="hv-chips">
-        <span class="hv-chip">🤖 AI Prompts</span>
-        <span class="hv-chip">📊 Excel</span>
-        <span class="hv-chip">⚖️ ZATCA</span>
-        <span class="hv-chip">⚡ تسليم فوري</span>
-        <span class="hv-chip">🇸🇦 خليجي</span>
-      </div>
-    </aside>
-  </section>
-</div>
-
-<!-- ═══ BEST SELLERS STRIP ═══ -->
-<div class="container">
-  <div class="bestsellers-wrap">
-    <div class="strip-header">
-      <span class="strip-label">⭐ الأكثر مبيعاً</span>
-    </div>
-    <div class="strip-scroll">
-
-      <div class="strip-card" onclick="openPopup('full')">
-        <div class="strip-icon">🤖</div>
-        <div class="strip-name">دليل المحاسب الذكي</div>
-        <div class="strip-desc">90 Prompt + PDF + Google Sheets</div>
-        <div class="strip-footer">
-          <span class="strip-price">$26</span>
-          <a class="strip-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" onclick="e=>e.stopPropagation()">اشترِ</a>
+<header class="hero" id="top">
+  <div class="container" style="padding-inline:0">
+    <section class="hero-copy">
+      <div class="hero-content">
+        <div class="hero-badge">✦ متجر عربي لمنتجات الذكاء الاصطناعي</div>
+        <h1>منتجات AI جاهزة تجعل عملك <em>أسرع</em> وأكثر احترافية</h1>
+        <p>Prompts احترافية، قوالب محاسبية ذكية، وأدوات رقمية عملية. اشترِ بدون حساب واستلم المنتج عبر البريد فوراً.</p>
+        <div class="ai-chips">
+          <span class="ai-chip">🤖 AI Prompts</span>
+          <span class="ai-chip">📊 قوالب محاسبية</span>
+          <span class="ai-chip">⚖️ ZATCA</span>
+          <span class="ai-chip">⚡ تسليم فوري</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#products">اكتشف المنتجات</a>
+          <a class="btn-secondary" href="#how">كيف تتم العملية؟</a>
         </div>
       </div>
-
-      <div class="strip-card" onclick="openPopup('zatca')">
-        <div class="strip-icon">⚖️</div>
-        <div class="strip-name">حزمة ZATCA المتخصصة</div>
-        <div class="strip-desc">30 Prompt لكل ما يخص ZATCA</div>
-        <div class="strip-footer">
-          <span class="strip-price">$34</span>
-          <a class="strip-btn" href="PAYHIP_ZATCA_LINK" target="_blank" onclick="e=>e.stopPropagation()">اشترِ</a>
+      <aside class="ai-visual">
+        <div class="ai-visual-label">AI Product Stack</div>
+        <div class="prompt-card">
+          <strong>Prompt Packs جاهزة</strong>
+          <span>أوامر منظمة للمحاسبة، ZATCA، التحليل، وبناء التقارير.</span>
         </div>
-      </div>
-
-      <div class="strip-card" onclick="openPopup('excel-bundle')">
-        <div class="strip-icon">💎</div>
-        <div class="strip-name">حزمة Excel الكاملة</div>
-        <div class="strip-desc">قالبان معاً بسعر مخفض</div>
-        <div class="strip-footer">
-          <span class="strip-price">$37</span>
-          <a class="strip-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" onclick="e=>e.stopPropagation()">اشترِ</a>
+        <div class="prompt-card">
+          <strong>قوالب Excel ذكية</strong>
+          <span>ملفات جاهزة للتشغيل الفوري — أدخل الأرقام وتظهر التقارير تلقائياً.</span>
         </div>
-      </div>
-
-      <div class="strip-card" onclick="openPopup('free')">
-        <div class="strip-icon">🎁</div>
-        <div class="strip-name">10 Prompts مجانية</div>
-        <div class="strip-desc">جرّب الجودة قبل الشراء</div>
-        <div class="strip-footer">
-          <span class="strip-price-free">مجاناً</span>
-          <a class="strip-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" onclick="e=>e.stopPropagation()">احصل عليه</a>
+        <div class="ai-tags">
+          <span>ChatGPT</span><span>ZATCA</span><span>Excel</span><span>محاسبة</span>
         </div>
-      </div>
+      </aside>
+    </section>
+  </div>
+</header>
 
-    </div>
+<div class="cats-wrap">
+  <div class="container cats" id="catsBar">
+    <button class="cat active" data-filter="all">الكل</button>
+    <button class="cat" data-filter="ai">أدوات AI</button>
+    <button class="cat" data-filter="excel">قوالب Excel</button>
+    <button class="cat" data-filter="free">مجاني</button>
   </div>
 </div>
 
-<!-- ═══ MAIN PRODUCTS ═══ -->
 <main class="container" id="products">
 
-  <!-- قسم: المال والأعمال -->
-  <section class="cat-section" data-section="finance">
-    <div class="cat-header">
+  <!-- ── قسم المنتجات ── -->
+  <section id="products-section">
+    <div class="section-head">
       <div>
-        <div class="cat-eyebrow" style="color:var(--mint-dark)">المال والأعمال</div>
-        <h2 class="cat-title">Prompts وقوالب محاسبية</h2>
+        <div class="eyebrow">المنتجات الرقمية</div>
+        <h2 class="section-title">كل منتج مصمم ليحل مهمة واضحة</h2>
       </div>
-      <p class="cat-note">كل أداة تحتاجها في عملك اليومي — من الفوترة حتى الإقرارات الضريبية.</p>
+      <p class="section-note">AI Prompts، قوالب محاسبية Excel، ومنتجات مجانية للتجربة.</p>
     </div>
-    <div class="products-grid">
 
-      <article class="card" data-cat="finance" onclick="openPopup('free')">
+    <div class="grid">
+
+      <article class="card best-seller" data-category="ai" onclick="openPopup('full')">
+        <div class="card-thumb"><span class="best-badge">⭐ الأكثر طلباً</span><span>🤖</span></div>
+        <div class="card-body">
+          <div class="card-tag">AI Prompts — الحزمة الكاملة</div>
+          <h3 class="card-name">دليل المحاسب الذكي — الكاملة</h3>
+          <p class="card-desc">90 Prompt + PDF + Google Sheets جاهز للنسخ الفوري في 7 محاور.</p>
+          <div class="card-footer">
+            <span class="card-price">$26</span>
+            <a class="btn-buy" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" rel="noopener" onclick="event.stopPropagation()">اشترِ</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="ai free" onclick="openPopup('free')">
         <div class="card-thumb c-free"><span>🎁</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — مجاني</div>
           <h3 class="card-name">10 Prompts محاسبية مجانية</h3>
-          <p class="card-desc">جرّب الجودة قبل الشراء — 10 Prompts مختارة من أفضل المحاور.</p>
+          <p class="card-desc">نموذج مجاني لتجربة الجودة قبل شراء الباقات المدفوعة.</p>
           <div class="card-footer">
             <span class="card-price-free">مجاناً</span>
             <a class="btn-buy free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" rel="noopener" onclick="event.stopPropagation()">احصل عليه</a>
@@ -758,20 +574,7 @@ footer p { color: rgba(255,255,255,.4); font-size: 13px; }
         </div>
       </article>
 
-      <article class="card best-seller" data-cat="finance" onclick="openPopup('full')">
-        <div class="card-thumb"><span class="best-badge">⭐ الأكثر مبيعاً</span><span>🤖</span></div>
-        <div class="card-body">
-          <div class="card-tag">AI Prompts — الحزمة الكاملة</div>
-          <h3 class="card-name">دليل المحاسب الذكي — الكاملة</h3>
-          <p class="card-desc">90 Prompt في 7 محاور + PDF + Google Sheets جاهز للنسخ الفوري.</p>
-          <div class="card-footer">
-            <span class="card-price">$26</span>
-            <a class="btn-buy" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" rel="noopener" onclick="event.stopPropagation()">اشترِ الآن</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-cat="finance" onclick="openPopup('zatca')">
+      <article class="card" data-category="ai" onclick="openPopup('zatca')">
         <div class="card-thumb c-zatca"><span>⚖️</span></div>
         <div class="card-body">
           <div class="card-tag">AI Prompts — ZATCA متخصص</div>
@@ -784,26 +587,12 @@ footer p { color: rgba(255,255,255,.4); font-size: 13px; }
         </div>
       </article>
 
-    </div>
-  </section>
-
-  <!-- قسم: قوالب Excel -->
-  <section class="cat-section" data-section="excel">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow" style="color:var(--orange-dark)">قوالب Excel</div>
-        <h2 class="cat-title">نماذج محاسبية جاهزة</h2>
-      </div>
-      <p class="cat-note">أدخل أرقامك — تظهر التقارير تلقائياً. متوافقة مع ZATCA.</p>
-    </div>
-    <div class="products-grid">
-
-      <article class="card" data-cat="excel" onclick="openPopup('excel-sm')">
+      <article class="card" data-category="excel" onclick="openPopup('excel-sm')">
         <div class="card-thumb c-excel"><span>📊</span></div>
         <div class="card-body">
-          <div class="card-tag">Excel — شركات صغيرة</div>
+          <div class="card-tag">قوالب Excel — شركات صغيرة</div>
           <h3 class="card-name">قالب Excel للشركات الصغيرة</h3>
-          <p class="card-desc">تقارير مالية + تدفق نقدي + فواتير ZATCA — مثالي للمنشآت الصغيرة.</p>
+          <p class="card-desc">تقارير مالية + تدفق نقدي + فواتير متوافقة مع ZATCA.</p>
           <div class="card-footer">
             <span class="card-price">$13</span>
             <a class="btn-buy" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" rel="noopener" onclick="event.stopPropagation()">اشترِ</a>
@@ -811,12 +600,12 @@ footer p { color: rgba(255,255,255,.4); font-size: 13px; }
         </div>
       </article>
 
-      <article class="card" data-cat="excel" onclick="openPopup('excel-lg')">
+      <article class="card" data-category="excel" onclick="openPopup('excel-lg')">
         <div class="card-thumb c-excel"><span>📈</span></div>
         <div class="card-body">
-          <div class="card-tag">Excel — متوسطة وكبيرة</div>
+          <div class="card-tag">قوالب Excel — متوسطة وكبيرة</div>
           <h3 class="card-name">قالب Excel للشركات المتوسطة والكبيرة</h3>
-          <p class="card-desc">ميزانية عمومية + KPI + تقارير إدارية + ZATCA كامل.</p>
+          <p class="card-desc">ميزانية عمومية + KPI + تقارير إدارية متقدمة + ZATCA كامل.</p>
           <div class="card-footer">
             <span class="card-price">$26</span>
             <a class="btn-buy" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" rel="noopener" onclick="event.stopPropagation()">اشترِ</a>
@@ -824,167 +613,193 @@ footer p { color: rgba(255,255,255,.4); font-size: 13px; }
         </div>
       </article>
 
+      <article class="card" data-category="nfc">
+        <div class="card-thumb c-nfc"><span>📇</span></div>
+        <div class="card-body">
+          <div class="card-tag">بطاقات NFC</div>
+          <h3 class="card-name">بطاقة بروفايل ذكية NFC</h3>
+          <p class="card-desc">صفحة بروفايل احترافية + QR Code + حفظ vCard.</p>
+          <div class="card-footer">
+            <span class="card-price-soon">قريباً</span>
+            <a class="btn-buy soon" href="#" aria-disabled="true">قريباً</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <!-- قسم: قادم -->
-  <section class="cat-section soon-section" data-section="coming">
-    <div class="cat-header">
+  <!-- ── Bundle ── -->
+  <div class="bundle-wrap">
+    <div class="section-head">
       <div>
-        <div class="cat-eyebrow" style="color:var(--lilac-dark)">قادم قريباً</div>
-        <h2 class="cat-title">المنتجات القادمة</h2>
-      </div>
-      <p class="cat-note">سجّل بريدك لتصلك الإشعارات أولاً عند الإطلاق.</p>
-    </div>
-    <div class="soon-grid">
-      <div class="soon-card"><div class="soon-icon">💼</div><div class="soon-name">قالب Excel للرواتب</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
-      <div class="soon-card"><div class="soon-icon">📦</div><div class="soon-name">قالب Excel للمخزون</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
-      <div class="soon-card"><div class="soon-icon">🧾</div><div class="soon-name">قالب الفواتير والعروض</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
-      <div class="soon-card"><div class="soon-icon">👥</div><div class="soon-name">حزمة Prompts الموارد البشرية</div><div class="soon-cat">أدوات AI</div><span class="soon-pill">قريباً</span></div>
-      <div class="soon-card"><div class="soon-icon">📣</div><div class="soon-name">حزمة Prompts التسويق</div><div class="soon-cat">أدوات AI</div><span class="soon-pill">قريباً</span></div>
-      <div class="soon-card"><div class="soon-icon">📇</div><div class="soon-name">بطاقة بروفايل NFC</div><div class="soon-cat">هوية مهنية</div><span class="soon-pill">قريباً</span></div>
-    </div>
-  </section>
-
-  <!-- ═══ BUNDLE ═══ -->
-  <div id="bundles" class="bundle-section" data-section="finance">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow" style="color:var(--yellow-dark)">عروض الحزم</div>
-        <h2 class="cat-title">وفّر أكثر مع الحزم</h2>
+        <div class="eyebrow" style="color:var(--yellow-dark)">عروض الحزم</div>
+        <h2 class="section-title">وفّر أكثر مع الحزم</h2>
       </div>
     </div>
     <div class="bundle-card" onclick="openPopup('excel-bundle')" style="cursor:pointer">
       <div>
-        <div class="bundle-tag">💎 حزمة خاصة</div>
-        <h3>حزمة القوالب الكاملة<br>صغير + متوسط وكبير</h3>
-        <p>القالبان معاً — يغطيان كل احتياجاتك سواء كنت تعمل مع منشآت صغيرة أو شركات كبيرة.</p>
+        <div class="bundle-tag">💎 حزمة مخفضة</div>
+        <h2>حزمة قوالب Excel الكاملة<br>صغير + متوسط وكبير</h2>
+        <p class="bundle-desc">القالبان معاً — يغطيان كل احتياجاتك سواء كنت تعمل مع منشآت صغيرة أو شركات كبيرة.</p>
       </div>
       <div class="bundle-side">
-        <div class="bundle-old">$39 بشكل منفصل</div>
-        <div class="bundle-price">$37 <span>USD</span></div>
+        <div class="price-old">$39 بشكل منفصل</div>
+        <div class="price-new">$37 <span>USD</span></div>
         <a class="btn-bundle" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" rel="noopener" onclick="event.stopPropagation()">اشترِ الحزمة الآن</a>
       </div>
     </div>
   </div>
 
+  <!-- ── قادم قريباً ── -->
+  <div class="soon-wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow" style="color:var(--lilac-dark)">على الطريق</div>
+        <h2 class="section-title">المنتجات القادمة</h2>
+      </div>
+      <p class="section-note">سجّل بريدك أسفل الصفحة لتصلك أولاً عند الإطلاق.</p>
+    </div>
+    <div class="soon-grid">
+      <div class="soon-card"><div class="soon-icon">💼</div><div class="soon-name">قالب Excel للرواتب</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
+      <div class="soon-card"><div class="soon-icon">📦</div><div class="soon-name">قالب Excel للمخزون</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
+      <div class="soon-card"><div class="soon-icon">🧾</div><div class="soon-name">قالب الفواتير والعروض</div><div class="soon-cat">قوالب Excel</div><span class="soon-pill">قريباً</span></div>
+      <div class="soon-card"><div class="soon-icon">👥</div><div class="soon-name">حزمة Prompts HR</div><div class="soon-cat">أدوات AI</div><span class="soon-pill">قريباً</span></div>
+      <div class="soon-card"><div class="soon-icon">📣</div><div class="soon-name">حزمة Prompts التسويق</div><div class="soon-cat">أدوات AI</div><span class="soon-pill">قريباً</span></div>
+    </div>
+  </div>
+
+  <!-- ── Why ── -->
+  <section id="why">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">لماذا مُنجَز؟</div>
+        <h2 class="section-title">تجربة شراء سريعة ومنتجات عملية</h2>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><div class="icon">🇸🇦</div><strong>مصمم للسوق الخليجي</strong><p>لغة ومحتوى يناسب المحاسب ورائد الأعمال في السعودية والخليج.</p></div>
+      <div class="info-card"><div class="icon">⚡</div><strong>تسليم فوري</strong><p>بعد الدفع يستلم العميل رابط التحميل مباشرة عبر البريد.</p></div>
+      <div class="info-card"><div class="icon">🚪</div><strong>بدون حساب</strong><p>لا نجبر العميل على تسجيل الدخول قبل الشراء.</p></div>
+      <div class="info-card"><div class="icon">🧩</div><strong>قابل للتطوير</strong><p>منتجات جديدة تُضاف باستمرار — سجّل بريدك لتصلك أولاً.</p></div>
+    </div>
+  </section>
+
+  <!-- ── How ── -->
+  <section id="how">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">طريقة الشراء</div>
+        <h2 class="section-title">ثلاث خطوات فقط</h2>
+      </div>
+    </div>
+    <div class="how-grid">
+      <div class="how-card"><div class="step">1</div><strong>اختر المنتج</strong><p>تصفح وانقر على أي بطاقة لرؤية التفاصيل الكاملة.</p></div>
+      <div class="how-card"><div class="step">2</div><strong>ادفع عبر Gumroad</strong><p>صفحة دفع آمنة بـ Visa أو Mastercard أو PayPal.</p></div>
+      <div class="how-card"><div class="step">3</div><strong>استلم الملف</strong><p>رابط التحميل يصل لبريدك فوراً بعد الدفع.</p></div>
+    </div>
+  </section>
+
+  <!-- ── Checkout Info ── -->
+  <section id="checkout-info">
+    <div class="checkout-grid">
+      <section class="payment-panel">
+        <div class="payment-title">وسائل الدفع المتاحة</div>
+        <div class="payment-icons">
+          <span class="payment-badge visa"><span class="symbol">V</span> Visa</span>
+          <span class="payment-badge master"><span class="symbol">●●</span> Mastercard</span>
+          <span class="payment-badge apple"><span class="symbol"></span> Apple Pay</span>
+          <span class="payment-badge soon"><span class="symbol">stc</span> Pay</span>
+          <span class="payment-badge soon"><span class="symbol">مدى</span></span>
+        </div>
+        <div class="payment-note">الدفع والتسليم عبر Gumroad. STC Pay ومدى قادمان لاحقاً.</div>
+      </section>
+      <section class="email-capture">
+        <div class="email-copy">
+          <strong>الشراء بدون إنشاء حساب</strong>
+          <span>إدخال البريد هنا اختياري للتحديثات والمجانيات فقط.</span>
+        </div>
+        <form class="email-form" id="emailForm">
+          <input type="email" id="customerEmail" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
+          <button type="submit">أرسل لي المجانيات</button>
+        </form>
+        <div class="email-message" id="emailMessage">تم التسجيل. سنرسل لك المجانيات والتحديثات.</div>
+      </section>
+    </div>
+  </section>
+
 </main>
 
-<!-- ═══ TRUST ═══ -->
-<section class="trust-section">
-  <div class="container trust-inner">
-    <div class="trust-top">
-      <h2>صُمِّم للمحترف العربي</h2>
-      <p>خبرة حقيقية في المحاسبة والذكاء الاصطناعي</p>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card"><div class="trust-icon">🇸🇦</div><div class="trust-title">محتوى عربي أصيل</div><div class="trust-desc">كل Prompt مكتوب ومختبر بالعربية — لا ترجمة آلية.</div></div>
-      <div class="trust-card"><div class="trust-icon">⚖️</div><div class="trust-title">متوافق مع ZATCA</div><div class="trust-desc">محاور متخصصة في الفوترة الإلكترونية وضريبة القيمة المضافة.</div></div>
-      <div class="trust-card"><div class="trust-icon">⚡</div><div class="trust-title">تسليم فوري</div><div class="trust-desc">بعد الدفع يصلك الملف على بريدك مباشرةً بدون تأخير.</div></div>
-      <div class="trust-card"><div class="trust-icon">🔄</div><div class="trust-title">تحديثات مستمرة</div><div class="trust-desc">المنتجات تُحدَّث مع كل تغيير في الأنظمة أو أدوات AI.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ EMAIL ═══ -->
-<div class="container email-section">
-  <div class="email-inner">
-    <div class="email-copy">
-      <h3>الشراء بدون إنشاء حساب</h3>
-      <p>الشراء يتم مباشرة من زر المنتج. سجّل بريدك هنا اختيارياً لتصلك التحديثات والمنتجات المجانية أولاً.</p>
-    </div>
-    <div>
-      <form class="email-form" id="emailForm">
-        <input type="email" id="customerEmail" placeholder="بريدك الإلكتروني — اختياري" autocomplete="email">
-        <button type="submit">أرسل لي المجانيات</button>
-      </form>
-      <div class="email-msg" id="emailMsg">✅ تم التسجيل. سنرسل لك المجانيات والتحديثات.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container footer-inner">
     <div>
-      <div class="footer-logo">مُنجَز.ai</div>
-      <p>منتجات رقمية للمحاسبين ورواد الأعمال في الخليج.</p>
+      <div class="footer-logo"><span>مُنجَز</span>.ai</div>
+      <p>منتجات رقمية للمحاسبين ورواد الأعمال.</p>
     </div>
-    <div class="footer-links">
-      <a href="#">سياسة الخصوصية</a>
-      <a href="#">الشروط والأحكام</a>
-      <a href="mailto:info@munjaz.ai">تواصل معنا</a>
-    </div>
-    <p>الدفع والتسليم عبر Gumroad</p>
+    <p>الدفع والتسليم عبر Gumroad.</p>
   </div>
 </footer>
 
-<!-- ═══ POPUP ═══ -->
-<div class="popup-overlay" id="popupOverlay" onclick="handleOverlay(event)">
-  <div class="popup">
-    <div class="popup-thumb" id="pThumb">
-      <button class="popup-close" onclick="closePopup()">✕</button>
-      <span id="pIcon"></span>
-    </div>
-    <div class="popup-body">
-      <div class="popup-tag" id="pTag"></div>
-      <div class="popup-name" id="pName"></div>
-      <div class="popup-pitch" id="pPitch"></div>
-      <ul class="popup-features" id="pFeatures"></ul>
-      <div class="popup-footer">
-        <div id="pPrice"></div>
-        <a id="pBtn" class="btn-popup-buy" href="#" target="_blank" rel="noopener"></a>
-      </div>
+<!-- POPUP -->
+<div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closePopup()">✕</button>
+    <div class="modal-thumb" id="mThumb"><span id="mIcon"></span></div>
+    <div class="modal-tag" id="mTag"></div>
+    <div class="modal-name" id="mName"></div>
+    <div class="modal-pitch" id="mPitch"></div>
+    <ul class="modal-features" id="mFeatures"></ul>
+    <div class="modal-footer">
+      <div id="mPrice"></div>
+      <a id="mBtn" class="btn-modal-buy" href="#" target="_blank" rel="noopener"></a>
     </div>
   </div>
 </div>
 
-<!-- ═══ JAVASCRIPT ═══ -->
 <script>
-/* ── فلترة الأقسام ── */
-document.getElementById('navCats').addEventListener('click', e => {
-  const btn = e.target.closest('.nav-cat');
+/* فلترة */
+document.getElementById('catsBar').addEventListener('click', e => {
+  const btn = e.target.closest('.cat');
   if (!btn) return;
-  document.querySelectorAll('.nav-cat').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cat').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const cat = btn.dataset.cat;
-  document.querySelectorAll('.cat-section, .bundle-section, .soon-section').forEach(sec => {
-    if (cat === 'all') { sec.style.display = ''; return; }
-    const secCat = sec.dataset.section || '';
-    const hasCards = [...sec.querySelectorAll('[data-cat]')].some(c => c.dataset.cat === cat);
-    sec.style.display = (cat === 'coming' ? sec.classList.contains('soon-section') : (hasCards || secCat === cat)) ? '' : 'none';
+  const f = btn.dataset.filter;
+  document.querySelectorAll('.card').forEach(card => {
+    const cats = card.dataset.category || '';
+    card.style.display = (f === 'all' || cats.split(' ').includes(f)) ? '' : 'none';
   });
 });
 
-/* ── البريد ── */
+/* بريد */
 document.getElementById('emailForm').addEventListener('submit', e => {
   e.preventDefault();
-  const val = document.getElementById('customerEmail').value.trim();
-  const msg = document.getElementById('emailMsg');
-  if (!val) { msg.style.display = 'block'; msg.textContent = 'البريد اختياري — يمكنك الشراء مباشرة.'; return; }
-  localStorage.setItem('munjaz_email', val);
+  const email = document.getElementById('customerEmail').value.trim();
+  const msg = document.getElementById('emailMessage');
   msg.style.display = 'block';
+  if (!email) { msg.textContent = 'البريد اختياري. يمكنك الشراء مباشرة بدون حساب.'; return; }
+  localStorage.setItem('munjaz_email', email);
+  msg.textContent = 'تم التسجيل. سنرسل لك المجانيات والتحديثات.';
   e.target.reset();
 });
 
-/* ── بيانات Popup ── */
+/* بيانات الـ Popup */
 const PRODUCTS = {
   free: {
     icon:'🎁', bg:'var(--mint)', tag:'AI Prompts — مجاني',
     name:'10 Prompts محاسبية مجانية',
     pitch:'جرّب الجودة قبل أن تقرر — 10 Prompts مختارة من أفضل المحاور، جاهزة للنسخ الفوري.',
-    features:[['📋','3 محاور: التقارير، التحليل، الفواتير'],['⚡','زر نسخ لكل Prompt بضغطة واحدة'],['🇸🇦','مكتوبة بالعربية ومختبرة على السوق السعودي'],['🔄','تحديثات مستمرة مجانية']],
-    price:'<span class="popup-price-free">مجاناً تماماً</span>',
+    features:[['📋','3 محاور: التقارير، التحليل، الفواتير'],['⚡','زر نسخ لكل Prompt بضغطة واحدة'],['🇸🇦','مكتوبة بالعربية للسوق السعودي'],['🔄','تحديثات مستمرة مجانية']],
+    price:'<span class="modal-price-free">مجاناً تماماً</span>',
     btnText:'🎁 احصل عليه مجاناً', btnClass:'free',
     link:'https://hosamalfi.gumroad.com/l/eyuqs'
   },
   full: {
-    icon:'🤖', bg:'linear-gradient(135deg,#171717 0%,#2d2169 100%)',
+    icon:'🤖', bg:'linear-gradient(135deg,#171717,#2d2169)',
     tag:'AI Prompts — الحزمة الكاملة',
     name:'دليل المحاسب الذكي — الكاملة',
     pitch:'كل Prompt تحتاجه في عملك اليومي — من التقارير المالية حتى التحقق من ZATCA.',
     features:[['🤖','90 Prompt في 7 محاور شاملة'],['📊','ZATCA، VAT، التقارير، المراسلات، التحليل'],['📄','PDF + Google Sheets بزر نسخ لكل Prompt'],['⏱️','يوفّر ساعات من العمل الأسبوعي'],['🔄','تحديثات مدى الحياة']],
-    price:'<span class="popup-price">$26</span>',
+    price:'<span class="modal-price">$26</span>',
     btnText:'🚀 اشترِ الآن — $26', btnClass:'',
     link:'https://hosamalfi.gumroad.com/l/punwv'
   },
@@ -993,8 +808,8 @@ const PRODUCTS = {
     tag:'AI Prompts — ZATCA متخصص',
     name:'حزمة ZATCA للمحاسبين',
     pitch:'30 Prompt متخصص في كل ما يتعلق بـ ZATCA — من Phase 1 حتى الرد على إشعارات المطالبة.',
-    features:[['⚡','الفوترة الإلكترونية: Phase 1 و Phase 2'],['📝','إقرارات VAT: تحضير، تصحيح، استرداد'],['🔍','مراجعة الفواتير: الواردة، المجموعات، الدولية'],['📬','ردود رسمية واعتراضات وتدقيق ميداني'],['⚖️','التخطيط الضريبي: تقييم العقود والهياكل']],
-    price:'<span class="popup-price">$34</span>',
+    features:[['⚡','الفوترة الإلكترونية: Phase 1 و Phase 2'],['📝','إقرارات VAT: تحضير، تصحيح، استرداد'],['🔍','مراجعة الفواتير الواردة والدولية'],['📬','ردود رسمية على إشعارات ZATCA'],['⚖️','التخطيط الضريبي وتقييم العقود']],
+    price:'<span class="modal-price">$34</span>',
     btnText:'⚖️ اشترِ الآن — $34', btnClass:'',
     link:'PAYHIP_ZATCA_LINK'
   },
@@ -1002,8 +817,8 @@ const PRODUCTS = {
     icon:'📊', bg:'var(--orange)', tag:'Excel — شركات صغيرة',
     name:'قالب Excel للشركات الصغيرة',
     pitch:'قالب جاهز للتشغيل الفوري — أدخل أرقامك وستظهر التقارير تلقائياً.',
-    features:[['📈','تقارير الأرباح والخسائر + الميزانية'],['💵','تتبع التدفق النقدي تلقائياً'],['🧾','فواتير متوافقة مع ZATCA'],['🎨','تصميم جاهز للطباعة'],['⚡','صيغ مدمجة — لا خبرة تقنية مطلوبة']],
-    price:'<span class="popup-price">$13</span>',
+    features:[['📈','تقارير الأرباح والخسائر + الميزانية'],['💵','تتبع التدفق النقدي تلقائياً'],['🧾','فواتير متوافقة مع ZATCA'],['⚡','صيغ مدمجة — لا خبرة تقنية مطلوبة']],
+    price:'<span class="modal-price">$13</span>',
     btnText:'📊 اشترِ الآن — $13', btnClass:'',
     link:'https://hosamalfi.gumroad.com/l/lgwtng'
   },
@@ -1011,8 +826,8 @@ const PRODUCTS = {
     icon:'📈', bg:'var(--orange)', tag:'Excel — متوسطة وكبيرة',
     name:'قالب Excel للشركات المتوسطة والكبيرة',
     pitch:'نظام تقارير مالية متكامل — ميزانية عمومية، KPI، وتقارير إدارية احترافية.',
-    features:[['📋','ميزانية عمومية + قائمة دخل + تدفقات نقدية'],['📉','لوحة KPI تحدث تلقائياً'],['📊','تقارير إدارية للعرض على الإدارة'],['⚖️','ZATCA كامل + حسابات VAT'],['🔢','يدعم أقسام متعددة']],
-    price:'<span class="popup-price">$26</span>',
+    features:[['📋','ميزانية عمومية + قائمة دخل + تدفقات نقدية'],['📉','لوحة KPI تحدث تلقائياً'],['⚖️','ZATCA كامل + حسابات VAT'],['🔢','يدعم أقسام متعددة']],
+    price:'<span class="modal-price">$26</span>',
     btnText:'📈 اشترِ الآن — $26', btnClass:'',
     link:'https://hosamalfi.gumroad.com/l/ackmoq'
   },
@@ -1021,8 +836,8 @@ const PRODUCTS = {
     tag:'Excel — الحزمة الكاملة',
     name:'حزمة القوالب الكاملة — صغير + كبير',
     pitch:'القالبان معاً بسعر مخفض — يغطيان كل احتياجاتك مع عملائك.',
-    features:[['💎','القالبان كاملين في تحميل واحد'],['💰','وفّر $2 مقارنة بالشراء المنفصل'],['🔄','استخدمهما مع عملاء مختلفين'],['⚡','جاهز للاستخدام فوراً']],
-    price:'<span class="popup-price">$37 <small>$39</small></span>',
+    features:[['💎','القالبان كاملين في تحميل واحد'],['💰','وفّر $2 مقارنة بالشراء المنفصل'],['🔄','استخدمهما مع عملاء مختلفين']],
+    price:'<span class="modal-price">$37 <small>$39</small></span>',
     btnText:'💎 اشترِ الحزمة — $37', btnClass:'',
     link:'https://hosamalfi.gumroad.com/l/cvjcmg'
   }
@@ -1030,34 +845,32 @@ const PRODUCTS = {
 
 function openPopup(id) {
   const p = PRODUCTS[id]; if (!p) return;
-  document.getElementById('pThumb').style.background = p.bg;
-  document.getElementById('pIcon').textContent = p.icon;
-  document.getElementById('pTag').textContent = p.tag;
-  document.getElementById('pName').textContent = p.name;
-  document.getElementById('pPitch').textContent = p.pitch;
-  document.getElementById('pFeatures').innerHTML = p.features.map(
+  document.getElementById('mThumb').style.background = p.bg;
+  document.getElementById('mIcon').textContent = p.icon;
+  document.getElementById('mTag').textContent = p.tag;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mPitch').textContent = p.pitch;
+  document.getElementById('mFeatures').innerHTML = p.features.map(
     ([ic,tx]) => `<li><span class="fi">${ic}</span><span>${tx}</span></li>`
   ).join('');
-  document.getElementById('pPrice').innerHTML = p.price;
-  const btn = document.getElementById('pBtn');
+  document.getElementById('mPrice').innerHTML = p.price;
+  const btn = document.getElementById('mBtn');
   btn.textContent = p.btnText;
   btn.href = p.link;
-  btn.className = 'btn-popup-buy' + (p.btnClass ? ' '+p.btnClass : '');
-  document.getElementById('popupOverlay').classList.add('open');
+  btn.className = 'btn-modal-buy' + (p.btnClass ? ' '+p.btnClass : '');
+  document.getElementById('overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 function closePopup() {
-  document.getElementById('popupOverlay').classList.remove('open');
+  document.getElementById('overlay').classList.remove('active');
   document.body.style.overflow = '';
 }
-function handleOverlay(e) { if (e.target.id === 'popupOverlay') closePopup(); }
+function handleOverlayClick(e) { if (e.target.id === 'overlay') closePopup(); }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
-/* تنبيه روابط غير مربوطة */
 document.querySelectorAll('a[href^="PAYHIP_"]').forEach(link => {
-  link.addEventListener('click', e => { e.preventDefault(); alert('يرجى إضافة رابط Gumroad لهذا المنتج.'); });
+  link.addEventListener('click', e => { e.preventDefault(); alert('أضف رابط Gumroad لمنتج ZATCA.'); });
 });
 </script>
-
 </body>
 </html>
