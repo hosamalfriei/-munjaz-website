@@ -430,6 +430,217 @@ body { overflow-x: hidden; }
   .hero-actions { flex-direction: column; align-items: stretch; }
 }
 
+
+
+/* ═══ PROFESSIONAL UI/UX TUNING — balanced width + subtle glass ═══ */
+:root {
+  --content-max: 1640px;
+  --glass: rgba(255,255,255,.58);
+  --glass-strong: rgba(255,255,255,.82);
+  --glass-line: rgba(232,230,224,.72);
+  --glow-teal: rgba(27,107,90,.10);
+  --glow-gold: rgba(196,148,42,.13);
+}
+
+body {
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(27,107,90,.06), transparent 30%),
+    radial-gradient(circle at 88% 22%, rgba(196,148,42,.08), transparent 32%),
+    var(--bg);
+}
+
+.w {
+  width: min(calc(100% - 64px), var(--content-max));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+nav {
+  background: rgba(250,250,247,.74);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+}
+
+.nav-inner { height: 58px; }
+.logo-mark { box-shadow: 0 8px 18px rgba(27,107,90,.18); }
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(38px, 5.2vw, 64px) 0;
+  background:
+    linear-gradient(135deg, rgba(230,245,240,.88) 0%, rgba(250,250,247,.92) 45%, rgba(255,246,224,.9) 100%);
+}
+.hero::before,
+.hero::after {
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  filter: blur(24px);
+  pointer-events:none;
+}
+.hero::before {
+  right: clamp(-220px, -8vw, -90px);
+  top: -170px;
+  background: radial-gradient(circle, rgba(27,107,90,.13), transparent 67%);
+}
+.hero::after {
+  left: clamp(-220px, -8vw, -90px);
+  bottom: -220px;
+  background: radial-gradient(circle, rgba(196,148,42,.16), transparent 68%);
+}
+.hero > .w {
+  position:relative;
+  z-index:1;
+}
+
+.hero-badge,
+.hero-chip,
+.btn-s,
+.filters,
+.stats-strip {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(16px) saturate(1.08);
+  -webkit-backdrop-filter: blur(16px) saturate(1.08);
+  box-shadow: 0 10px 30px rgba(45,45,45,.045);
+}
+
+.hero-badge { margin-bottom: 18px; }
+.hero h1 {
+  font-size: clamp(32px, 3.2vw, 52px);
+  line-height: 1.12;
+  max-width: 720px;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+.hero-chips { margin-bottom: 22px; }
+.btn-p, .btn-s { min-height: 44px; }
+
+.stats-strip {
+  width: min(100%, 760px);
+  margin: 26px auto 0;
+  padding: 16px 22px;
+  border-top: 1px solid var(--glass-line);
+  border-radius: 999px;
+  gap: clamp(22px, 4vw, 48px);
+}
+.stat-num { font-size: 24px; }
+
+.filters-bar {
+  padding: 16px 0 2px;
+}
+.filters {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 6px;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+}
+.filter-btn {
+  border-color: transparent;
+  background: rgba(255,255,255,.64);
+}
+.filter-btn.active {
+  box-shadow: 0 8px 18px rgba(27,107,90,.18);
+}
+
+main.w#products {
+  width: min(calc(100% - 64px), var(--content-max));
+  padding-bottom: 48px;
+}
+#products > .sec-head:first-child,
+.sec-head {
+  margin: 28px 0 18px;
+}
+#products > .sec-head:first-child {
+  max-width: none;
+}
+.sec-tag { margin-bottom: 4px; }
+.sec-title { line-height: 1.35; }
+
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: stretch;
+  gap: 16px;
+}
+.card,
+.soon-card,
+.trust-card,
+.how-card,
+.checkout-box,
+.modal {
+  background: var(--glass-strong);
+  border-color: rgba(232,230,224,.78);
+  backdrop-filter: blur(14px) saturate(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.05);
+}
+.card {
+  box-shadow: 0 10px 30px rgba(45,45,45,.055);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 46px rgba(45,45,45,.10);
+}
+.card.featured {
+  box-shadow: 0 14px 38px rgba(27,107,90,.12);
+}
+.card-thumb { height: 136px; }
+.card-body { padding: 15px; }
+.card-desc { min-height: 46px; }
+
+@media (min-width: 1500px) {
+  .grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .card-name { font-size: 15px; }
+  .card-desc { font-size: 12.5px; }
+}
+
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .w,
+  main.w#products {
+    width: min(calc(100% - 32px), var(--content-max));
+  }
+  .nav-inner { height: 58px; }
+  .hero { padding: 36px 0 38px; }
+  .hero h1 {
+    font-size: clamp(30px, 9vw, 42px);
+    letter-spacing: -1px;
+  }
+  .stats-strip {
+    width: 100%;
+    border-radius: 22px;
+    gap: 14px;
+  }
+  .stat-item { flex: 1 1 120px; }
+  .filters {
+    width: 100%;
+    border-radius: 20px;
+  }
+  .filter-btn {
+    flex: 1 1 auto;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  #products > .sec-head:first-child,
+  .sec-head {
+    margin-top: 24px;
+  }
+  .grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -504,7 +715,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">90 Prompt في 7 محاور + PDF + Google Sheets جاهز للنسخ الفوري.</p>
         <div class="card-bottom">
           <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -517,7 +728,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">جرّب الجودة — 10 Prompts مختارة من أفضل المحاور.</p>
         <div class="card-bottom">
           <span class="card-price-free">مجاناً</span>
-          <a class="card-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" onclick="event.stopPropagation()" rel="noopener">احصل عليه</a>
+          <a class="card-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">احصل عليه</a>
         </div>
       </div>
     </article>
@@ -530,7 +741,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">30 Prompt في الفوترة الإلكترونية، VAT، التدقيق والتخطيط الضريبي.</p>
         <div class="card-bottom">
           <span class="card-price">$34</span>
-          <a class="card-btn" href="PAYHIP_ZATCA_LINK" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+          <a class="card-btn" href="PAYHIP_ZATCA_LINK" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -543,7 +754,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">تقارير مالية + تدفق نقدي + فواتير متوافقة مع ZATCA.</p>
         <div class="card-bottom">
           <span class="card-price">$13</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -556,7 +767,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">ميزانية عمومية + KPI + تقارير إدارية + ZATCA كامل.</p>
         <div class="card-bottom">
           <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -569,7 +780,7 @@ body { overflow-x: hidden; }
         <p class="card-desc">القالبان معاً بسعر مخفض — يغطيان كل احتياجاتك.</p>
         <div class="card-bottom">
           <span class="card-price">$37 <small>$39</small></span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ الحزمة</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ الحزمة</a>
         </div>
       </div>
     </article>
