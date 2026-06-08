@@ -37,7 +37,11 @@ body {
   min-height: 100vh;
 }
 a { color: inherit; }
-.w { width: 100%; margin: 0; padding-inline: clamp(24px, 5vw, 80px); }
+.w {
+  width: min(1180px, calc(100% - clamp(40px, 8vw, 160px)));
+  margin-inline: auto;
+  padding-inline: 0;
+}
 
 /* ═══ NAV ═══ */
 nav {
@@ -367,6 +371,41 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
   .email-form { flex-direction:column; }
   .soon-grid { grid-template-columns:repeat(2,1fr); }
 }
+
+
+/* ═══ EDGE ALIGNMENT & RESPONSIVE POLISH ═══ */
+body { overflow-x: hidden; }
+.card-name, .card-desc,
+.soon-name, .soon-label,
+.trust-card, .how-card,
+.checkout-box, .modal-body,
+.footer-inner { overflow-wrap: break-word; }
+
+.stats-strip { flex-wrap: wrap; row-gap: 18px; }
+.stat-item { min-width: 88px; }
+.card-bottom { gap: 10px; flex-wrap: wrap; }
+.footer-links { flex-wrap: wrap; justify-content: center; }
+
+@media (max-width:640px) {
+  .w { width: calc(100% - 40px); }
+  .hero { padding: 44px 0; }
+  .hero h1 { letter-spacing: -.8px; max-width: 100%; }
+  .hero-desc { max-width: 100%; }
+  .stats-strip { justify-content: center; gap: 18px; }
+  .stat-item { flex: 1 1 120px; max-width: 160px; }
+  .filters { padding-bottom: 4px; }
+  .modal-body { padding: 20px; }
+  .modal-footer { align-items: flex-start; flex-direction: column; }
+  .btn-modal { width: 100%; }
+}
+
+@media (max-width:380px) {
+  .w { width: calc(100% - 32px); }
+  .grid { grid-template-columns: 1fr; }
+  .soon-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+}
+
 </style>
 </head>
 <body>
@@ -441,7 +480,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">90 Prompt في 7 محاور + PDF + Google Sheets جاهز للنسخ الفوري.</p>
         <div class="card-bottom">
           <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" onclick="event.stopPropagation()">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -454,7 +493,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">جرّب الجودة — 10 Prompts مختارة من أفضل المحاور.</p>
         <div class="card-bottom">
           <span class="card-price-free">مجاناً</span>
-          <a class="card-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" onclick="event.stopPropagation()">احصل عليه</a>
+          <a class="card-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" onclick="event.stopPropagation()" rel="noopener">احصل عليه</a>
         </div>
       </div>
     </article>
@@ -467,7 +506,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">30 Prompt في الفوترة الإلكترونية، VAT، التدقيق والتخطيط الضريبي.</p>
         <div class="card-bottom">
           <span class="card-price">$34</span>
-          <a class="card-btn" href="PAYHIP_ZATCA_LINK" target="_blank" onclick="event.stopPropagation()">اشترِ</a>
+          <a class="card-btn" href="PAYHIP_ZATCA_LINK" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -480,7 +519,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">تقارير مالية + تدفق نقدي + فواتير متوافقة مع ZATCA.</p>
         <div class="card-bottom">
           <span class="card-price">$13</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" onclick="event.stopPropagation()">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -493,7 +532,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">ميزانية عمومية + KPI + تقارير إدارية + ZATCA كامل.</p>
         <div class="card-bottom">
           <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" onclick="event.stopPropagation()">اشترِ</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
         </div>
       </div>
     </article>
@@ -506,7 +545,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
         <p class="card-desc">القالبان معاً بسعر مخفض — يغطيان كل احتياجاتك.</p>
         <div class="card-bottom">
           <span class="card-price">$37 <small>$39</small></span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" onclick="event.stopPropagation()">اشترِ الحزمة</a>
+          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" onclick="event.stopPropagation()" rel="noopener">اشترِ الحزمة</a>
         </div>
       </div>
     </article>
@@ -624,7 +663,7 @@ footer p { color:rgba(255,255,255,.5); font-size:12px; }
       <ul class="modal-features" id="mFeatures"></ul>
       <div class="modal-footer">
         <div id="mPrice"></div>
-        <a id="mBtn" class="btn-modal" href="#" target="_blank"></a>
+        <a id="mBtn" class="btn-modal" href="#" target="_blank" rel="noopener"></a>
       </div>
     </div>
   </div>
@@ -720,6 +759,12 @@ function openPopup(id) {
   document.getElementById('mPrice').innerHTML = p.price;
   const b = document.getElementById('mBtn');
   b.textContent = p.btnText; b.href = p.link;
+  b.onclick = e => {
+    if ((p.link || '').startsWith('PAYHIP_')) {
+      e.preventDefault();
+      alert('أضف رابط Gumroad أو Payhip لمنتج ZATCA.');
+    }
+  };
   document.getElementById('overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
