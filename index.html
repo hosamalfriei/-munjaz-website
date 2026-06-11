@@ -3,1190 +3,518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مُنجَزai — متجر منتجات الذكاء الاصطناعي</title>
+<title>منجز.ai — منتجات رقمية لمحترفي الخليج</title>
+<meta name="description" content="حزم برومبتات ذكاء اصطناعي وقوالب Excel احترافية للمحاسبين ورواد الأعمال في السعودية والخليج">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root{
+  --bg:#FAFAF7;
+  --teal:#1B6B5A;
+  --teal-dark:#114A3E;
+  --teal-deep:#0C352D;
+  --teal-soft:#E7F0ED;
+  --white:#FFFFFF;
+  --ink:#1F2421;
+  --ink-soft:#5C6661;
+  --line:#E9E7E0;
+  --gold:#C9A84C;
+  --shadow-sm:0 1px 3px rgba(31,36,33,.06);
+  --shadow-md:0 6px 24px rgba(31,36,33,.09);
+  --shadow-lg:0 18px 50px rgba(31,36,33,.14);
+  --r:16px;
+  --pad:clamp(24px,5vw,80px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;direction:rtl}
+img{max-width:100%}
+a{color:inherit}
 
-:root {
-  --bg: #FAFAF7;
-  --white: #FFFFFF;
-  --ink: #2D2D2D;
-  --soft: #4A4A46;
-  --muted: #8A8A80;
-  --line: #E8E6E0;
-  --cream: #F3F1EB;
-  --sand: #E8E4DB;
-  --teal: #1B6B5A;
-  --teal-light: #E6F5F0;
-  --teal-dark: #145445;
-  --gold: #C4942A;
-  --gold-light: #FFF6E0;
-  --gold-dim: #A67A1A;
-  --card-shadow: 0 2px 16px rgba(45,45,45,.06);
-  --card-hover: 0 12px 40px rgba(45,45,45,.1);
-  --r: 16px;
-  --r-lg: 22px;
-  --products-max: 2336px;
-}
-
-html { scroll-behavior:smooth; }
-body {
-  font-family: 'IBM Plex Sans Arabic', sans-serif;
-  background: var(--bg); color: var(--ink);
-  min-height: 100vh;
-}
-a { color: inherit; }
-.w {
-  width: 100%;
-  max-width: none;
-  margin-inline: auto;
-  padding-inline: clamp(20px, 4vw, 96px);
-}
-
-/* ═══ NAV ═══ */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(250,250,247,.9); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner {
-  height: 64px; display: flex;
-  align-items: center; justify-content: space-between;
-}
-.logo { display:flex; align-items:center; gap:9px; text-decoration:none; }
-.logo-mark {
-  width:38px; height:38px; border-radius:10px;
-  background:var(--teal); color:var(--gold-light);
-  display:grid; place-items:center;
-  font-weight:900; font-size:13px;
-}
-.logo-txt { font-size:20px; font-weight:800; color:var(--ink); letter-spacing:-.4px; }
-.logo-txt small { font-size:15px; color:var(--muted); font-weight:700; }
-.nav-links { display:flex; gap:28px; }
-.nav-links a { text-decoration:none; color:var(--muted); font-size:14px; font-weight:600; transition:color .15s; }
-.nav-links a:hover { color:var(--ink); }
-.nav-cta {
-  background:var(--teal); color:white;
-  padding:8px 18px; border-radius:999px;
-  font-size:13px; font-weight:700; text-decoration:none;
-  transition:background .15s;
-}
-.nav-cta:hover { background:var(--teal-dark); }
-
-/* ═══ HERO — full width, no dark card ═══ */
-.hero {
-  background: linear-gradient(135deg, var(--teal-light) 0%, var(--bg) 40%, var(--gold-light) 100%);
-  border-bottom: 1px solid var(--line);
-  padding: clamp(48px,8vw,88px) 0;
-  text-align: center;
-}
-.hero-badge {
-  display:inline-flex; align-items:center; gap:6px;
-  background:var(--white); border:1px solid var(--line);
-  color:var(--teal); padding:7px 16px; border-radius:999px;
-  font-size:13px; font-weight:700; margin-bottom:24px;
-}
-.hero h1 {
-  font-size:clamp(30px,5vw,56px); font-weight:900;
-  line-height:1.15; letter-spacing:-2px; margin-bottom:20px;
-  max-width:700px; margin-inline:auto;
-}
-.hero h1 em {
-  font-style:normal;
-  background:linear-gradient(180deg, transparent 60%, rgba(196,148,42,.25) 60%);
-}
-.hero-desc {
-  color:var(--soft); font-size:clamp(15px,1.4vw,18px);
-  line-height:1.85; max-width:600px; margin:0 auto 28px;
-}
-.hero-chips {
-  display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:32px;
-}
-.hero-chip {
-  background:var(--white); border:1px solid var(--line);
-  padding:7px 14px; border-radius:999px;
-  font-size:12px; font-weight:700; color:var(--soft);
-}
-.hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.btn-p, .btn-s {
-  min-height:46px; display:inline-flex; align-items:center; justify-content:center;
-  padding:0 24px; border-radius:999px; font-weight:800; font-size:14px;
-  text-decoration:none; transition:all .18s; cursor:pointer;
-  border:none; font-family:inherit;
-}
-.btn-p { background:var(--teal); color:white; box-shadow:0 4px 16px rgba(27,107,90,.2); }
-.btn-p:hover { background:var(--teal-dark); transform:translateY(-1px); }
-.btn-s { background:var(--white); color:var(--ink); border:1px solid var(--line) !important; }
-.btn-s:hover { border-color:var(--teal) !important; color:var(--teal); }
-
-/* Stats strip */
-.stats-strip {
-  display:flex; justify-content:center; gap:clamp(24px,5vw,56px);
-  margin-top:40px; padding-top:32px;
-  border-top:1px solid rgba(27,107,90,.12);
-}
-.stat-item { text-align:center; }
-.stat-num { display:block; font-size:26px; font-weight:900; color:var(--teal); }
-.stat-lbl { font-size:12px; color:var(--muted); }
-
-/* ═══ FILTERS ═══ */
-.filters-bar { padding: 20px 0 4px; }
-.filters {
-  display:flex;
-  gap:8px;
-  width:fit-content;
-  max-width:100%;
-  margin-inline:auto;
-  justify-content:center;
-  flex-wrap:wrap;
-  overflow-x:visible;
-  scrollbar-width:none;
-}
-.filters::-webkit-scrollbar { display:none; }
-.filter-btn {
-  background:var(--white); border:1px solid var(--line);
-  color:var(--muted); padding:9px 16px; border-radius:999px;
-  font-family:inherit; font-weight:700; font-size:13px;
-  cursor:pointer; white-space:nowrap; transition:all .15s;
-}
-.filter-btn:hover { border-color:var(--teal); color:var(--teal); }
-.filter-btn.active { background:var(--teal); color:white; border-color:var(--teal); }
-
-/* ═══ SECTIONS ═══ */
-main { padding-bottom:48px; }
-.sec-head { margin:40px 0 20px; }
-#products > .sec-head:first-child {
-  max-width: var(--products-max);
-  margin: 40px auto 20px;
-}
-.sec-tag { font-size:12px; font-weight:800; color:var(--teal); letter-spacing:.5px; margin-bottom:6px; }
-.sec-title { font-size:clamp(22px,3.5vw,32px); font-weight:900; letter-spacing:-.5px; }
-
-/* ═══ PRODUCT GRID ═══ */
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,320px)); justify-content:center; gap:16px; }
-
-.card {
-  background:var(--white); border:1px solid var(--line);
-  border-radius:var(--r-lg); overflow:hidden;
-  box-shadow:var(--card-shadow); cursor:pointer;
-  transition:transform .2s, box-shadow .2s, border-color .2s;
-}
-.card:hover {
-  transform:translateY(-4px);
-  box-shadow:var(--card-hover);
-  border-color:rgba(27,107,90,.2);
-}
-.card.featured { border-color:var(--teal); border-width:2px; }
-
-.card-thumb {
-  height:140px; display:grid; place-items:center;
-  font-size:42px; position:relative;
-}
-.t-ai  { background:linear-gradient(135deg,#F0EBF8,#E4DEF2); }
-.t-free{ background:linear-gradient(135deg,#E6F5F0,#D0EDE4); }
-.t-zatca{ background:linear-gradient(135deg,#FFF6E0,#FFEDBE); }
-.t-excel{ background:linear-gradient(135deg,#FFF0E0,#FFE3C7); }
-.t-nfc { background:linear-gradient(135deg,#FFE8EF,#FFD4E0); }
-.t-bundle { background:linear-gradient(135deg,#E8E6E0,#D8D4CC); }
-
-.card-badge {
-  position:absolute; top:10px; right:10px;
-  background:var(--teal); color:white;
-  padding:4px 10px; border-radius:999px;
-  font-size:11px; font-weight:800;
-}
-.card-badge.save {
-  background:var(--gold); color:var(--ink);
+/* ───────── NAVBAR ───────── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--pad);height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
+.brand-name{font-size:19px;font-weight:700;color:var(--ink)}
+.brand-name span{color:var(--teal)}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{white-space:nowrap;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-soft);padding:8px 14px;border-radius:99px;transition:.2s}
+.nav-link:hover{color:var(--teal);background:var(--teal-soft)}
+.nav-link.ai{color:var(--teal);font-weight:600}
+.nav-cta{flex-shrink:0;text-decoration:none;background:var(--teal);color:#fff;font-size:14px;font-weight:600;padding:9px 18px;border-radius:99px;transition:.2s}
+.nav-cta:hover{background:var(--teal-dark)}
+@media(max-width:900px){.nav-cta{display:none}}
+@media(max-width:640px){
+  .nav-inner{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+  .nav-links{width:100%;order:3;padding-bottom:2px}
 }
 
-.card-body { padding:16px; }
-.card-cat {
-  display:inline-block; font-size:11px; font-weight:700;
-  color:var(--teal); margin-bottom:8px;
-}
-.card-name {
-  font-size:16px; font-weight:800; line-height:1.4;
-  margin-bottom:6px; color:var(--ink);
-}
-.card-desc {
-  font-size:13px; color:var(--muted); line-height:1.7;
-  min-height:42px;
-}
-.card-bottom {
-  display:flex; justify-content:space-between; align-items:center;
-  margin-top:14px; padding-top:12px; border-top:1px solid var(--line);
-}
-.card-price { font-size:18px; font-weight:900; color:var(--ink); }
-.card-price small { font-size:12px; color:var(--muted); text-decoration:line-through; margin-right:4px; }
-.card-price-free { font-size:16px; font-weight:800; color:var(--teal); }
-.card-price-soon { font-size:13px; font-weight:700; color:var(--muted); }
-.card-btn {
-  background:var(--teal); color:white;
-  padding:8px 16px; border-radius:999px;
-  font-size:12px; font-weight:800; text-decoration:none;
-  font-family:inherit; border:none; cursor:pointer;
-  transition:background .15s;
-}
-.card-btn:hover { background:var(--teal-dark); }
-.card-btn.free { background:var(--teal); }
-.card-btn.soon { background:var(--cream); color:var(--muted); cursor:default; }
+/* ───────── HERO ───────── */
+.hero{text-align:center;padding:clamp(56px,9vw,110px) var(--pad) clamp(40px,6vw,70px)}
+.hero-eyebrow{display:inline-block;background:var(--teal-soft);color:var(--teal);font-size:13px;font-weight:600;padding:6px 16px;border-radius:99px;margin-bottom:22px}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:700;line-height:1.35;max-width:820px;margin:0 auto 18px}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero p{font-size:clamp(15px,2vw,18px);color:var(--ink-soft);max-width:620px;margin:0 auto 32px}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:46px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:16px;padding:14px 30px;border-radius:12px;transition:.2s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(27,107,90,.28)}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px)}
+.btn-ghost{background:var(--white);color:var(--teal);border:1.5px solid var(--teal)}
+.btn-ghost:hover{background:var(--teal-soft)}
+.hero-stats{display:flex;gap:clamp(24px,5vw,64px);justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat b{display:block;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--teal)}
+.stat span{font-size:13px;color:var(--ink-soft)}
 
-/* ═══ COMING SOON ═══ */
-.soon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin-top:16px; }
-.soon-card {
-  background:var(--white); border:1px dashed var(--line);
-  border-radius:var(--r); padding:16px; opacity:.7;
-}
-.soon-icon { font-size:24px; margin-bottom:8px; }
-.soon-name { font-size:13px; font-weight:800; margin-bottom:4px; }
-.soon-label { font-size:11px; color:var(--muted); }
+/* ───────── BEST SELLERS ───────── */
+.best{padding:0 var(--pad) clamp(48px,7vw,80px)}
+.best-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.best-head h2{font-size:clamp(20px,3vw,26px);font-weight:700}
+.fire{font-size:22px}
+.best-track{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.best-track{grid-template-columns:1fr;max-width:480px}}
+.best-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm);transition:.25s;cursor:pointer}
+.best-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--teal)}
+.best-badge{position:absolute;top:-11px;right:18px;background:var(--gold);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:99px}
+.best-card .bc-icon{font-size:30px}
+.best-card .bc-name{font-weight:700;font-size:16px}
+.best-card .bc-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.bc-price{font-size:20px;font-weight:700;color:var(--teal)}
+.bc-buy{background:var(--teal);color:#fff;border:none;font-family:inherit;font-weight:600;font-size:13px;padding:8px 16px;border-radius:9px;cursor:pointer;transition:.2s}
+.bc-buy:hover{background:var(--teal-dark)}
 
-/* ═══ TRUST ═══ */
-.trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:20px; }
-.trust-card {
-  background:var(--white); border:1px solid var(--line);
-  border-radius:var(--r); padding:20px;
-  box-shadow:var(--card-shadow);
-}
-.trust-card .ic { font-size:24px; margin-bottom:10px; }
-.trust-card strong { display:block; font-size:15px; margin-bottom:5px; }
-.trust-card p { color:var(--muted); font-size:13px; line-height:1.7; }
+/* ───────── SECTIONS ───────── */
+.section{padding:clamp(40px,6vw,64px) var(--pad)}
+.section.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.sec-head h2{font-size:clamp(22px,3.4vw,30px);font-weight:700;display:flex;align-items:center;gap:10px}
+.sec-head .sec-count{font-size:13px;color:var(--ink-soft);background:var(--teal-soft);padding:4px 12px;border-radius:99px;font-weight:600}
+.sec-sub{color:var(--ink-soft);font-size:15px;margin-bottom:28px;max-width:640px}
 
-/* ═══ HOW ═══ */
-.how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px; }
-.how-card {
-  background:var(--white); border:1px solid var(--line);
-  border-radius:var(--r); padding:20px;
-  box-shadow:var(--card-shadow);
-}
-.how-step {
-  width:32px; height:32px; display:grid; place-items:center;
-  background:var(--teal); color:white; border-radius:50%;
-  font-weight:900; font-size:14px; margin-bottom:12px;
-}
-.how-card strong { display:block; font-size:15px; margin-bottom:5px; }
-.how-card p { color:var(--muted); font-size:13px; line-height:1.7; }
+/* filter pills inside main section */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.pill{font-family:inherit;font-size:13.5px;font-weight:600;padding:8px 18px;border-radius:99px;border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);cursor:pointer;transition:.2s}
+.pill:hover{border-color:var(--teal);color:var(--teal)}
+.pill.on{background:var(--teal);border-color:var(--teal);color:#fff}
 
-/* ═══ CHECKOUT ═══ */
-.checkout-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
-.checkout-box {
-  background:var(--white); border:1px solid var(--line);
-  border-radius:var(--r); padding:20px;
-}
-.checkout-box strong { display:block; margin-bottom:10px; font-size:15px; }
-.pay-badges { display:flex; flex-wrap:wrap; gap:6px; }
-.pay-badge {
-  background:var(--cream); border:1px solid var(--line);
-  padding:6px 10px; border-radius:999px;
-  font-size:12px; font-weight:700; color:var(--soft);
-}
-.pay-badge.dim { opacity:.55; border-style:dashed; }
-.pay-note { color:var(--muted); font-size:12px; margin-top:10px; line-height:1.7; }
-.email-form { display:flex; gap:8px; margin-top:12px; }
-.email-form input {
-  flex:1; min-height:42px; border:1px solid var(--line);
-  border-radius:999px; padding:0 16px; font:inherit; font-size:14px;
-  background:var(--bg); outline:none; transition:border-color .15s;
-}
-.email-form input:focus { border-color:var(--teal); }
-.email-form button {
-  min-height:42px; border:none; border-radius:999px; padding:0 18px;
-  background:var(--teal); color:white; font:inherit; font-weight:800;
-  font-size:13px; cursor:pointer; white-space:nowrap;
-}
-.email-msg { display:none; color:var(--teal); font-size:12px; margin-top:8px; }
-.email-note { color:var(--muted); font-size:11px; margin-top:6px; }
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:20px}
 
-/* ═══ FOOTER ═══ */
-footer {
-  background:var(--ink); color:white; padding:24px 0; margin-top:40px;
-}
-.footer-inner { display:flex; justify-content:space-between; align-items:center; }
-.footer-logo { font-weight:900; font-size:17px; }
-footer p { color:rgba(255,255,255,.5); font-size:12px; }
-.footer-links { display:flex; gap:18px; }
-.footer-links a { color:rgba(255,255,255,.5); text-decoration:none; font-size:12px; }
-.footer-links a:hover { color:white; }
+/* product card */
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:.25s;cursor:pointer;position:relative}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.card.hidden{display:none}
+.thumb{height:128px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-cat{font-size:12px;font-weight:600;color:var(--teal)}
+.card-name{font-size:16.5px;font-weight:700;line-height:1.45}
+.card-desc{font-size:13.5px;color:var(--ink-soft);flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-size:20px;font-weight:700;color:var(--teal)}
+.price small{font-size:13px;color:var(--ink-soft);text-decoration:line-through;font-weight:500;margin-right:5px}
+.price.free{color:var(--gold)}
+.quick-buy{background:var(--teal);color:#fff;border:none;font-family:inherit;font-weight:600;font-size:13px;padding:9px 18px;border-radius:9px;cursor:pointer;transition:.2s;white-space:nowrap}
+.quick-buy:hover{background:var(--teal-dark)}
+.quick-buy.free{background:var(--gold)}
+.quick-buy.free:hover{background:#B3923C}
+.badge{position:absolute;top:12px;right:12px;background:var(--gold);color:#fff;font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:99px;z-index:2}
+.badge.new{background:var(--teal)}
 
-/* ═══ POPUP ═══ */
-.overlay {
-  display:none; position:fixed; inset:0;
-  background:rgba(45,45,45,.6); backdrop-filter:blur(6px);
-  z-index:200; align-items:center; justify-content:center; padding:20px;
-}
-.overlay.active { display:flex; }
-.modal {
-  background:var(--white); border-radius:var(--r-lg); padding:0;
-  width:480px; max-width:100%; max-height:90vh; overflow-y:auto;
-  box-shadow:0 24px 64px rgba(45,45,45,.15);
-  position:relative; animation:modalIn .22s ease;
-}
-@keyframes modalIn {
-  from { opacity:0; transform:translateY(12px) scale(.97); }
-  to   { opacity:1; transform:translateY(0)  scale(1); }
-}
-.modal-thumb {
-  height:150px; display:grid; place-items:center; font-size:52px;
-  position:relative;
-}
-.modal-close {
-  position:absolute; top:12px; left:12px;
-  width:30px; height:30px; background:rgba(255,255,255,.85);
-  border:none; border-radius:50%; cursor:pointer;
-  display:grid; place-items:center; font-size:15px;
-  color:var(--soft); z-index:2;
-}
-.modal-close:hover { background:white; }
-.modal-body { padding:24px; }
-.modal-cat { font-size:11px; font-weight:700; color:var(--teal); margin-bottom:8px; }
-.modal-name { font-size:20px; font-weight:900; margin-bottom:10px; }
-.modal-pitch {
-  font-size:14px; color:var(--soft); line-height:1.8;
-  margin-bottom:18px; padding:12px 14px;
-  background:var(--cream); border-radius:10px;
-  border-right:3px solid var(--teal);
-}
-.modal-features { list-style:none; margin-bottom:20px; display:grid; gap:8px; }
-.modal-features li { display:flex; align-items:flex-start; gap:9px; font-size:13px; color:var(--soft); line-height:1.55; }
-.modal-features .fi {
-  width:24px; height:24px; flex-shrink:0;
-  background:var(--teal-light); border-radius:6px;
-  display:grid; place-items:center; font-size:12px;
-}
-.modal-footer {
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding-top:16px; border-top:1px solid var(--line);
-}
-.modal-price { font-size:26px; font-weight:900; }
-.modal-price small { font-size:12px; color:var(--muted); text-decoration:line-through; margin-right:4px; }
-.modal-price-free { font-size:22px; font-weight:900; color:var(--teal); }
-.btn-modal {
-  display:inline-flex; align-items:center; justify-content:center;
-  min-height:44px; padding:0 22px; border-radius:999px;
-  background:var(--teal); color:white; text-decoration:none;
-  font-weight:800; font-size:14px; font-family:inherit;
-  border:none; cursor:pointer; transition:all .15s; white-space:nowrap;
-}
-.btn-modal:hover { background:var(--teal-dark); }
+/* coming soon */
+.soon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:18px}
+.soon{border:1.5px dashed var(--line);border-radius:var(--r);padding:26px 22px;text-align:center;color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.soon .s-icon{font-size:30px;display:block;margin-bottom:10px;opacity:.8}
+.soon b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.soon span{font-size:12.5px;display:inline-block;background:var(--teal-soft);color:var(--teal);font-weight:600;padding:3px 12px;border-radius:99px;margin-top:10px}
 
-/* ═══ RESPONSIVE ═══ */
-@media (max-width:900px) {
-  .trust-grid { grid-template-columns:repeat(2,1fr); }
-  .how-grid { grid-template-columns:1fr; }
-  .checkout-row { grid-template-columns:1fr; }
-  .stats-strip { gap:24px; }
-}
-@media (max-width:640px) {
-  .w { padding-inline: 16px; }
-  .grid { grid-template-columns: 1fr; }
-  .nav-links { display:none; }
-  .trust-grid { grid-template-columns:1fr; }
-  .footer-inner { flex-direction:column; text-align:center; gap:12px; }
-  .email-form { flex-direction:column; }
-  .soon-grid { grid-template-columns:repeat(2,1fr); }
-}
+/* ───────── AI GENERATORS ───────── */
+.ai-section{background:linear-gradient(160deg,var(--teal-deep),var(--teal-dark));color:#fff;padding:clamp(48px,7vw,80px) var(--pad)}
+.ai-section .sec-head h2{color:#fff}
+.ai-section .sec-sub{color:rgba(255,255,255,.75)}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.ai-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:26px;backdrop-filter:blur(4px)}
+.ai-card .a-icon{font-size:34px;display:block;margin-bottom:12px}
+.ai-card b{font-size:17px;display:block;margin-bottom:8px}
+.ai-card p{font-size:14px;color:rgba(255,255,255,.72);margin-bottom:18px}
+.ai-tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;background:rgba(201,168,76,.18);color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:5px 14px;border-radius:99px}
 
+/* ───────── FOOTER ───────── */
+footer{background:var(--white);border-top:1px solid var(--line);padding:clamp(36px,5vw,56px) var(--pad);text-align:center}
+.f-brand{font-size:22px;font-weight:700;margin-bottom:8px}
+.f-brand span{color:var(--teal)}
+footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px}
+.f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.f-links a{font-size:13.5px;color:var(--ink-soft);text-decoration:none}
+.f-links a:hover{color:var(--teal)}
+.f-pay{font-size:12.5px;color:var(--ink-soft)}
+.copy{margin-top:18px;font-size:12.5px;color:var(--ink-soft)}
 
-/* ═══ EDGE ALIGNMENT & RESPONSIVE POLISH ═══ */
-body { overflow-x: hidden; }
-.card-name, .card-desc,
-.soon-name, .soon-label,
-.trust-card, .how-card,
-.checkout-box, .modal-body,
-.footer-inner { overflow-wrap: break-word; }
+/* ───────── POPUP ───────── */
+.overlay{position:fixed;inset:0;background:rgba(20,28,25,.55);backdrop-filter:blur(3px);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;pointer-events:none;transition:.25s}
+.overlay.active{opacity:1;pointer-events:auto}
+.modal{background:var(--white);border-radius:20px;width:100%;max-width:460px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;transform:translateY(16px);transition:.25s;box-shadow:var(--shadow-lg)}
+.overlay.active .modal{transform:translateY(0)}
+.m-scroll{overflow-y:auto;flex:1}
+.m-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.m-close{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.85);border:none;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.m-body{padding:22px 26px 14px}
+.m-cat{font-size:12.5px;font-weight:600;color:var(--teal);margin-bottom:6px}
+.m-name{font-size:20px;font-weight:700;margin-bottom:8px;line-height:1.4}
+.m-pitch{font-size:14px;color:var(--ink-soft);margin-bottom:16px}
+.m-features{list-style:none;display:flex;flex-direction:column;gap:9px}
+.m-features li{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.m-features .fi{flex-shrink:0}
+.m-foot{border-top:1px solid var(--line);padding:16px 26px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--white)}
+.m-price{font-size:24px;font-weight:700;color:var(--teal)}
+.m-price small{font-size:14px;color:var(--ink-soft);text-decoration:line-through;font-weight:500;margin-right:6px}
+.m-buy{flex-shrink:0;text-decoration:none;background:var(--teal);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:.2s}
+.m-buy:hover{background:var(--teal-dark)}
 
-.stats-strip { flex-wrap: wrap; row-gap: 18px; }
-.stat-item { min-width: 88px; }
-.card-bottom { gap: 10px; flex-wrap: wrap; }
-.footer-links { flex-wrap: wrap; justify-content: center; }
-
-@media (max-width:640px) {
-  .w { width: calc(100% - 40px); }
-  .hero { padding: 44px 0; }
-  .hero h1 { letter-spacing: -.8px; max-width: 100%; }
-  .hero-desc { max-width: 100%; }
-  .stats-strip { justify-content: center; gap: 18px; }
-  .stat-item { flex: 1 1 120px; max-width: 160px; }
-  .filters {
-    padding-bottom: 4px;
-    width:100%;
-    justify-content:center;
-  }
-  .filter-btn {
-    padding:8px 13px;
-    font-size:12px;
-  }
-  .modal-body { padding: 20px; }
-  .modal-footer { align-items: flex-start; flex-direction: column; }
-  .btn-modal { width: 100%; }
-}
-
-@media (max-width:380px) {
-  .w { width: calc(100% - 32px); }
-  .grid { grid-template-columns: 1fr; }
-  .soon-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-}
-
-
-
-/* ═══ PROFESSIONAL UI/UX TUNING — balanced width + subtle glass ═══ */
-:root {
-  --content-max: 1640px;
-  --glass: rgba(255,255,255,.58);
-  --glass-strong: rgba(255,255,255,.82);
-  --glass-line: rgba(232,230,224,.72);
-  --glow-teal: rgba(27,107,90,.10);
-  --glow-gold: rgba(196,148,42,.13);
-}
-
-body {
-  overflow-x:hidden;
-  background:
-    radial-gradient(circle at 12% 8%, rgba(27,107,90,.06), transparent 30%),
-    radial-gradient(circle at 88% 22%, rgba(196,148,42,.08), transparent 32%),
-    var(--bg);
-}
-
-.w {
-  width: min(calc(100% - 64px), var(--content-max));
-  max-width: none;
-  margin-inline: auto;
-  padding-inline: 0;
-}
-
-nav {
-  background: rgba(250,250,247,.74);
-  backdrop-filter: blur(18px) saturate(1.1);
-  -webkit-backdrop-filter: blur(18px) saturate(1.1);
-}
-
-.nav-inner { height: 58px; }
-.logo-mark { box-shadow: 0 8px 18px rgba(27,107,90,.18); }
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(38px, 5.2vw, 64px) 0;
-  background:
-    linear-gradient(135deg, rgba(230,245,240,.88) 0%, rgba(250,250,247,.92) 45%, rgba(255,246,224,.9) 100%);
-}
-.hero::before,
-.hero::after {
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  filter: blur(24px);
-  pointer-events:none;
-}
-.hero::before {
-  right: clamp(-220px, -8vw, -90px);
-  top: -170px;
-  background: radial-gradient(circle, rgba(27,107,90,.13), transparent 67%);
-}
-.hero::after {
-  left: clamp(-220px, -8vw, -90px);
-  bottom: -220px;
-  background: radial-gradient(circle, rgba(196,148,42,.16), transparent 68%);
-}
-.hero > .w {
-  position:relative;
-  z-index:1;
-}
-
-.hero-badge,
-.hero-chip,
-.btn-s,
-.filters,
-.stats-strip {
-  background: var(--glass);
-  border: 1px solid var(--glass-line);
-  backdrop-filter: blur(16px) saturate(1.08);
-  -webkit-backdrop-filter: blur(16px) saturate(1.08);
-  box-shadow: 0 10px 30px rgba(45,45,45,.045);
-}
-
-.hero-badge { margin-bottom: 18px; }
-.hero h1 {
-  font-size: clamp(32px, 3.2vw, 52px);
-  line-height: 1.12;
-  max-width: 720px;
-  margin-bottom: 16px;
-}
-.hero-desc {
-  max-width: 640px;
-  margin-bottom: 20px;
-}
-.hero-chips { margin-bottom: 22px; }
-.btn-p, .btn-s { min-height: 44px; }
-
-.stats-strip {
-  width: min(100%, 760px);
-  margin: 26px auto 0;
-  padding: 16px 22px;
-  border-top: 1px solid var(--glass-line);
-  border-radius: 999px;
-  gap: clamp(22px, 4vw, 48px);
-}
-.stat-num { font-size: 24px; }
-
-.filters-bar {
-  padding: 16px 0 2px;
-}
-.filters {
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
-  padding: 6px;
-  border-radius: 999px;
-  justify-content: center;
-  align-items: center;
-}
-.filter-btn {
-  border-color: transparent;
-  background: rgba(255,255,255,.64);
-}
-.filter-btn.active {
-  box-shadow: 0 8px 18px rgba(27,107,90,.18);
-}
-
-main.w#products {
-  width: min(calc(100% - 64px), var(--content-max));
-  padding-bottom: 48px;
-}
-#products > .sec-head:first-child,
-.sec-head {
-  margin: 28px 0 18px;
-}
-#products > .sec-head:first-child {
-  max-width: none;
-}
-.sec-tag { margin-bottom: 4px; }
-.sec-title { line-height: 1.35; }
-
-.grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  justify-content: stretch;
-  gap: 16px;
-}
-.card,
-.soon-card,
-.trust-card,
-.how-card,
-.checkout-box,
-.modal {
-  background: var(--glass-strong);
-  border-color: rgba(232,230,224,.78);
-  backdrop-filter: blur(14px) saturate(1.05);
-  -webkit-backdrop-filter: blur(14px) saturate(1.05);
-}
-.card {
-  box-shadow: 0 10px 30px rgba(45,45,45,.055);
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 46px rgba(45,45,45,.10);
-}
-.card.featured {
-  box-shadow: 0 14px 38px rgba(27,107,90,.12);
-}
-.card-thumb { height: 136px; }
-.card-body { padding: 15px; }
-.card-desc { min-height: 46px; }
-
-@media (min-width: 1500px) {
-  .grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
-  .card-name { font-size: 15px; }
-  .card-desc { font-size: 12.5px; }
-}
-
-@media (max-width: 1100px) {
-  .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-}
-
-@media (max-width: 760px) {
-  .w,
-  main.w#products {
-    width: min(calc(100% - 32px), var(--content-max));
-  }
-  .nav-inner { height: 58px; }
-  .hero { padding: 36px 0 38px; }
-  .hero h1 {
-    font-size: clamp(30px, 9vw, 42px);
-    letter-spacing: -1px;
-  }
-  .stats-strip {
-    width: 100%;
-    border-radius: 22px;
-    gap: 14px;
-  }
-  .stat-item { flex: 1 1 120px; }
-  .filters {
-    width: 100%;
-    border-radius: 20px;
-  }
-  .filter-btn {
-    flex: 1 1 auto;
-    padding: 8px 12px;
-    text-align: center;
-  }
-  #products > .sec-head:first-child,
-  .sec-head {
-    margin-top: 24px;
-  }
-  .grid { grid-template-columns: 1fr; }
-}
-
-
-
-/* ═══ FINAL FLUID + PREMIUM COLORS OVERRIDES ═══ */
-:root {
-  --bg: #FBF8EF;
-  --white: #FFFFFF;
-  --ink: #1F2A24;
-  --soft: #46534D;
-  --muted: #7B8178;
-  --line: #E5DED1;
-  --cream: #F5EFE4;
-  --sand: #E8DDCB;
-  --teal: #0F766E;
-  --teal-light: #E3F4EF;
-  --teal-dark: #0B5F58;
-  --gold: #D6A239;
-  --gold-light: #FFF3D6;
-  --gold-dim: #A97817;
-  --content-max: 2160px;
-  --page-gutter: clamp(14px, 2.2vw, 46px);
-  --glass: rgba(255,255,255,.66);
-  --glass-strong: rgba(255,255,255,.88);
-  --glass-line: rgba(229,222,209,.82);
-  --card-shadow: 0 10px 28px rgba(31,42,36,.06);
-  --card-hover: 0 20px 52px rgba(31,42,36,.12);
-}
-
-html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-body {
-  background:
-    radial-gradient(circle at 8% 12%, rgba(15,118,110,.095), transparent 28%),
-    radial-gradient(circle at 92% 18%, rgba(214,162,57,.13), transparent 30%),
-    radial-gradient(circle at 50% 86%, rgba(15,118,110,.045), transparent 34%),
-    linear-gradient(180deg, #FBF8EF 0%, #F9FAF5 48%, #FBF8EF 100%);
-  color: var(--ink);
-}
-
-.w,
-main.w#products,
-.filters-bar {
-  width: min(calc(100% - (var(--page-gutter) * 2)), var(--content-max));
-  max-width: none;
-  margin-inline: auto;
-  padding-inline: 0;
-}
-
-nav {
-  background: rgba(251,248,239,.78);
-  border-bottom-color: rgba(229,222,209,.72);
-}
-.nav-cta,
-.btn-p,
-.card-btn,
-.btn-modal,
-.filter-btn.active,
-.how-step,
-.logo-mark {
-  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-}
-.nav-cta:hover,
-.btn-p:hover,
-.card-btn:hover,
-.btn-modal:hover { filter: brightness(.96); }
-
-.hero {
-  padding: clamp(34px, 4.4vw, 62px) 0;
-  background:
-    linear-gradient(135deg, rgba(227,244,239,.9) 0%, rgba(251,248,239,.94) 45%, rgba(255,243,214,.92) 100%);
-}
-.hero > .w {
-  width: min(calc(100% - (var(--page-gutter) * 2)), 1360px);
-}
-.hero h1 {
-  font-size: clamp(32px, 3vw, 54px);
-  color: var(--ink);
-  letter-spacing: -1.35px;
-}
-.hero h1 em {
-  background: linear-gradient(180deg, transparent 58%, rgba(214,162,57,.28) 58%);
-}
-.hero-desc { color: var(--soft); }
-.hero-badge,
-.hero-chip,
-.btn-s,
-.filters,
-.stats-strip {
-  background: rgba(255,255,255,.68);
-  border-color: var(--glass-line);
-  box-shadow: 0 12px 34px rgba(31,42,36,.045);
-}
-.stats-strip {
-  width: min(100%, 820px);
-  margin-top: 24px;
-}
-.stat-num { color: var(--teal); }
-
-.filters-bar {
-  padding: 16px 0 0;
-}
-.filters {
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
-  padding: 7px;
-  border-radius: 999px;
-  gap: 8px;
-  justify-content: center;
-  overflow: visible;
-}
-.filter-btn {
-  color: var(--soft);
-  background: rgba(255,255,255,.72);
-  border-color: rgba(229,222,209,.72);
-}
-.filter-btn:hover {
-  color: var(--teal);
-  border-color: rgba(15,118,110,.32);
-  background: rgba(227,244,239,.72);
-}
-.filter-btn.active {
-  color: #fff;
-  border-color: transparent;
-}
-
-#products > .sec-head:first-child,
-.sec-head {
-  max-width: none;
-  margin: 30px 0 18px;
-}
-.sec-tag { color: var(--teal); }
-.sec-title { color: var(--ink); }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(210px, 13vw, 300px), 1fr));
-  justify-content: stretch;
-  gap: clamp(14px, 1vw, 20px);
-}
-.card {
-  background: rgba(255,255,255,.9);
-  border-color: rgba(229,222,209,.84);
-  box-shadow: var(--card-shadow);
-}
-.card:hover {
-  box-shadow: var(--card-hover);
-  border-color: rgba(15,118,110,.24);
-}
-.card.featured {
-  border-color: rgba(15,118,110,.86);
-  box-shadow: 0 16px 44px rgba(15,118,110,.14);
-}
-.card-thumb { height: clamp(128px, 7vw, 158px); }
-.card-body { padding: clamp(14px, .9vw, 18px); }
-.card-cat,
-.modal-cat { color: var(--teal); }
-.card-price,
-.modal-price { color: var(--ink); }
-.card-price-free,
-.modal-price-free { color: var(--teal); }
-
-.t-ai { background: linear-gradient(135deg,#EEE8FA 0%,#E4F0FF 100%); }
-.t-free { background: linear-gradient(135deg,#DDF4EE 0%,#CDEDE5 100%); }
-.t-zatca { background: linear-gradient(135deg,#FFF3CF 0%,#FFE6A8 100%); }
-.t-excel { background: linear-gradient(135deg,#FFE9D2 0%,#FFDDBB 100%); }
-.t-nfc { background: linear-gradient(135deg,#FFE2EC 0%,#F8CEDD 100%); }
-.t-bundle { background: linear-gradient(135deg,#E7E2D8 0%,#D6D0C4 100%); }
-
-.soon-card,
-.trust-card,
-.how-card,
-.checkout-box,
-.modal {
-  background: rgba(255,255,255,.88);
-  border-color: rgba(229,222,209,.82);
-  box-shadow: 0 10px 28px rgba(31,42,36,.055);
-}
-.pay-badge { background: rgba(245,239,228,.78); }
-footer { background: #1E2A25; }
-
-@media (min-width: 1900px) {
-  :root { --page-gutter: 42px; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .card-name { font-size: 16px; }
-  .card-desc { font-size: 13px; }
-}
-
-@media (max-width: 900px) {
-  :root { --page-gutter: 18px; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-}
-
-@media (max-width: 640px) {
-  :root { --page-gutter: 14px; }
-  .w,
-  main.w#products,
-  .filters-bar { width: calc(100% - (var(--page-gutter) * 2)); }
-  .hero { padding: 34px 0 36px; }
-  .hero h1 { font-size: clamp(29px, 9vw, 40px); letter-spacing: -1px; }
-  .stats-strip { border-radius: 22px; flex-wrap: wrap; }
-  .filters { width: 100%; border-radius: 20px; }
-  .filter-btn { flex: 1 1 auto; padding: 8px 10px; }
-  .grid { grid-template-columns: 1fr; }
-}
-
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+.btn:focus-visible,.pill:focus-visible,.quick-buy:focus-visible,.bc-buy:focus-visible,.nav-link:focus-visible,.m-buy:focus-visible,.m-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="w nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-mark">AI</div>
-      <div class="logo-txt"><span>مُنجَز</span><small>.ai</small></div>
+<!-- ═══════ NAVBAR ═══════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">م</span>
+      <span class="brand-name">منجز<span>.ai</span></span>
     </a>
     <div class="nav-links">
-      <a href="#products">المنتجات</a>
-      <a href="#why">لماذا مُنجَز</a>
-      <a href="#how">كيف يعمل</a>
+      <a class="nav-link" href="#finance">المال والأعمال</a>
+      <a class="nav-link" href="#marketing">التسويق والمحتوى</a>
+      <a class="nav-link" href="#career">الوظائف والمهنية</a>
+      <a class="nav-link" href="#learning">التدريب والمعرفة</a>
+      <a class="nav-link" href="#productivity">الإنتاجية والذكاء الاصطناعي</a>
+      <a class="nav-link ai" href="#generators">🤖 مولّدات AI</a>
     </div>
-    <a class="nav-cta" href="#products">تصفح المنتجات</a>
+    <a class="nav-cta" href="#finance">تصفح المنتجات</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="w">
-    <div class="hero-badge">✦ منتجات رقمية للمحترف العربي</div>
-    <h1>أدوات AI وقوالب محاسبية تجعل عملك <em>أسرع</em></h1>
-    <p class="hero-desc">Prompts احترافية وقوالب Excel جاهزة — مُصمَّمة للسوق السعودي والخليجي. اشترِ بدون حساب واستلم فوراً عبر البريد.</p>
-    <div class="hero-chips">
-      <span class="hero-chip">🤖 AI Prompts</span>
-      <span class="hero-chip">📊 قوالب Excel</span>
-      <span class="hero-chip">⚖️ ZATCA</span>
-      <span class="hero-chip">🇸🇦 عربي كامل</span>
-      <span class="hero-chip">⚡ تسليم فوري</span>
-    </div>
-    <div class="hero-actions">
-      <a class="btn-p" href="#products">استعرض المنتجات</a>
-      <a class="btn-s" href="#how">كيف تتم العملية؟</a>
-    </div>
-    <div class="stats-strip">
-      <div class="stat-item"><span class="stat-num">120+</span><span class="stat-lbl">Prompt جاهز</span></div>
-      <div class="stat-item"><span class="stat-num">6</span><span class="stat-lbl">محاور متخصصة</span></div>
-      <div class="stat-item"><span class="stat-num">7</span><span class="stat-lbl">قوالب Excel</span></div>
-      <div class="stat-item"><span class="stat-num">AR</span><span class="stat-lbl">محتوى عربي</span></div>
-    </div>
+<!-- ═══════ HERO ═══════ -->
+<header class="hero" id="top">
+  <span class="hero-eyebrow">منتجات رقمية عربية ١٠٠٪ · تحميل فوري</span>
+  <h1>وفّر ساعات عملك اليومية مع <em>أدوات جاهزة</em> صُمّمت لمحترفي الخليج</h1>
+  <p>حزم برومبتات ذكاء اصطناعي وقوالب Excel احترافية للمحاسبين وروّاد الأعمال — تشتريها مرة، وتستخدمها بلا حدود.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#finance">تصفح المنتجات</a>
+    <a class="btn btn-ghost" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" rel="noopener">ابدأ بالحزمة المجانية 🎁</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><b>6</b><span>منتجات متاحة الآن</span></div>
+    <div class="stat"><b>+130</b><span>برومبت احترافي</span></div>
+    <div class="stat"><b>+18</b><span>ورقة Excel جاهزة</span></div>
+    <div class="stat"><b>5</b><span>أقسام قادمة</span></div>
+  </div>
+</header>
+
+<!-- ═══════ BEST SELLERS ═══════ -->
+<section class="best" aria-label="الأكثر مبيعاً">
+  <div class="best-head"><span class="fire">🔥</span><h2>الأكثر مبيعاً</h2></div>
+  <div class="best-track">
+    <article class="best-card" onclick="openPopup('full-pack')">
+      <span class="best-badge">الأكثر طلباً</span>
+      <span class="bc-icon">📚</span>
+      <span class="bc-name">دليل المحاسب الذكي — 90 برومبت</span>
+      <div class="bc-meta">
+        <span class="bc-price">$26</span>
+        <button class="bc-buy" onclick="buyNow(event,'full-pack')">اشترِ الآن</button>
+      </div>
+    </article>
+    <article class="best-card" onclick="openPopup('excel-bundle')">
+      <span class="best-badge">أفضل قيمة</span>
+      <span class="bc-icon">💎</span>
+      <span class="bc-name">حزمة قوالب Excel — صغير + كبير</span>
+      <div class="bc-meta">
+        <span class="bc-price">$37</span>
+        <button class="bc-buy" onclick="buyNow(event,'excel-bundle')">اشترِ الآن</button>
+      </div>
+    </article>
+    <article class="best-card" onclick="openPopup('zatca-pack')">
+      <span class="best-badge">جديد</span>
+      <span class="bc-icon">🧾</span>
+      <span class="bc-name">حزمة ZATCA — 30 برومبت امتثال</span>
+      <div class="bc-meta">
+        <span class="bc-price">$34</span>
+        <button class="bc-buy" onclick="buyNow(event,'zatca-pack')">اشترِ الآن</button>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- FILTERS -->
-<div class="w filters-bar">
-  <div class="filters" id="filtersBar">
-    <button class="filter-btn active" data-f="all">الكل</button>
-    <button class="filter-btn" data-f="ai">أدوات AI</button>
-    <button class="filter-btn" data-f="excel">قوالب Excel</button>
-    <button class="filter-btn" data-f="bundle">الحزم</button>
-    <button class="filter-btn" data-f="free">مجاني</button>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
-<main class="w" id="products">
+<!-- ═══════ القسم 1: المال والأعمال ═══════ -->
+<section class="section alt" id="finance">
   <div class="sec-head">
-    <div class="sec-tag">المنتجات</div>
-    <h2 class="sec-title">كل منتج مصمم ليحل مهمة واضحة</h2>
+    <h2>💰 المال والأعمال</h2>
+    <span class="sec-count">6 منتجات</span>
+  </div>
+  <p class="sec-sub">أدوات عملية للمحاسبة والإدارة المالية — متوافقة مع متطلبات هيئة الزكاة والضريبة والجمارك.</p>
+
+  <div class="filters" role="tablist" aria-label="فلترة المنتجات">
+    <button class="pill on" data-f="all">الكل</button>
+    <button class="pill" data-f="prompts">برومبتات AI</button>
+    <button class="pill" data-f="excel">قوالب Excel</button>
+    <button class="pill" data-f="bundle">الباقات</button>
   </div>
 
-  <div class="grid">
+  <div class="grid" id="productGrid">
 
-    <article class="card featured" data-cat="ai" onclick="openPopup('full')">
-      <div class="card-thumb t-ai"><span class="card-badge">الأكثر طلباً</span><span>🤖</span></div>
+    <article class="card" data-cat="prompts" onclick="openPopup('free-pack')">
+      <span class="badge new">مجاني</span>
+      <div class="thumb" style="background:linear-gradient(135deg,#E8F2EE,#D5E8E0)">🎁</div>
       <div class="card-body">
-        <div class="card-cat">AI Prompts — الحزمة الكاملة</div>
-        <h3 class="card-name">دليل المحاسب الذكي — الكاملة</h3>
-        <p class="card-desc">90 Prompt في 7 محاور + PDF + Google Sheets جاهز للنسخ الفوري.</p>
-        <div class="card-bottom">
-          <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/punwv" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+        <span class="card-cat">برومبتات AI</span>
+        <h3 class="card-name">حزمة البداية — 10 برومبتات مجانية</h3>
+        <p class="card-desc">جرّب جودة برومبتاتنا قبل الشراء: 10 برومبتات محاسبية جاهزة للنسخ.</p>
+        <div class="card-foot">
+          <span class="price free">مجاني</span>
+          <button class="quick-buy free" onclick="buyNow(event,'free-pack')">حمّل الآن</button>
         </div>
       </div>
     </article>
 
-    <article class="card" data-cat="ai free" onclick="openPopup('free')">
-      <div class="card-thumb t-free"><span>🎁</span></div>
+    <article class="card" data-cat="prompts" onclick="openPopup('full-pack')">
+      <div class="thumb" style="background:linear-gradient(135deg,#EDE9F5,#DCD4EC)">📚</div>
       <div class="card-body">
-        <div class="card-cat">AI Prompts — مجاني</div>
-        <h3 class="card-name">10 Prompts محاسبية مجانية</h3>
-        <p class="card-desc">جرّب الجودة — 10 Prompts مختارة من أفضل المحاور.</p>
-        <div class="card-bottom">
-          <span class="card-price-free">مجاناً</span>
-          <a class="card-btn free" href="https://hosamalfi.gumroad.com/l/eyuqs" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">احصل عليه</a>
+        <span class="card-cat">برومبتات AI</span>
+        <h3 class="card-name">دليل المحاسب الذكي — 90 برومبت</h3>
+        <p class="card-desc">90 برومبتاً احترافياً في 7 محاور: قوائم مالية، تحليل، ضرائب، تقارير وأكثر.</p>
+        <div class="card-foot">
+          <span class="price">$26</span>
+          <button class="quick-buy" onclick="buyNow(event,'full-pack')">اشترِ الآن</button>
         </div>
       </div>
     </article>
 
-    <article class="card" data-cat="ai" onclick="openPopup('zatca')">
-      <div class="card-thumb t-zatca"><span>⚖️</span></div>
+    <article class="card" data-cat="prompts" onclick="openPopup('zatca-pack')">
+      <span class="badge new">جديد</span>
+      <div class="thumb" style="background:linear-gradient(135deg,#F5EFE3,#EBE0C8)">🧾</div>
       <div class="card-body">
-        <div class="card-cat">AI Prompts — ZATCA</div>
-        <h3 class="card-name">حزمة ZATCA للمحاسبين</h3>
-        <p class="card-desc">30 Prompt في الفوترة الإلكترونية، VAT، التدقيق والتخطيط الضريبي.</p>
-        <div class="card-bottom">
-          <span class="card-price">$34</span>
-          <a class="card-btn" href="PAYHIP_ZATCA_LINK" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+        <span class="card-cat">برومبتات AI</span>
+        <h3 class="card-name">حزمة ZATCA — 30 برومبت امتثال</h3>
+        <p class="card-desc">برومبتات متخصصة في الفوترة الإلكترونية وضريبة القيمة المضافة والامتثال.</p>
+        <div class="card-foot">
+          <span class="price">$34</span>
+          <button class="quick-buy" onclick="buyNow(event,'zatca-pack')">اشترِ الآن</button>
         </div>
       </div>
     </article>
 
     <article class="card" data-cat="excel" onclick="openPopup('excel-sm')">
-      <div class="card-thumb t-excel"><span>📊</span></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#E5EFF4,#D2E3EC)">📊</div>
       <div class="card-body">
-        <div class="card-cat">Excel — شركات صغيرة</div>
-        <h3 class="card-name">قالب Excel للشركات الصغيرة</h3>
-        <p class="card-desc">تقارير مالية + تدفق نقدي + فواتير متوافقة مع ZATCA.</p>
-        <div class="card-bottom">
-          <span class="card-price">$13</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/lgwtng" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+        <span class="card-cat">قوالب Excel</span>
+        <h3 class="card-name">قالب محاسبة — الشركات الصغيرة</h3>
+        <p class="card-desc">7 أوراق مترابطة: قيود، أستاذ، ميزان مراجعة، قوائم مالية — بدون أي خطأ معادلات.</p>
+        <div class="card-foot">
+          <span class="price">$13</span>
+          <button class="quick-buy" onclick="buyNow(event,'excel-sm')">اشترِ الآن</button>
         </div>
       </div>
     </article>
 
     <article class="card" data-cat="excel" onclick="openPopup('excel-lg')">
-      <div class="card-thumb t-excel"><span>📈</span></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#E9EDF6,#D6DEEE)">📈</div>
       <div class="card-body">
-        <div class="card-cat">Excel — متوسطة وكبيرة</div>
-        <h3 class="card-name">قالب Excel للشركات المتوسطة والكبيرة</h3>
-        <p class="card-desc">ميزانية عمومية + KPI + تقارير إدارية + ZATCA كامل.</p>
-        <div class="card-bottom">
-          <span class="card-price">$26</span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/ackmoq" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ</a>
+        <span class="card-cat">قوالب Excel</span>
+        <h3 class="card-name">قالب محاسبة — الشركات الكبيرة</h3>
+        <p class="card-desc">11 ورقة متقدمة: ميزانية، تدفقات نقدية، لوحة KPI، وامتثال ZATCA كامل.</p>
+        <div class="card-foot">
+          <span class="price">$26</span>
+          <button class="quick-buy" onclick="buyNow(event,'excel-lg')">اشترِ الآن</button>
         </div>
       </div>
     </article>
 
     <article class="card" data-cat="bundle excel" onclick="openPopup('excel-bundle')">
-      <div class="card-thumb t-bundle"><span class="card-badge save">وفّر $2</span><span>💎</span></div>
+      <span class="badge">وفّر $2</span>
+      <div class="thumb" style="background:linear-gradient(135deg,#E8E6E0,#D8D4CC)">💎</div>
       <div class="card-body">
-        <div class="card-cat">حزمة Excel — صغير + كبير</div>
-        <h3 class="card-name">حزمة القوالب الكاملة</h3>
-        <p class="card-desc">القالبان معاً بسعر مخفض — يغطيان كل احتياجاتك.</p>
-        <div class="card-bottom">
-          <span class="card-price">$37 <small>$39</small></span>
-          <a class="card-btn" href="https://hosamalfi.gumroad.com/l/cvjcmg" target="_blank" rel="noopener" onclick="event.stopPropagation()" rel="noopener">اشترِ الحزمة</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-cat="nfc">
-      <div class="card-thumb t-nfc"><span>📇</span></div>
-      <div class="card-body">
-        <div class="card-cat">بطاقات NFC</div>
-        <h3 class="card-name">بطاقة بروفايل ذكية NFC</h3>
-        <p class="card-desc">صفحة بروفايل احترافية + QR Code + حفظ vCard.</p>
-        <div class="card-bottom">
-          <span class="card-price-soon">قريباً</span>
-          <span class="card-btn soon">قريباً</span>
+        <span class="card-cat">باقة</span>
+        <h3 class="card-name">حزمة القوالب — صغير + كبير</h3>
+        <p class="card-desc">القالبان معاً في تحميل واحد بسعر أقل — الخيار الأفضل قيمة.</p>
+        <div class="card-foot">
+          <span class="price">$37 <small>$39</small></span>
+          <button class="quick-buy" onclick="buyNow(event,'excel-bundle')">اشترِ الباقة</button>
         </div>
       </div>
     </article>
 
   </div>
+</section>
 
-  <!-- COMING SOON -->
-  <div class="sec-head" style="margin-top:48px">
-    <div class="sec-tag" style="color:var(--gold-dim)">على الطريق</div>
-    <h2 class="sec-title">المنتجات القادمة</h2>
-  </div>
+<!-- ═══════ القسم 2: التسويق والمحتوى ═══════ -->
+<section class="section" id="marketing">
+  <div class="sec-head"><h2>📣 التسويق والمحتوى</h2><span class="sec-count">قريباً</span></div>
+  <p class="sec-sub">حزم برومبتات وقوالب لصنّاع المحتوى والمسوّقين الرقميين.</p>
   <div class="soon-grid">
-    <div class="soon-card"><div class="soon-icon">💼</div><div class="soon-name">قالب الرواتب</div><div class="soon-label">Excel</div></div>
-    <div class="soon-card"><div class="soon-icon">📦</div><div class="soon-name">قالب المخزون</div><div class="soon-label">Excel</div></div>
-    <div class="soon-card"><div class="soon-icon">🧾</div><div class="soon-name">الفواتير والعروض</div><div class="soon-label">Excel</div></div>
-    <div class="soon-card"><div class="soon-icon">👥</div><div class="soon-name">حزمة HR</div><div class="soon-label">AI Prompts</div></div>
-    <div class="soon-card"><div class="soon-icon">📣</div><div class="soon-name">حزمة التسويق</div><div class="soon-label">AI Prompts</div></div>
+    <div class="soon"><span class="s-icon">✍️</span><b>حزمة برومبتات التسويق</b>50 برومبتاً لكتابة المحتوى والإعلانات<span>قيد البناء</span></div>
+    <div class="soon"><span class="s-icon">📱</span><b>قوالب محتوى السوشيال ميديا</b>خطط نشر شهرية جاهزة<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">🎯</span><b>برومبتات الحملات الإعلانية</b>صياغة إعلانات تحقق نتائج<span>قريباً</span></div>
   </div>
+</section>
 
-  <!-- WHY -->
-  <section id="why">
-    <div class="sec-head">
-      <div class="sec-tag">لماذا مُنجَز</div>
-      <h2 class="sec-title">تجربة شراء سريعة ومنتجات عملية</h2>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card"><div class="ic">🇸🇦</div><strong>للسوق الخليجي</strong><p>محتوى عربي مكتوب ومختبر — لا ترجمة آلية.</p></div>
-      <div class="trust-card"><div class="ic">⚡</div><strong>تسليم فوري</strong><p>بعد الدفع يصلك الملف على بريدك مباشرة.</p></div>
-      <div class="trust-card"><div class="ic">🚪</div><strong>بدون حساب</strong><p>لا تسجيل دخول — اشترِ واستلم فوراً.</p></div>
-      <div class="trust-card"><div class="ic">🔄</div><strong>تحديثات مستمرة</strong><p>منتجات تُحدَّث مع كل تغيير في الأنظمة.</p></div>
-    </div>
-  </section>
-
-  <!-- HOW -->
-  <section id="how">
-    <div class="sec-head">
-      <div class="sec-tag">كيف يعمل</div>
-      <h2 class="sec-title">ثلاث خطوات فقط</h2>
-    </div>
-    <div class="how-grid">
-      <div class="how-card"><div class="how-step">1</div><strong>اختر المنتج</strong><p>انقر على أي بطاقة لرؤية التفاصيل الكاملة.</p></div>
-      <div class="how-card"><div class="how-step">2</div><strong>ادفع عبر Gumroad</strong><p>Visa أو Mastercard أو PayPal — صفحة آمنة.</p></div>
-      <div class="how-card"><div class="how-step">3</div><strong>استلم الملف</strong><p>رابط التحميل يصلك فوراً على البريد.</p></div>
-    </div>
-  </section>
-
-  <!-- CHECKOUT -->
-  <div class="sec-head">
-    <div class="sec-tag">الدفع والتسليم</div>
+<!-- ═══════ القسم 3: الوظائف والمهنية ═══════ -->
+<section class="section alt" id="career">
+  <div class="sec-head"><h2>💼 الوظائف والمهنية</h2><span class="sec-count">قريباً</span></div>
+  <p class="sec-sub">أدوات تساعدك على التقديم والتميّز في سوق العمل الخليجي.</p>
+  <div class="soon-grid">
+    <div class="soon"><span class="s-icon">📄</span><b>حزمة برومبتات HR</b>50 برومبتاً للموارد البشرية والتوظيف<span>قيد البناء</span></div>
+    <div class="soon"><span class="s-icon">🧑‍💼</span><b>قوالب السيرة الذاتية ATS</b>سير ذاتية تتجاوز أنظمة الفرز<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">🗣️</span><b>دليل المقابلات الوظيفية</b>أسئلة وأجوبة نموذجية بالعربية<span>قريباً</span></div>
   </div>
-  <div class="checkout-row">
-    <div class="checkout-box">
-      <strong>وسائل الدفع</strong>
-      <div class="pay-badges">
-        <span class="pay-badge">Visa</span>
-        <span class="pay-badge">Mastercard</span>
-        <span class="pay-badge">PayPal</span>
-        <span class="pay-badge dim">مدى — قريباً</span>
-        <span class="pay-badge dim">STC Pay — قريباً</span>
-      </div>
-      <div class="pay-note">الدفع والتسليم عبر Gumroad.</div>
+</section>
+
+<!-- ═══════ القسم 4: التدريب والمعرفة ═══════ -->
+<section class="section" id="learning">
+  <div class="sec-head"><h2>🎓 التدريب والمعرفة</h2><span class="sec-count">قريباً</span></div>
+  <p class="sec-sub">أدلة عملية وقوائم تحقق تختصر عليك سنوات الخبرة.</p>
+  <div class="soon-grid">
+    <div class="soon"><span class="s-icon">✅</span><b>قوائم تحقق محاسبية</b>Checklists للإقفال الشهري والسنوي<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">📘</span><b>دليل Power BI للمحاسبين</b>من الصفر إلى لوحات تحكم احترافية<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">🧮</span><b>دليل صيغ Excel المتقدمة</b>أهم 100 معادلة بأمثلة عملية<span>قريباً</span></div>
+  </div>
+</section>
+
+<!-- ═══════ القسم 5: الإنتاجية والذكاء الاصطناعي ═══════ -->
+<section class="section alt" id="productivity">
+  <div class="sec-head"><h2>⚡ الإنتاجية والذكاء الاصطناعي</h2><span class="sec-count">قريباً</span></div>
+  <p class="sec-sub">أنظمة وأدوات تضاعف إنتاجيتك اليومية بالذكاء الاصطناعي.</p>
+  <div class="soon-grid">
+    <div class="soon"><span class="s-icon">🗂️</span><b>نظام إدارة المهام بالـ AI</b>قوالب تنظيم يوم العمل<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">⏱️</span><b>حزمة برومبتات الإنتاجية</b>اختصر مهامك المتكررة<span>قريباً</span></div>
+    <div class="soon"><span class="s-icon">🤝</span><b>برومبتات الاجتماعات والتقارير</b>محاضر وملخصات في دقائق<span>قريباً</span></div>
+  </div>
+</section>
+
+<!-- ═══════ مولّدات AI ═══════ -->
+<section class="ai-section" id="generators">
+  <div class="sec-head"><h2>🤖 مولّدات الذكاء الاصطناعي</h2></div>
+  <p class="sec-sub">الجيل القادم من منتجات منجز.ai — أدوات تفاعلية تولّد لك النتائج مباشرة.</p>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <span class="a-icon">🛍️</span>
+      <b>مولّد أوصاف المنتجات</b>
+      <p>أدخل اسم منتجك واحصل على 20 وصفاً تسويقياً احترافياً جاهزاً لمتجرك الإلكتروني.</p>
+      <span class="ai-tag">⚡ قريباً — المرحلة 3</span>
     </div>
-    <div class="checkout-box">
-      <strong>تحديثات ومجانيات</strong>
-      <div class="email-note">الشراء مباشر بدون حساب. البريد اختياري للتحديثات فقط.</div>
-      <form class="email-form" id="emailForm">
-        <input type="email" id="emailInput" placeholder="بريدك — اختياري" autocomplete="email">
-        <button type="submit">أرسل لي</button>
-      </form>
-      <div class="email-msg" id="emailMsg"></div>
+    <div class="ai-card">
+      <span class="a-icon">🧾</span>
+      <b>مولّد القيود المحاسبية</b>
+      <p>صف العملية المالية بالعربية، واحصل على القيد المحاسبي الصحيح فوراً.</p>
+      <span class="ai-tag">⚡ قريباً — المرحلة 3</span>
+    </div>
+    <div class="ai-card">
+      <span class="a-icon">📧</span>
+      <b>مولّد الرسائل المهنية</b>
+      <p>رسائل بريد رسمية بالعربية والإنجليزية مصاغة باحتراف خلال ثوانٍ.</p>
+      <span class="ai-tag">⚡ قريباً — المرحلة 3</span>
     </div>
   </div>
+</section>
 
-</main>
-
-<!-- FOOTER -->
+<!-- ═══════ FOOTER ═══════ -->
 <footer>
-  <div class="w footer-inner">
-    <div>
-      <div class="footer-logo">مُنجَز.ai</div>
-      <p>منتجات رقمية للمحاسبين ورواد الأعمال.</p>
-    </div>
-    <div class="footer-links">
-      <a href="#">الخصوصية</a>
-      <a href="#">الشروط</a>
-      <a href="mailto:info@munjaz.ai">تواصل</a>
-    </div>
+  <div class="f-brand">منجز<span>.ai</span></div>
+  <p>منتجات رقمية عربية تساعد محترفي السعودية والخليج على إنجاز أعمالهم بذكاء وسرعة.</p>
+  <div class="f-links">
+    <a href="#finance">المال والأعمال</a>
+    <a href="#marketing">التسويق والمحتوى</a>
+    <a href="#career">الوظائف والمهنية</a>
+    <a href="#learning">التدريب والمعرفة</a>
+    <a href="#productivity">الإنتاجية</a>
+    <a href="#generators">مولّدات AI</a>
   </div>
+  <div class="f-pay">💳 دفع آمن عبر Gumroad — بطاقات مدى وVisa وMastercard وPayPal · تحميل فوري بعد الشراء</div>
+  <div class="copy">© 2026 منجز.ai — جميع الحقوق محفوظة</div>
 </footer>
 
-<!-- POPUP -->
-<div class="overlay" id="overlay" onclick="if(event.target.id==='overlay'){closePopup()}">
+<!-- ═══════ POPUP ═══════ -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closePopup()" role="dialog" aria-modal="true" aria-labelledby="mName">
   <div class="modal">
-    <div class="modal-thumb" id="mThumb">
-      <button class="modal-close" onclick="closePopup()">✕</button>
-      <span id="mIcon"></span>
-    </div>
-    <div class="modal-body">
-      <div class="modal-cat" id="mCat"></div>
-      <div class="modal-name" id="mName"></div>
-      <div class="modal-pitch" id="mPitch"></div>
-      <ul class="modal-features" id="mFeatures"></ul>
-      <div class="modal-footer">
-        <div id="mPrice"></div>
-        <a id="mBtn" class="btn-modal" href="#" target="_blank" rel="noopener"></a>
+    <div class="m-scroll">
+      <div class="m-thumb" id="mThumb">
+        <span id="mIcon"></span>
+        <button class="m-close" onclick="closePopup()" aria-label="إغلاق">✕</button>
       </div>
+      <div class="m-body">
+        <div class="m-cat" id="mCat"></div>
+        <h3 class="m-name" id="mName"></h3>
+        <p class="m-pitch" id="mPitch"></p>
+        <ul class="m-features" id="mFeatures"></ul>
+      </div>
+    </div>
+    <div class="m-foot">
+      <span class="m-price" id="mPrice"></span>
+      <a class="m-buy" id="mBtn" href="#" target="_blank" rel="noopener"></a>
     </div>
   </div>
 </div>
 
 <script>
-/* Filters */
-document.getElementById('filtersBar').addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const f = btn.dataset.f;
-  document.querySelectorAll('.card').forEach(c => {
-    c.style.display = (f==='all' || (c.dataset.cat||'').split(' ').includes(f)) ? '' : 'none';
-  });
-});
+/* ════════ بيانات المنتجات ════════ */
+const ZATCA_LINK = 'ZATCA_GUMROAD_LINK'; // ← استبدل برابط Gumroad عند إنشائه
 
-/* Email */
-document.getElementById('emailForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const v = document.getElementById('emailInput').value.trim();
-  const m = document.getElementById('emailMsg');
-  m.style.display = 'block';
-  if (!v) { m.textContent = 'البريد اختياري — يمكنك الشراء مباشرة.'; return; }
-  localStorage.setItem('munjaz_email', v);
-  m.textContent = '✅ تم التسجيل — سنرسل لك التحديثات.';
-  e.target.reset();
-});
-
-/* Popup Data */
 const P = {
-  free: {
-    icon:'🎁', bg:'linear-gradient(135deg,#E6F5F0,#D0EDE4)', cat:'AI Prompts — مجاني',
-    name:'10 Prompts محاسبية مجانية',
-    pitch:'جرّب الجودة — 10 Prompts مختارة جاهزة للنسخ الفوري مع ChatGPT أو Claude.',
-    features:[['📋','3 محاور: التقارير، التحليل، الفواتير'],['⚡','زر نسخ لكل Prompt'],['🇸🇦','مكتوبة بالعربية للسوق السعودي'],['🔄','تحديثات مجانية']],
-    price:'<span class="modal-price-free">مجاناً</span>',
-    btnText:'احصل عليه مجاناً', link:'https://hosamalfi.gumroad.com/l/eyuqs'
+  'free-pack': {
+    icon:'🎁', bg:'linear-gradient(135deg,#E8F2EE,#D5E8E0)', cat:'برومبتات AI · مجاني',
+    name:'حزمة البداية — 10 برومبتات مجانية',
+    pitch:'جرّب جودة منتجاتنا بنفسك: 10 برومبتات محاسبية احترافية جاهزة للنسخ والاستخدام الفوري.',
+    features:[['📋','10 برومبتات في ملف HTML أنيق'],['📄','زر نسخ بضغطة واحدة لكل برومبت'],['📱','يعمل على الجوال والحاسوب بدون إنترنت'],['🎯','مدخلك لتجربة الحزمة الكاملة']],
+    price:'مجاني', btnText:'حمّل مجاناً 🎁',
+    link:'https://hosamalfi.gumroad.com/l/eyuqs'
   },
-  full: {
-    icon:'🤖', bg:'linear-gradient(135deg,#F0EBF8,#E4DEF2)', cat:'AI Prompts — الحزمة الكاملة',
-    name:'دليل المحاسب الذكي — الكاملة',
-    pitch:'كل Prompt تحتاجه يومياً — من التقارير حتى ZATCA، في ملف واحد جاهز.',
-    features:[['🤖','90 Prompt في 7 محاور'],['📊','ZATCA، VAT، تقارير، تحليل'],['📄','PDF + Google Sheets'],['⏱️','يوفّر ساعات أسبوعياً'],['🔄','تحديثات مدى الحياة']],
-    price:'<span class="modal-price">$26</span>',
-    btnText:'اشترِ الآن — $26', link:'https://hosamalfi.gumroad.com/l/punwv'
+  'full-pack': {
+    icon:'📚', bg:'linear-gradient(135deg,#EDE9F5,#DCD4EC)', cat:'برومبتات AI',
+    name:'دليل المحاسب الذكي — 90 برومبت',
+    pitch:'المكتبة الأشمل بالعربية: 90 برومبتاً احترافياً يغطي كل احتياجات المحاسب اليومية.',
+    features:[['🗂️','7 محاور: قوائم، تحليل، ضرائب، تقارير وأكثر'],['📑','لكل برومبت: سيناريو + مثال + متغيرات + نصائح'],['📄','زر نسخ فوري لكل برومبت'],['♾️','استخدام غير محدود — تحديثات مجانية']],
+    price:'$26', btnText:'اشترِ الآن — $26',
+    link:'https://hosamalfi.gumroad.com/l/punwv'
   },
-  zatca: {
-    icon:'⚖️', bg:'linear-gradient(135deg,#FFF6E0,#FFEDBE)', cat:'AI Prompts — ZATCA',
-    name:'حزمة ZATCA للمحاسبين',
-    pitch:'30 Prompt متخصص — من Phase 1 حتى الرد على إشعارات المطالبة.',
-    features:[['⚡','الفوترة الإلكترونية Phase 1+2'],['📝','إقرارات VAT: تحضير وتصحيح'],['🔍','مراجعة الفواتير الدولية'],['📬','ردود رسمية على ZATCA'],['⚖️','تخطيط ضريبي']],
-    price:'<span class="modal-price">$34</span>',
-    btnText:'اشترِ الآن — $34', link:'PAYHIP_ZATCA_LINK'
+  'zatca-pack': {
+    icon:'🧾', bg:'linear-gradient(135deg,#F5EFE3,#EBE0C8)', cat:'برومبتات AI · تخصصي',
+    name:'حزمة ZATCA — 30 برومبت امتثال',
+    pitch:'برومبتات متخصصة في متطلبات هيئة الزكاة والضريبة والجمارك: فوترة إلكترونية، VAT، وإقرارات.',
+    features:[['🧾','30 برومبتاً في 6 أقسام تخصصية'],['⚖️','الفوترة الإلكترونية المرحلة 1 و2'],['💼','ضريبة القيمة المضافة والإقرارات'],['📄','زر نسخ فوري + يعمل بدون إنترنت']],
+    price:'$34', btnText:'اشترِ الآن — $34',
+    link: ZATCA_LINK
   },
   'excel-sm': {
-    icon:'📊', bg:'linear-gradient(135deg,#FFF0E0,#FFE3C7)', cat:'Excel — شركات صغيرة',
-    name:'قالب Excel للشركات الصغيرة',
-    pitch:'أدخل أرقامك — تظهر التقارير تلقائياً.',
-    features:[['📈','أرباح وخسائر + ميزانية'],['💵','تدفق نقدي تلقائي'],['🧾','فواتير ZATCA'],['⚡','صيغ مدمجة']],
-    price:'<span class="modal-price">$13</span>',
-    btnText:'اشترِ الآن — $13', link:'https://hosamalfi.gumroad.com/l/lgwtng'
+    icon:'📊', bg:'linear-gradient(135deg,#E5EFF4,#D2E3EC)', cat:'قوالب Excel',
+    name:'قالب محاسبة — الشركات الصغيرة',
+    pitch:'نظام محاسبي متكامل في ملف Excel واحد، مصمم خصيصاً للمنشآت الصغيرة.',
+    features:[['📋','7 أوراق مترابطة تلقائياً'],['🎨','خلايا ملوّنة: أزرق إدخال، أسود معادلات'],['⚖️','متوافق مع ZATCA وضريبة القيمة المضافة'],['✅','صفر أخطاء معادلات — مُختبر بالكامل']],
+    price:'$13', btnText:'اشترِ الآن — $13',
+    link:'https://hosamalfi.gumroad.com/l/lgwtng'
   },
   'excel-lg': {
-    icon:'📈', bg:'linear-gradient(135deg,#FFF0E0,#FFE3C7)', cat:'Excel — متوسطة وكبيرة',
-    name:'قالب Excel للشركات المتوسطة والكبيرة',
-    pitch:'نظام تقارير متكامل — ميزانية عمومية، KPI، تقارير إدارية.',
-    features:[['📋','ميزانية + دخل + تدفقات'],['📉','لوحة KPI تلقائية'],['⚖️','ZATCA + VAT كامل'],['🔢','أقسام متعددة']],
-    price:'<span class="modal-price">$26</span>',
-    btnText:'اشترِ الآن — $26', link:'https://hosamalfi.gumroad.com/l/ackmoq'
+    icon:'📈', bg:'linear-gradient(135deg,#E9EDF6,#D6DEEE)', cat:'قوالب Excel',
+    name:'قالب محاسبة — الشركات الكبيرة',
+    pitch:'النسخة المتقدمة: 11 ورقة عمل تغطي الميزانية والتدفقات ولوحات الأداء.',
+    features:[['📋','ميزانية + قائمة دخل + تدفقات نقدية'],['📉','لوحة مؤشرات KPI تلقائية'],['⚖️','امتثال ZATCA وVAT كامل'],['🔢','يدعم أقساماً وفروعاً متعددة']],
+    price:'$26', btnText:'اشترِ الآن — $26',
+    link:'https://hosamalfi.gumroad.com/l/ackmoq'
   },
   'excel-bundle': {
-    icon:'💎', bg:'linear-gradient(135deg,#E8E6E0,#D8D4CC)', cat:'حزمة Excel الكاملة',
+    icon:'💎', bg:'linear-gradient(135deg,#E8E6E0,#D8D4CC)', cat:'باقة — الخيار الأفضل قيمة',
     name:'حزمة القوالب — صغير + كبير',
-    pitch:'القالبان معاً بسعر أقل.',
-    features:[['💎','القالبان في تحميل واحد'],['💰','وفّر $2'],['🔄','استخدام غير محدود']],
-    price:'<span class="modal-price">$37 <small>$39</small></span>',
-    btnText:'اشترِ الحزمة — $37', link:'https://hosamalfi.gumroad.com/l/cvjcmg'
+    pitch:'القالبان معاً في تحميل واحد بسعر مخفّض — مهما كان حجم منشأتك الحالي أو المستقبلي.',
+    features:[['💎','القالبان كاملان في تحميل واحد'],['💰','وفّر $2 عن شرائهما منفصلين'],['🔄','استخدام غير محدود + تحديثات'],['📈','جاهز لنمو منشأتك من صغيرة لكبيرة']],
+    price:'$37 <small>$39</small>', btnText:'اشترِ الباقة — $37',
+    link:'https://hosamalfi.gumroad.com/l/cvjcmg'
   }
 };
 
-function openPopup(id) {
-  const p = P[id]; if (!p) return;
+/* ════════ الـ Popup ════════ */
+function openPopup(id){
+  const p = P[id]; if(!p) return;
   document.getElementById('mThumb').style.background = p.bg;
   document.getElementById('mIcon').textContent = p.icon;
   document.getElementById('mCat').textContent = p.cat;
@@ -1197,24 +525,41 @@ function openPopup(id) {
   ).join('');
   document.getElementById('mPrice').innerHTML = p.price;
   const b = document.getElementById('mBtn');
-  b.textContent = p.btnText; b.href = p.link;
-  b.onclick = e => {
-    if ((p.link || '').startsWith('PAYHIP_')) {
-      e.preventDefault();
-      alert('أضف رابط Gumroad أو Payhip لمنتج ZATCA.');
-    }
-  };
+  b.textContent = p.btnText;
+  b.href = p.link;
+  b.onclick = (p.link === ZATCA_LINK && id==='zatca-pack' && ZATCA_LINK.indexOf('http')!==0)
+    ? (e)=>{e.preventDefault();alert('رابط منتج ZATCA سيُفعَّل قريباً.');} : null;
   document.getElementById('overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-function closePopup() {
+function closePopup(){
   document.getElementById('overlay').classList.remove('active');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key==='Escape') closePopup(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closePopup(); });
 
-document.querySelectorAll('a[href^="PAYHIP_"]').forEach(l => {
-  l.addEventListener('click', e => { e.preventDefault(); alert('أضف رابط Gumroad لمنتج ZATCA.'); });
+/* ════════ الشراء السريع (بدون Popup) ════════ */
+function buyNow(e, id){
+  e.stopPropagation();
+  const p = P[id]; if(!p) return;
+  if(p.link.indexOf('http') !== 0){
+    alert('رابط منتج ZATCA سيُفعَّل قريباً.');
+    return;
+  }
+  window.open(p.link, '_blank', 'noopener');
+}
+
+/* ════════ الفلترة ════════ */
+document.querySelectorAll('.pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(x => x.classList.remove('on'));
+    pill.classList.add('on');
+    const f = pill.dataset.f;
+    document.querySelectorAll('#productGrid .card').forEach(card => {
+      const cats = card.dataset.cat.split(' ');
+      card.classList.toggle('hidden', f !== 'all' && !cats.includes(f));
+    });
+  });
 });
 </script>
 </body>
