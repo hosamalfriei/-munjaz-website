@@ -70,7 +70,7 @@ a{color:inherit}
 .stat span{font-size:13px;color:var(--ink-soft)}
 
 /* ───────── BEST SELLERS ───────── */
-.best{padding:0 var(--pad) clamp(48px,7vw,80px)}
+.best{padding:clamp(36px,5vw,56px) var(--pad) clamp(48px,7vw,80px)}
 .best-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .best-head h2{font-size:clamp(20px,3vw,26px);font-weight:700}
 .fire{font-size:22px}
@@ -172,6 +172,30 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
 .m-buy{flex-shrink:0;text-decoration:none;background:var(--teal);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:.2s}
 .m-buy:hover{background:var(--teal-dark)}
 
+/* ───────── السعر بالريال ───────── */
+.price-box{display:flex;flex-direction:column;line-height:1.35}
+.sar{font-size:11.5px;color:var(--ink-soft);font-weight:500}
+.m-price{display:flex;flex-direction:column;line-height:1.3}
+.m-price .sar{font-size:12.5px}
+
+/* ───────── شريط الثقة ───────── */
+.trust-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(14px,3vw,40px);padding:16px var(--pad);background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--ink-soft)}
+.trust-item span{font-size:17px}
+
+/* ───────── كيف أشتري ───────── */
+.howto{padding:clamp(48px,7vw,80px) var(--pad);text-align:center}
+.howto h2{font-size:clamp(22px,3.4vw,30px);font-weight:700;margin-bottom:10px}
+.howto>p{color:var(--ink-soft);font-size:15px;max-width:560px;margin:0 auto 36px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:980px;margin:0 auto}
+@media(max-width:820px){.steps{grid-template-columns:1fr;max-width:420px}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px 22px;box-shadow:var(--shadow-sm);position:relative}
+.step-num{width:38px;height:38px;border-radius:99px;background:var(--teal);color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.step b{display:block;font-size:16px;margin-bottom:6px}
+.step p{font-size:13.5px;color:var(--ink-soft)}
+.gum-btn-demo{display:inline-block;margin-top:12px;background:#FF90E8;color:#000;font-weight:700;font-size:13px;padding:8px 20px;border-radius:6px;border:1.5px solid #000;box-shadow:2px 2px 0 #000;direction:ltr}
+.howto-note{margin-top:26px;font-size:13px;color:var(--ink-soft);background:var(--teal-soft);display:inline-block;padding:10px 22px;border-radius:99px}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 .btn:focus-visible,.pill:focus-visible,.quick-buy:focus-visible,.bc-buy:focus-visible,.nav-link:focus-visible,.m-buy:focus-visible,.m-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 </style>
@@ -214,6 +238,14 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
   </div>
 </header>
 
+<!-- ═══════ شريط الثقة ═══════ -->
+<div class="trust-strip" aria-label="ضمانات المتجر">
+  <div class="trust-item"><span>🔒</span>دفع آمن عبر Gumroad</div>
+  <div class="trust-item"><span>⚡</span>تحميل فوري بعد الشراء</div>
+  <div class="trust-item"><span>🔄</span>تحديثات مجانية مدى الحياة</div>
+  <div class="trust-item"><span>📧</span>دعم مباشر بالعربية</div>
+</div>
+
 <!-- ═══════ BEST SELLERS ═══════ -->
 <section class="best" aria-label="الأكثر مبيعاً">
   <div class="best-head"><span class="fire">🔥</span><h2>الأكثر مبيعاً</h2></div>
@@ -223,7 +255,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
       <span class="bc-icon">📚</span>
       <span class="bc-name">دليل المحاسب الذكي — 90 برومبت</span>
       <div class="bc-meta">
-        <span class="bc-price">$26</span>
+        <div class="price-box"><span class="bc-price">$26</span><span class="sar">≈ 98 ر.س</span></div>
         <button class="bc-buy" onclick="buyNow(event,'full-pack')">اشترِ الآن</button>
       </div>
     </article>
@@ -232,7 +264,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
       <span class="bc-icon">💎</span>
       <span class="bc-name">حزمة قوالب Excel — صغير + كبير</span>
       <div class="bc-meta">
-        <span class="bc-price">$37</span>
+        <div class="price-box"><span class="bc-price">$37</span><span class="sar">≈ 139 ر.س</span></div>
         <button class="bc-buy" onclick="buyNow(event,'excel-bundle')">اشترِ الآن</button>
       </div>
     </article>
@@ -241,7 +273,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
       <span class="bc-icon">🧾</span>
       <span class="bc-name">حزمة ZATCA — 30 برومبت امتثال</span>
       <div class="bc-meta">
-        <span class="bc-price">$34</span>
+        <div class="price-box"><span class="bc-price">$34</span><span class="sar">≈ 128 ر.س</span></div>
         <button class="bc-buy" onclick="buyNow(event,'zatca-pack')">اشترِ الآن</button>
       </div>
     </article>
@@ -286,7 +318,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
         <h3 class="card-name">دليل المحاسب الذكي — 90 برومبت</h3>
         <p class="card-desc">90 برومبتاً احترافياً في 7 محاور: قوائم مالية، تحليل، ضرائب، تقارير وأكثر.</p>
         <div class="card-foot">
-          <span class="price">$26</span>
+          <div class="price-box"><span class="price">$26</span><span class="sar">≈ 98 ر.س</span></div>
           <button class="quick-buy" onclick="buyNow(event,'full-pack')">اشترِ الآن</button>
         </div>
       </div>
@@ -300,7 +332,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
         <h3 class="card-name">حزمة ZATCA — 30 برومبت امتثال</h3>
         <p class="card-desc">برومبتات متخصصة في الفوترة الإلكترونية وضريبة القيمة المضافة والامتثال.</p>
         <div class="card-foot">
-          <span class="price">$34</span>
+          <div class="price-box"><span class="price">$34</span><span class="sar">≈ 128 ر.س</span></div>
           <button class="quick-buy" onclick="buyNow(event,'zatca-pack')">اشترِ الآن</button>
         </div>
       </div>
@@ -313,7 +345,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
         <h3 class="card-name">قالب محاسبة — الشركات الصغيرة</h3>
         <p class="card-desc">7 أوراق مترابطة: قيود، أستاذ، ميزان مراجعة، قوائم مالية — بدون أي خطأ معادلات.</p>
         <div class="card-foot">
-          <span class="price">$13</span>
+          <div class="price-box"><span class="price">$13</span><span class="sar">≈ 49 ر.س</span></div>
           <button class="quick-buy" onclick="buyNow(event,'excel-sm')">اشترِ الآن</button>
         </div>
       </div>
@@ -326,7 +358,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
         <h3 class="card-name">قالب محاسبة — الشركات الكبيرة</h3>
         <p class="card-desc">11 ورقة متقدمة: ميزانية، تدفقات نقدية، لوحة KPI، وامتثال ZATCA كامل.</p>
         <div class="card-foot">
-          <span class="price">$26</span>
+          <div class="price-box"><span class="price">$26</span><span class="sar">≈ 98 ر.س</span></div>
           <button class="quick-buy" onclick="buyNow(event,'excel-lg')">اشترِ الآن</button>
         </div>
       </div>
@@ -340,7 +372,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
         <h3 class="card-name">حزمة القوالب — صغير + كبير</h3>
         <p class="card-desc">القالبان معاً في تحميل واحد بسعر أقل — الخيار الأفضل قيمة.</p>
         <div class="card-foot">
-          <span class="price">$37 <small>$39</small></span>
+          <div class="price-box"><span class="price">$37 <small>$39</small></span><span class="sar">≈ 139 ر.س</span></div>
           <button class="quick-buy" onclick="buyNow(event,'excel-bundle')">اشترِ الباقة</button>
         </div>
       </div>
@@ -365,6 +397,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
   <div class="sec-head"><h2>💼 الوظائف والمهنية</h2><span class="sec-count">قريباً</span></div>
   <p class="sec-sub">أدوات تساعدك على التقديم والتميّز في سوق العمل الخليجي.</p>
   <div class="soon-grid">
+    <div class="soon"><span class="s-icon">📇</span><b>بطاقة بروفايل ذكية NFC</b>صفحة بروفايل احترافية + QR Code + حفظ vCard<span>قريباً</span></div>
     <div class="soon"><span class="s-icon">📄</span><b>حزمة برومبتات HR</b>50 برومبتاً للموارد البشرية والتوظيف<span>قيد البناء</span></div>
     <div class="soon"><span class="s-icon">🧑‍💼</span><b>قوالب السيرة الذاتية ATS</b>سير ذاتية تتجاوز أنظمة الفرز<span>قريباً</span></div>
     <div class="soon"><span class="s-icon">🗣️</span><b>دليل المقابلات الوظيفية</b>أسئلة وأجوبة نموذجية بالعربية<span>قريباً</span></div>
@@ -419,6 +452,31 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
   </div>
 </section>
 
+<!-- ═══════ كيف أشتري ═══════ -->
+<section class="howto" id="howto">
+  <h2>🛒 كيف أشتري؟ ثلاث خطوات فقط</h2>
+  <p>الدفع يتم عبر منصة Gumroad العالمية — واجهتها بالإنجليزية لكن العملية أبسط مما تتوقع:</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <b>اختر منتجك</b>
+      <p>اضغط زر "اشترِ الآن" على أي منتج — سينقلك لصفحة الدفع الآمنة مباشرة.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <b>اضغط الزر الوردي</b>
+      <p>في صفحة Gumroad اضغط هذا الزر ثم أدخل بريدك وبيانات بطاقتك (مدى، Visa، Mastercard).</p>
+      <span class="gum-btn-demo">I want this!</span>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <b>حمّل ملفك فوراً</b>
+      <p>يظهر رابط التحميل مباشرة بعد الدفع، ويصلك نسخة دائمة على بريدك الإلكتروني.</p>
+    </div>
+  </div>
+  <div class="howto-note">💡 المنتج المجاني بنفس الخطوات — فقط بدون أي بيانات دفع</div>
+</section>
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="f-brand">منجز<span>.ai</span></div>
@@ -467,7 +525,7 @@ const P = {
     name:'حزمة البداية — 10 برومبتات مجانية',
     pitch:'جرّب جودة منتجاتنا بنفسك: 10 برومبتات محاسبية احترافية جاهزة للنسخ والاستخدام الفوري.',
     features:[['📋','10 برومبتات في ملف HTML أنيق'],['📄','زر نسخ بضغطة واحدة لكل برومبت'],['📱','يعمل على الجوال والحاسوب بدون إنترنت'],['🎯','مدخلك لتجربة الحزمة الكاملة']],
-    price:'مجاني', btnText:'حمّل مجاناً 🎁',
+    usd:0, price:'مجاني', btnText:'حمّل مجاناً 🎁',
     link:'https://hosamalfi.gumroad.com/l/eyuqs'
   },
   'full-pack': {
@@ -475,7 +533,7 @@ const P = {
     name:'دليل المحاسب الذكي — 90 برومبت',
     pitch:'المكتبة الأشمل بالعربية: 90 برومبتاً احترافياً يغطي كل احتياجات المحاسب اليومية.',
     features:[['🗂️','7 محاور: قوائم، تحليل، ضرائب، تقارير وأكثر'],['📑','لكل برومبت: سيناريو + مثال + متغيرات + نصائح'],['📄','زر نسخ فوري لكل برومبت'],['♾️','استخدام غير محدود — تحديثات مجانية']],
-    price:'$26', btnText:'اشترِ الآن — $26',
+    usd:26, price:'$26', btnText:'اشترِ الآن — $26',
     link:'https://hosamalfi.gumroad.com/l/punwv'
   },
   'zatca-pack': {
@@ -483,7 +541,7 @@ const P = {
     name:'حزمة ZATCA — 30 برومبت امتثال',
     pitch:'برومبتات متخصصة في متطلبات هيئة الزكاة والضريبة والجمارك: فوترة إلكترونية، VAT، وإقرارات.',
     features:[['🧾','30 برومبتاً في 6 أقسام تخصصية'],['⚖️','الفوترة الإلكترونية المرحلة 1 و2'],['💼','ضريبة القيمة المضافة والإقرارات'],['📄','زر نسخ فوري + يعمل بدون إنترنت']],
-    price:'$34', btnText:'اشترِ الآن — $34',
+    usd:34, price:'$34', btnText:'اشترِ الآن — $34',
     link: ZATCA_LINK
   },
   'excel-sm': {
@@ -491,7 +549,7 @@ const P = {
     name:'قالب محاسبة — الشركات الصغيرة',
     pitch:'نظام محاسبي متكامل في ملف Excel واحد، مصمم خصيصاً للمنشآت الصغيرة.',
     features:[['📋','7 أوراق مترابطة تلقائياً'],['🎨','خلايا ملوّنة: أزرق إدخال، أسود معادلات'],['⚖️','متوافق مع ZATCA وضريبة القيمة المضافة'],['✅','صفر أخطاء معادلات — مُختبر بالكامل']],
-    price:'$13', btnText:'اشترِ الآن — $13',
+    usd:13, price:'$13', btnText:'اشترِ الآن — $13',
     link:'https://hosamalfi.gumroad.com/l/lgwtng'
   },
   'excel-lg': {
@@ -499,7 +557,7 @@ const P = {
     name:'قالب محاسبة — الشركات الكبيرة',
     pitch:'النسخة المتقدمة: 11 ورقة عمل تغطي الميزانية والتدفقات ولوحات الأداء.',
     features:[['📋','ميزانية + قائمة دخل + تدفقات نقدية'],['📉','لوحة مؤشرات KPI تلقائية'],['⚖️','امتثال ZATCA وVAT كامل'],['🔢','يدعم أقساماً وفروعاً متعددة']],
-    price:'$26', btnText:'اشترِ الآن — $26',
+    usd:26, price:'$26', btnText:'اشترِ الآن — $26',
     link:'https://hosamalfi.gumroad.com/l/ackmoq'
   },
   'excel-bundle': {
@@ -507,7 +565,7 @@ const P = {
     name:'حزمة القوالب — صغير + كبير',
     pitch:'القالبان معاً في تحميل واحد بسعر مخفّض — مهما كان حجم منشأتك الحالي أو المستقبلي.',
     features:[['💎','القالبان كاملان في تحميل واحد'],['💰','وفّر $2 عن شرائهما منفصلين'],['🔄','استخدام غير محدود + تحديثات'],['📈','جاهز لنمو منشأتك من صغيرة لكبيرة']],
-    price:'$37 <small>$39</small>', btnText:'اشترِ الباقة — $37',
+    usd:37, price:'$37 <small>$39</small>', btnText:'اشترِ الباقة — $37',
     link:'https://hosamalfi.gumroad.com/l/cvjcmg'
   }
 };
@@ -523,7 +581,8 @@ function openPopup(id){
   document.getElementById('mFeatures').innerHTML = p.features.map(
     ([i,t])=>`<li><span class="fi">${i}</span><span>${t}</span></li>`
   ).join('');
-  document.getElementById('mPrice').innerHTML = p.price;
+  const sar = p.usd ? `<span class="sar">≈ ${Math.round(p.usd*3.75)} ر.س</span>` : '';
+  document.getElementById('mPrice').innerHTML = p.price + sar;
   const b = document.getElementById('mBtn');
   b.textContent = p.btnText;
   b.href = p.link;
