@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منجز.ai — منتجات رقمية لمحترفي الخليج</title>
 <meta name="description" content="حزم برومبتات ذكاء اصطناعي وقوالب Excel احترافية للمحاسبين ورواد الأعمال في السعودية والخليج">
+
+<!-- ═══ المشاركة الاجتماعية — استبدل YOUR-SITE.vercel.app برابط موقعك ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منجز.ai">
+<meta property="og:title" content="منجز.ai — منتجات رقمية لمحترفي الخليج">
+<meta property="og:description" content="حزم برومبتات AI وقوالب Excel احترافية — تشتريها مرة وتستخدمها بلا حدود. تحميل فوري ودفع آمن.">
+<meta property="og:url" content="https://YOUR-SITE.vercel.app/">
+<meta property="og:image" content="https://YOUR-SITE.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="منجز.ai — منتجات رقمية لمحترفي الخليج">
+<meta name="twitter:description" content="حزم برومبتات AI وقوالب Excel احترافية — تحميل فوري ودفع آمن.">
+<meta name="twitter:image" content="https://YOUR-SITE.vercel.app/og-image.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1B6B5A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -196,7 +214,35 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
 .gum-btn-demo{display:inline-block;margin-top:12px;background:#FF90E8;color:#000;font-weight:700;font-size:13px;padding:8px 20px;border-radius:6px;border:1.5px solid #000;box-shadow:2px 2px 0 #000;direction:ltr}
 .howto-note{margin-top:26px;font-size:13px;color:var(--ink-soft);background:var(--teal-soft);display:inline-block;padding:10px 22px;border-radius:99px}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+/* ───────── القسم النشط في التنقل ───────── */
+.nav-link.active{color:var(--teal);background:var(--teal-soft);font-weight:600}
+
+/* ───────── الظهور التدريجي ───────── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ───────── الأسئلة الشائعة ───────── */
+.faq{padding:clamp(48px,7vw,80px) var(--pad);background:var(--white);border-top:1px solid var(--line)}
+.faq h2{font-size:clamp(22px,3.4vw,30px);font-weight:700;text-align:center;margin-bottom:8px}
+.faq>p{text-align:center;color:var(--ink-soft);font-size:15px;margin-bottom:32px}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;padding:16px 20px;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--teal);font-weight:400;flex-shrink:0;transition:.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item[open] summary{color:var(--teal)}
+.faq-item .faq-a{padding:0 20px 18px;font-size:14px;color:var(--ink-soft)}
+
+/* ───────── الأزرار العائمة ───────── */
+.wa-btn{position:fixed;bottom:22px;left:22px;z-index:90;width:54px;height:54px;border-radius:99px;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);text-decoration:none;transition:.2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-btn svg{width:28px;height:28px;fill:#fff}
+.toTop{position:fixed;bottom:22px;right:22px;z-index:90;width:46px;height:46px;border-radius:99px;background:var(--teal);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transition:.25s}
+.toTop.show{opacity:1;pointer-events:auto}
+.toTop:hover{background:var(--teal-dark)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
 .btn:focus-visible,.pill:focus-visible,.quick-buy:focus-visible,.bc-buy:focus-visible,.nav-link:focus-visible,.m-buy:focus-visible,.m-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 </style>
 </head>
@@ -477,6 +523,55 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
   <div class="howto-note">💡 المنتج المجاني بنفس الخطوات — فقط بدون أي بيانات دفع</div>
 </section>
 
+<!-- ═══════ الأسئلة الشائعة ═══════ -->
+<section class="faq" id="faq">
+  <h2>❓ أسئلة شائعة</h2>
+  <p>كل ما تحتاج معرفته قبل الشراء</p>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>كيف يصلني المنتج بعد الدفع؟</summary>
+      <div class="faq-a">فوراً — يظهر رابط التحميل مباشرة بعد إتمام الدفع، وتصلك نسخة دائمة على بريدك الإلكتروني تستطيع الرجوع لها في أي وقت.</div>
+    </details>
+    <details class="faq-item">
+      <summary>هل أحتاج برامج خاصة لفتح الملفات؟</summary>
+      <div class="faq-a">حزم البرومبتات ملفات HTML تفتح بأي متصفح على الجوال أو الحاسوب — حتى بدون إنترنت. قوالب المحاسبة تحتاج Microsoft Excel (2016 أو أحدث).</div>
+    </details>
+    <details class="faq-item">
+      <summary>هل الدفع آمن؟</summary>
+      <div class="faq-a">نعم — الدفع يتم بالكامل عبر منصة Gumroad العالمية المتخصصة في المنتجات الرقمية. نحن لا نطّلع على بيانات بطاقتك إطلاقاً.</div>
+    </details>
+    <details class="faq-item">
+      <summary>كيف يظهر المبلغ في كشف حسابي البنكي؟</summary>
+      <div class="faq-a">الخصم يتم بالدولار الأمريكي وبنكك يحوّله للريال تلقائياً بسعر الصرف. الأسعار المعروضة بالريال تقريبية، وقد يضيف بعض البنوك رسم تحويل عملة بسيطاً.</div>
+    </details>
+    <details class="faq-item">
+      <summary>هل أحصل على التحديثات المستقبلية؟</summary>
+      <div class="faq-a">نعم، مجاناً مدى الحياة — أي تحديث للمنتج يصلك تلقائياً عبر نفس رابط التحميل في بريدك.</div>
+    </details>
+    <details class="faq-item">
+      <summary>ماذا لو واجهت مشكلة في الملف؟</summary>
+      <div class="faq-a">المنتجات الرقمية تُسلَّم فوراً لذا لا يوجد استرجاع تلقائي، لكن إذا واجهت أي مشكلة في الملف تواصل معنا مباشرة وسنحرص على حلها.</div>
+    </details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"كيف يصلني المنتج بعد الدفع؟","acceptedAnswer":{"@type":"Answer","text":"فوراً — يظهر رابط التحميل مباشرة بعد الدفع وتصلك نسخة دائمة على بريدك الإلكتروني."}},
+{"@type":"Question","name":"هل أحتاج برامج خاصة لفتح الملفات؟","acceptedAnswer":{"@type":"Answer","text":"حزم البرومبتات ملفات HTML تفتح بأي متصفح بدون إنترنت، وقوالب المحاسبة تحتاج Microsoft Excel 2016 أو أحدث."}},
+{"@type":"Question","name":"هل الدفع آمن؟","acceptedAnswer":{"@type":"Answer","text":"نعم، الدفع يتم بالكامل عبر منصة Gumroad العالمية ولا نطّلع على بيانات بطاقتك."}},
+{"@type":"Question","name":"كيف يظهر المبلغ في كشف حسابي البنكي؟","acceptedAnswer":{"@type":"Answer","text":"الخصم بالدولار الأمريكي وبنكك يحوّله للريال تلقائياً. الأسعار بالريال تقريبية."}},
+{"@type":"Question","name":"هل أحصل على التحديثات المستقبلية؟","acceptedAnswer":{"@type":"Answer","text":"نعم مجاناً مدى الحياة عبر نفس رابط التحميل."}},
+{"@type":"Question","name":"ماذا لو واجهت مشكلة في الملف؟","acceptedAnswer":{"@type":"Answer","text":"تواصل معنا مباشرة وسنحرص على حل أي مشكلة في الملف."}}
+]}
+</script>
+
+<!-- ═══════ الأزرار العائمة ═══════ -->
+<a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.27z"/></svg>
+</a>
+<button class="toTop" id="toTop" aria-label="العودة للأعلى">↑</button>
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="f-brand">منجز<span>.ai</span></div>
@@ -620,6 +715,50 @@ document.querySelectorAll('.pill').forEach(pill => {
     });
   });
 });
+
+/* ════════ واتساب — استبدل بالرقم بصيغة دولية بدون + (مثال: 9665XXXXXXXX) ════════ */
+const WHATSAPP = '9665XXXXXXXX';
+const waBtn = document.getElementById('waBtn');
+if (WHATSAPP.indexOf('X') === -1) {
+  waBtn.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('مرحباً، عندي استفسار عن منتجات منجز.ai');
+} else {
+  waBtn.addEventListener('click', e => { e.preventDefault(); alert('قناة الواتساب ستُفعَّل قريباً.'); });
+}
+
+/* ════════ العودة للأعلى ════════ */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.classList.toggle('show', window.scrollY > 600);
+}, {passive:true});
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ════════ تمييز القسم النشط (Scroll Spy) ════════ */
+const navLinks = [...document.querySelectorAll('.nav-link')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
+    }
+  });
+}, {rootMargin:'-30% 0px -60% 0px'});
+['finance','marketing','career','learning','productivity','generators'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) spy.observe(el);
+});
+
+/* ════════ الظهور التدريجي ════════ */
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const items = document.querySelectorAll('.card, .best-card, .soon, .ai-card, .step, .faq-item');
+if (reduced) {
+  items.forEach(el => el.classList.add('reveal','in'));
+} else {
+  const rev = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); rev.unobserve(en.target); }
+    });
+  }, {threshold:.12});
+  items.forEach(el => { el.classList.add('reveal'); rev.observe(el); });
+}
 </script>
 </body>
 </html>
