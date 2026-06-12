@@ -175,7 +175,8 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
 .modal{background:var(--white);border-radius:20px;width:100%;max-width:460px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;transform:translateY(16px);transition:.25s;box-shadow:var(--shadow-lg)}
 .overlay.active .modal{transform:translateY(0)}
 .m-scroll{overflow-y:auto;flex:1}
-.m-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.m-thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
+.m-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .m-close{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.85);border:none;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink)}
 .m-body{padding:22px 26px 14px}
 .m-cat{font-size:12.5px;font-weight:600;color:var(--teal);margin-bottom:6px}
@@ -593,6 +594,7 @@ footer p{color:var(--ink-soft);font-size:14px;max-width:520px;margin:0 auto 22px
   <div class="modal">
     <div class="m-scroll">
       <div class="m-thumb" id="mThumb">
+        <img id="mImg" src="" alt="" loading="lazy">
         <span id="mIcon"></span>
         <button class="m-close" onclick="closePopup()" aria-label="إغلاق">✕</button>
       </div>
@@ -616,6 +618,7 @@ const ZATCA_LINK = 'ZATCA_GUMROAD_LINK'; // ← استبدل برابط Gumroad 
 
 const P = {
   'free-pack': {
+    img:'cover-free-pack.png',
     icon:'🎁', bg:'linear-gradient(135deg,#E8F2EE,#D5E8E0)', cat:'برومبتات AI · مجاني',
     name:'حزمة البداية — 10 برومبتات مجانية',
     pitch:'جرّب جودة منتجاتنا بنفسك: 10 برومبتات محاسبية احترافية جاهزة للنسخ والاستخدام الفوري.',
@@ -624,6 +627,7 @@ const P = {
     link:'https://hosamalfi.gumroad.com/l/eyuqs'
   },
   'full-pack': {
+    img:'cover-full-pack.png',
     icon:'📚', bg:'linear-gradient(135deg,#EDE9F5,#DCD4EC)', cat:'برومبتات AI',
     name:'دليل المحاسب الذكي — 90 برومبت',
     pitch:'المكتبة الأشمل بالعربية: 90 برومبتاً احترافياً يغطي كل احتياجات المحاسب اليومية.',
@@ -632,6 +636,7 @@ const P = {
     link:'https://hosamalfi.gumroad.com/l/punwv'
   },
   'zatca-pack': {
+    img:'cover-zatca-pack.png',
     icon:'🧾', bg:'linear-gradient(135deg,#F5EFE3,#EBE0C8)', cat:'برومبتات AI · تخصصي',
     name:'حزمة ZATCA — 30 برومبت امتثال',
     pitch:'برومبتات متخصصة في متطلبات هيئة الزكاة والضريبة والجمارك: فوترة إلكترونية، VAT، وإقرارات.',
@@ -640,6 +645,7 @@ const P = {
     link: ZATCA_LINK
   },
   'excel-sm': {
+    img:'cover-excel-sm.png',
     icon:'📊', bg:'linear-gradient(135deg,#E5EFF4,#D2E3EC)', cat:'قوالب Excel',
     name:'قالب محاسبة — الشركات الصغيرة',
     pitch:'نظام محاسبي متكامل في ملف Excel واحد، مصمم خصيصاً للمنشآت الصغيرة.',
@@ -648,6 +654,7 @@ const P = {
     link:'https://hosamalfi.gumroad.com/l/lgwtng'
   },
   'excel-lg': {
+    img:'cover-excel-lg.png',
     icon:'📈', bg:'linear-gradient(135deg,#E9EDF6,#D6DEEE)', cat:'قوالب Excel',
     name:'قالب محاسبة — الشركات الكبيرة',
     pitch:'النسخة المتقدمة: 11 ورقة عمل تغطي الميزانية والتدفقات ولوحات الأداء.',
@@ -656,6 +663,7 @@ const P = {
     link:'https://hosamalfi.gumroad.com/l/ackmoq'
   },
   'excel-bundle': {
+    img:'cover-excel-bundle.png',
     icon:'💎', bg:'linear-gradient(135deg,#E8E6E0,#D8D4CC)', cat:'باقة — الخيار الأفضل قيمة',
     name:'حزمة القوالب — صغير + كبير',
     pitch:'القالبان معاً في تحميل واحد بسعر مخفّض — مهما كان حجم منشأتك الحالي أو المستقبلي.',
@@ -668,8 +676,16 @@ const P = {
 /* ════════ الـ Popup ════════ */
 function openPopup(id){
   const p = P[id]; if(!p) return;
+  const mImg = document.getElementById('mImg');
+  const mIcon = document.getElementById('mIcon');
   document.getElementById('mThumb').style.background = p.bg;
-  document.getElementById('mIcon').textContent = p.icon;
+  if (p.img) {
+    mImg.src = p.img; mImg.alt = p.name;
+    mImg.style.display = 'block'; mIcon.style.display = 'none';
+  } else {
+    mImg.style.display = 'none'; mIcon.style.display = '';
+  }
+  mIcon.textContent = p.icon;
   document.getElementById('mCat').textContent = p.cat;
   document.getElementById('mName').textContent = p.name;
   document.getElementById('mPitch').textContent = p.pitch;
